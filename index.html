@@ -1,381 +1,331 @@
-
-<!DOCTYPE html>
-<html lang="en-GB">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#20201d">
-<meta name="description" content="Electrical inspection and fire compliance services for homes, landlords and businesses. London Cert Experts.">
-<title>London Cert Experts | Electrical & Fire Compliance</title>
-<style>
 :root{
-  --ink:#22221e;
-  --dark:#20201d;
-  --cream:#f5f1e8;
-  --paper:#fffdf8;
-  --copper:#bd8058;
-  --muted:#77746d;
-  --line:#ded8cd;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{margin:0;background:var(--paper);color:var(--ink);
-  font-family:Arial,Helvetica,sans-serif;line-height:1.65}
-a{color:inherit;text-decoration:none}
-button,a{ -webkit-tap-highlight-color:transparent}
-button{font:inherit}
-.container{width:min(1160px,90%);margin:auto}
-header{height:82px;display:flex;align-items:center;background:var(--dark);
-  color:white;position:sticky;top:0;z-index:20;border-bottom:1px solid #ffffff16}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
-.logo{font-size:17px;font-weight:800;letter-spacing:1.2px;line-height:1.35}
-.logo span{display:block;color:#d5a27e;font-size:10px;letter-spacing:3px;margin-top:5px}
-.links{display:flex;align-items:center;gap:28px;font-size:13px;color:#e2ded5}
-.links a:hover{color:#e4b28c}
-.btn{display:inline-flex;justify-content:center;align-items:center;gap:12px;
-  border:1px solid var(--copper);background:var(--copper);color:#201c18;
-  padding:14px 22px;font-size:12px;font-weight:800;letter-spacing:.7px;
-  text-transform:uppercase;transition:transform .25s,background .25s,color .25s}
-.btn:hover{transform:translateY(-3px);background:#d49b74}
-.btn.outline{background:transparent;color:white;border-color:#6d6a61}
-.btn.outline:hover{border-color:var(--copper);color:#e8b28b}
-.menu{display:none;background:none;color:white;border:1px solid #555;padding:8px 12px}
-.hero{background:var(--dark);color:white;position:relative;overflow:hidden;
-  min-height:610px;display:flex;align-items:center}
-.hero:before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;
-  border:1px solid #bd80582b;right:-80px;top:30px;
-  box-shadow:0 0 0 60px #bd80580a,0 0 0 120px #bd805807}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:48px;
-  padding-top:75px;padding-bottom:82px;position:relative}
-.eyebrow{color:var(--copper);text-transform:uppercase;font-size:11px;
-  font-weight:800;letter-spacing:3px;display:flex;gap:12px;align-items:center}
-.eyebrow:before{content:"";width:30px;height:1px;background:var(--copper)}
-h1,h2,h3,p{margin-top:0}
-h1{font-family:Georgia,serif;font-size:clamp(42px,5.6vw,72px);font-weight:400;
-  line-height:1.08;letter-spacing:-2px;margin:24px 0}
-h1 em{color:#d9a17b;font-weight:400}
-.hero-copy{max-width:530px;color:#c7c4bb;font-size:16px;margin-bottom:30px}
-.actions{display:flex;gap:12px;flex-wrap:wrap}
-.trust{display:flex;gap:28px;flex-wrap:wrap;margin-top:38px;color:#c8c3b8;font-size:11px}
-.trust span:before{content:"✓";color:#d6a07a;margin-right:8px}
-.visual{position:relative;min-height:390px;display:grid;place-items:center}
-.visual-frame{width:100%;max-width:420px;aspect-ratio: .91;border:1px solid #ffffff20;
-  background:linear-gradient(145deg,#34342e,#262621 60%,#332a23);
-  position:relative;display:grid;place-items:center;overflow:hidden}
-.visual-frame:before{content:"";position:absolute;inset:16px;border:1px solid #bd80584a}
-.visual-frame:after{content:"";position:absolute;width:230px;height:230px;border-radius:50%;
-  background:#bd80551b;filter:blur(35px);animation:pulse 5s ease-in-out infinite}
-.panel{position:relative;z-index:1;width:48%;padding:18px;background:#e7e0d3;
-  border:7px solid #aaa395;box-shadow:20px 24px 50px #0005;transform:rotate(-3deg);
-  animation:float 6s ease-in-out infinite}
-.panel-top{height:12px;background:#292a25;margin-bottom:14px}
-.switches{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.switch{height:57px;background:#c7c0b3;border:1px solid #a29b8e;position:relative}
-.switch:before{content:"";position:absolute;left:10px;top:8px;width:12px;height:30px;
-  background:#34352f;border-radius:2px}
-.switch:after{content:"";position:absolute;right:7px;top:8px;width:5px;height:5px;
-  background:#b97d53;border-radius:50%;box-shadow:0 12px #555}
-.panel-label{font-size:8px;color:#37362f;text-align:center;margin-top:12px;letter-spacing:2px}
-.visual-note{position:absolute;bottom:23px;left:23px;z-index:2;color:#ddd5c9;
-  font-size:10px;letter-spacing:2px;text-transform:uppercase}
-.visual-number{position:absolute;right:25px;top:24px;color:#c8a184;font:italic 16px Georgia}
-.strip{background:var(--copper);padding:18px 0;color:#211e1a}
-.strip-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
-  font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
-section{padding:100px 0}
-.section-head{max-width:670px;margin-bottom:42px}
-.section-head h2{font:400 clamp(34px,4vw,49px)/1.15 Georgia,serif;letter-spacing:-1px;margin:16px 0}
-.section-head p{color:var(--muted);font-size:15px}
-.services{background:var(--cream)}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:var(--paper);padding:30px 26px;border:1px solid var(--line);
-  min-height:280px;position:relative;transition:transform .3s,box-shadow .3s,border-color .3s}
-.card:hover{transform:translateY(-8px);box-shadow:0 18px 35px #28211712;border-color:#c99a78}
-.card-icon{width:46px;height:46px;border:1px solid #d5b49c;display:grid;place-items:center;
-  color:#a96e49;font-size:23px;margin-bottom:27px}
-.card h3{font:400 24px/1.25 Georgia,serif;margin-bottom:12px}
-.card p{font-size:13px;color:var(--muted)}
-.card a{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;
-  display:inline-block;margin-top:12px;color:#99613f}
-.card a span{display:inline-block;transition:transform .2s}
-.card a:hover span{transform:translateX(5px)}
-.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:75px;align-items:center}
-.about-art{background:#292923;color:white;padding:38px;min-height:370px;display:flex;
-  flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
-.about-art:after{content:"";position:absolute;width:240px;height:240px;border:1px solid #bd80586b;
-  border-radius:50%;right:-60px;bottom:-60px;box-shadow:0 0 0 35px #bd80580b,0 0 0 70px #bd805809}
-.about-art strong{font:400 52px Georgia,serif;color:#d6a07a;line-height:1.1}
-.about-art p{color:#d4d0c7;font-size:13px;max-width:230px}
-.about-copy h2{font:400 clamp(35px,4vw,48px)/1.15 Georgia,serif}
-.about-copy>p{color:var(--muted)}
-.checks{list-style:none;padding:0;margin:25px 0}
-.checks li{padding:12px 0;border-bottom:1px solid var(--line);font-size:13px}
-.checks li:before{content:"✦";color:var(--copper);margin-right:12px}
-.process{background:#eeeadf}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:35px}
-.step{border-top:1px solid #bcb4a5;padding-top:22px}
-.step small{color:#a66c49;letter-spacing:2px;font-weight:800}
-.step h3{font:400 24px Georgia,serif;margin:14px 0 10px}
-.step p{font-size:13px;color:var(--muted)}
-.cta{background:var(--dark);color:white;padding:75px 0}
-.cta-inner{display:flex;justify-content:space-between;align-items:center;gap:30px}
-.cta h2{font:400 clamp(32px,4vw,46px)/1.15 Georgia,serif;margin:12px 0}
-.cta p{color:#c5c0b5;margin-bottom:0}
-.contact{background:var(--paper)}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:65px}
-.contact-info h2{font:400 45px/1.1 Georgia,serif}
-.contact-info p{color:var(--muted)}
-.contact-item{padding:18px 0;border-bottom:1px solid var(--line)}
-.contact-item small{display:block;color:var(--muted);margin-bottom:4px}
-form{display:grid;gap:15px}
-label{font-size:12px;font-weight:700}
-input,textarea,select{width:100%;margin-top:7px;padding:13px;border:1px solid var(--line);
-  background:white;font:14px Arial;color:var(--ink);border-radius:0}
-textarea{min-height:110px;resize:vertical}
-.form-note{font-size:11px;color:var(--muted)}
-footer{background:#191916;color:#d8d3c9;padding:30px 0}
-.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-footer small{color:#aaa59a;font-size:11px}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.delay1{transition-delay:.12s}.delay2{transition-delay:.24s}
-@keyframes float{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(-1deg)}}
-@keyframes pulse{0%,100%{opacity:.5;transform:scale(.9)}50%{opacity:1;transform:scale(1.12)}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
-@media(max-width:800px){
- .links{display:none;position:absolute;top:81px;left:0;right:0;background:#20201d;padding:24px 5%;
- flex-direction:column;align-items:flex-start;border-top:1px solid #444}
- .links.open{display:flex}.menu{display:block}.nav>.btn{display:none}
- .hero-grid{grid-template-columns:1fr;padding-top:65px;gap:25px}
- .hero{min-height:auto}.visual{min-height:330px}.visual-frame{max-width:360px}
- .cards{grid-template-columns:repeat(2,1fr)}.about-grid,.contact-grid{grid-template-columns:1fr;gap:35px}
- .about-art{min-height:290px}.cta-inner{align-items:flex-start;flex-direction:column}
-}
-@media(max-width:520px){
- section{padding:70px 0}.cards,.steps{grid-template-columns:1fr}
- h1{letter-spacing:-1px}.hero-copy{font-size:14px}
- .trust{gap:12px;flex-direction:column}.strip-inner{flex-direction:column;gap:8px}
- .card{min-height:0}.visual{min-height:300px}
-}
-</style>
-</head>
-<body>
-<header>
-  <div class="container nav">
-    <a class="logo" href="#home">LONDON CERT EXPERTS<span>ELECTRICAL & FIRE COMPLIANCE</span></a>
-    <nav class="links" id="navLinks">
-      <a href="#home">Home</a><a href="#services">Services</a>
-      <a href="#about">About</a><a href="#process">How It Works</a><a href="#contact">Contact</a>
-    </nav>
-    <a class="btn" href="#contact">Book an Inspection ↗</a>
-    <button class="menu" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
-  </div>
-</header>
 
-<main>
-<section class="hero" id="home">
-  <div class="container hero-grid">
-    <div class="reveal">
-      <div class="eyebrow">Professional compliance services</div>
-      <h1>Safety is not an option.<br><em>It's our standard.</em></h1>
-      <p class="hero-copy">Reliable electrical inspection and fire compliance services for landlords, property managers, businesses and homeowners across London.</p>
-      <div class="actions">
-        <a class="btn" href="#services">Explore Our Services ↗</a>
-        <a class="btn outline" href="#contact">Speak to Our Team</a>
-      </div>
-      <div class="trust"><span>Clear communication</span><span>Professional service</span><span>Safety focused</span></div>
-    </div>
-    <div class="visual reveal delay1" aria-label="Illustration of an electrical inspection panel">
-      <div class="visual-frame">
-        <div class="visual-number">LCE / 01</div>
-        <div class="panel">
-          <div class="panel-top"></div>
-          <div class="switches">
-            <div class="switch"></div><div class="switch"></div><div class="switch"></div>
-            <div class="switch"></div><div class="switch"></div><div class="switch"></div>
-            <div class="switch"></div><div class="switch"></div><div class="switch"></div>
-          </div>
-          <div class="panel-label">INSPECT · TEST · PROTECT</div>
-        </div>
-        <div class="visual-note">Electrical & Fire Compliance</div>
-      </div>
-    </div>
-  </div>
-</section>
+--navy:#07111e;
+--charcoal:#101820;
+--gold:#c99941;
+--white:#ffffff;
+--light:#f5f5f5;
 
-<div class="strip"><div class="container strip-inner">
-  <span>Electrical inspections</span><span>Fire compliance</span><span>Landlord services</span><span>Commercial properties</span>
-</div></div>
-
-<section class="services" id="services">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">What we do</div>
-      <h2>Expert services.<br>Peace of mind.</h2>
-      <p>Explore our electrical and fire compliance services. Choose a service to learn more or contact us to discuss your property requirements.</p>
-    </div>
-    <div class="cards">
-      <article class="card reveal">
-        <div class="card-icon">⌁</div><h3>EICR Inspections</h3>
-        <p>Electrical Installation Condition Reports to assess the condition and safety of an existing electrical installation.</p>
-        <a href="services/eicr.html">Explore service <span>→</span></a>
-      </article>
-      <article class="card reveal delay1">
-        <div class="card-icon">ϟ</div><h3>Installation Certificates</h3>
-        <p>Certification for qualifying new electrical installations and alterations, with inspection and testing as required.</p>
-        <a href="services/installation-certificates.html">Explore service <span>→</span></a>
-      </article>
-      <article class="card reveal delay2">
-        <div class="card-icon">⌕</div><h3>Electrical Testing</h3>
-        <p>Electrical inspection and testing services tailored to the property, installation and agreed scope of work.</p>
-        <a href="services/electrical-testing.html">Explore service <span>→</span></a>
-      </article>
-      <article class="card reveal">
-        <div class="card-icon">⌂</div><h3>Landlord Certificates</h3>
-        <p>Electrical inspection services to help landlords manage property safety and their applicable responsibilities.</p>
-        <a href="services/landlord-certificates.html">Explore service <span>→</span></a>
-      </article>
-      <article class="card reveal delay1">
-        <div class="card-icon">♧</div><h3>Fire Alarm Inspection</h3>
-        <p>Fire alarm system inspection and testing based on the system, property and applicable maintenance requirements.</p>
-        <a href="services/fire-alarm.html">Explore service <span>→</span></a>
-      </article>
-      <article class="card reveal delay2">
-        <div class="card-icon">◉</div><h3>Emergency Lighting</h3>
-        <p>Inspection and testing of emergency lighting to help assess operation and support ongoing maintenance.</p>
-        <a href="services/emergency-lighting.html">Explore service <span>→</span></a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="container about-grid">
-    <div class="about-art reveal">
-      <div class="eyebrow">London Cert Experts</div>
-      <strong>Built on<br>trust.<br>Focused on<br>safety.</strong>
-      <p>Practical compliance support for properties and businesses.</p>
-    </div>
-    <div class="about-copy reveal delay1">
-      <div class="eyebrow">Why choose us</div>
-      <h2>Professional service from first contact to completion.</h2>
-      <p>We make electrical and fire compliance easier to understand by focusing on clear communication, organised appointments and service suited to your property.</p>
-      <ul class="checks">
-        <li>Clear information about the service you need</li>
-        <li>Appointment coordination around your requirements</li>
-        <li>Professional, safety-focused approach</li>
-        <li>Communication about findings and next steps</li>
-      </ul>
-      <a class="btn" href="#contact">Discuss Your Requirements ↗</a>
-    </div>
-  </div>
-</section>
-
-<section class="process" id="process">
-  <div class="container">
-    <div class="section-head reveal">
-      <div class="eyebrow">A simple process</div>
-      <h2>From enquiry to inspection.</h2>
-      <p>A straightforward approach designed to keep you informed at every stage.</p>
-    </div>
-    <div class="steps">
-      <div class="step reveal"><small>01 / ENQUIRE</small><h3>Tell us what you need</h3><p>Choose a service and share your property type, location and requirements.</p></div>
-      <div class="step reveal delay1"><small>02 / ARRANGE</small><h3>Arrange an appointment</h3><p>We coordinate the appropriate service, timing and scope with you.</p></div>
-      <div class="step reveal delay2"><small>03 / COMPLETE</small><h3>Inspection and next steps</h3><p>We explain the agreed work and communicate the findings and relevant next steps.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="cta">
-  <div class="container cta-inner reveal">
-    <div><div class="eyebrow">Need help with compliance?</div><h2>Let's get your next inspection organised.</h2><p>Tell us about your property and the service you need.</p></div>
-    <a class="btn" href="#contact">Contact Our Team ↗</a>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="container contact-grid">
-    <div class="contact-info reveal">
-      <div class="eyebrow">Get in touch</div>
-      <h2>Let's talk about your property.</h2>
-      <p>Send us your details and service requirements. This form opens a prepared email in your email application.</p>
-      <div class="contact-item"><small>Email</small><a href="mailto:info@londoncertexperts.co.uk">info@londoncertexperts.co.uk</a></div>
-      <div class="contact-item"><small>Services</small><span>Electrical inspections & fire compliance</span></div>
-    </div>
-    <form id="contactForm" class="reveal delay1">
-      <label>Full name<input name="name" required autocomplete="name" placeholder="Your full name"></label>
-      <label>Email address<input name="email" type="email" required autocomplete="email" placeholder="you@example.com"></label>
-      <label>Phone number<input name="phone" type="tel" autocomplete="tel" placeholder="Your contact number"></label>
-      <label>Service required
-        <select name="service" required>
-          <option value="">Choose a service</option>
-          <option>EICR Inspection</option><option>Electrical Installation Certificate</option>
-          <option>Electrical Testing</option><option>Landlord Certificate</option>
-          <option>Fire Alarm Inspection</option><option>Emergency Lighting</option>
-          <option>Other fire compliance service</option>
-        </select>
-      </label>
-      <label>Property address and details<textarea name="details" required placeholder="Property postcode, type and what you need"></textarea></label>
-      <button class="btn" type="submit">Prepare Enquiry Email ↗</button>
-      <p class="form-note">This is an email enquiry form, not live online booking yet. Your email application must be configured to send the message.</p>
-    </form>
-  </div>
-</section>
-</main>
-
-<footer><div class="container footer-inner">
-  <a class="logo" href="#home">LONDON CERT EXPERTS<span>ELECTRICAL & FIRE COMPLIANCE</span></a>
-  <small>© <span id="year"></span> London Cert Experts. All rights reserved.</small>
-  <a href="mailto:info@londoncertexperts.co.uk"><small>Contact us ↗</small></a>
-</div></footer>
-
-<script>
-const menuBtn = document.getElementById('menuBtn');
-const navLinks = document.getElementById('navLinks');
-
-menuBtn.addEventListener('click', () => {
-  const open = navLinks.classList.toggle('open');
-  menuBtn.setAttribute('aria-expanded', String(open));
-  menuBtn.textContent = open ? '✕' : '☰';
-});
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
-    menuBtn.textContent = '☰';
-  });
-});
-
-document.getElementById('year').textContent = new Date().getFullYear();
-
-const revealItems = document.querySelectorAll('.reveal');
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {threshold: 0.12});
-  revealItems.forEach(item => observer.observe(item));
-} else {
-  revealItems.forEach(item => item.classList.add('visible'));
 }
 
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-  const data = new FormData(this);
-  const subject = encodeURIComponent('Website enquiry - ' + data.get('service'));
-  const body = encodeURIComponent(
-    'Name: ' + data.get('name') + '\n' +
-    'Email: ' + data.get('email') + '\n' +
-    'Phone: ' + (data.get('phone') || 'Not provided') + '\n' +
-    'Service: ' + data.get('service') + '\n\n' +
-    'Property and details:\n' + data.get('details')
-  );
-  window.location.href = 'mailto:info@londoncertexperts.co.uk?subject=' + subject + '&body=' + body;
-});
-</script>
-</body>
-</html>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Inter,sans-serif;
+background:#fff;
+color:#111;
+line-height:1.7;
+}
+
+.header{
+
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+background:var(--navy);
+
+}
+
+.logo{
+
+color:white;
+font-size:1.4rem;
+font-weight:700;
+
+}
+
+.desktop-nav a{
+
+margin-left:20px;
+color:white;
+text-decoration:none;
+
+}
+
+.hero{
+
+background:linear-gradient(
+135deg,
+#07111e,
+#132842
+);
+
+min-height:90vh;
+
+display:flex;
+align-items:center;
+justify-content:space-around;
+
+color:white;
+
+padding:50px;
+
+}
+
+.hero h1{
+
+font-size:3rem;
+
+font-family:
+'Playfair Display',
+serif;
+
+margin-bottom:20px;
+
+}
+
+.btn{
+
+display:inline-block;
+
+padding:15px 35px;
+
+background:var(--gold);
+
+color:white;
+
+text-decoration:none;
+
+border-radius:30px;
+
+margin-top:20px;
+
+}
+
+.pulse-house{
+
+width:300px;
+
+height:300px;
+
+background:gold;
+
+border-radius:20px;
+
+animation:
+pulse 3s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.1);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+.services{
+
+padding:80px 10%;
+
+}
+
+.service-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
+
+}
+
+.card{
+
+background:white;
+
+padding:40px;
+
+box-shadow:0 10px 20px rgba(0,0,0,.05);
+
+border-radius:15px;
+
+text-decoration:none;
+
+color:black;
+
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+}
+
+.timeline{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(150px,1fr));
+
+gap:20px;
+
+padding:40px;
+
+}
+
+.stage{
+
+padding:20px;
+
+background:white;
+
+border-radius:12px;
+
+text-align:center;
+
+}
+
+.progress{
+
+height:12px;
+
+background:#ddd;
+
+margin:40px;
+
+border-radius:50px;
+
+overflow:hidden;
+
+}
+
+.progress-bar{
+
+height:100%;
+
+width:0;
+
+background:var(--gold);
+
+animation:run 45s linear forwards;
+
+}
+
+@keyframes run{
+
+to{
+
+width:100%;
+
+}
+
+}
+
+footer{
+
+padding:40px;
+
+background:var(--charcoal);
+
+color:white;
+
+text-align:center;
+
+}
+
+footer a{
+
+color:white;
+
+margin:10px;
+
+}
+
+@media(max-width:768px){
+
+.hero{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.hero h1{
+
+font-size:2rem;
+
+}
+
+.desktop-nav{
+
+display:none;
+
+}
+
+}
+const stages =
+document.querySelectorAll(".stage");
+
+let current = 0;
+
+function advanceStage(){
+
+stages.forEach(
+s => s.classList.remove("active")
+);
+
+stages[current].classList.add(
+"active"
+);
+
+current++;
+
+if(current>=stages.length){
+
+current=0;
+
+}
+
+}
+
+setInterval(
+advanceStage,
+4000
+);
+
+const menuButton =
+document.getElementById(
+"menuToggle"
+);
+
+if(menuButton){
+
+menuButton.addEventListener(
+"click",
+()=>{
+
+document
+.querySelector(".desktop-nav")
+.classList.toggle("open");
+
+}
+);
+
+}
