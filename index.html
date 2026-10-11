@@ -1,331 +1,384 @@
-:root{
 
---navy:#07111e;
---charcoal:#101820;
---gold:#c99941;
---white:#ffffff;
---light:#f5f5f5;
-
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:Inter,sans-serif;
-background:#fff;
-color:#111;
-line-height:1.7;
-}
-
-.header{
-
-padding:20px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-
-background:var(--navy);
-
-}
-
-.logo{
-
-color:white;
-font-size:1.4rem;
-font-weight:700;
-
-}
-
-.desktop-nav a{
-
-margin-left:20px;
-color:white;
-text-decoration:none;
-
-}
-
-.hero{
-
-background:linear-gradient(
-135deg,
-#07111e,
-#132842
-);
-
-min-height:90vh;
-
-display:flex;
-align-items:center;
-justify-content:space-around;
-
-color:white;
-
-padding:50px;
-
-}
-
-.hero h1{
-
-font-size:3rem;
-
-font-family:
-'Playfair Display',
-serif;
-
-margin-bottom:20px;
-
-}
-
-.btn{
-
-display:inline-block;
-
-padding:15px 35px;
-
-background:var(--gold);
-
-color:white;
-
-text-decoration:none;
-
-border-radius:30px;
-
-margin-top:20px;
-
-}
-
-.pulse-house{
-
-width:300px;
-
-height:300px;
-
-background:gold;
-
-border-radius:20px;
-
-animation:
-pulse 3s infinite;
-
-}
-
-@keyframes pulse{
-
-0%{
-
-transform:scale(1);
-
-}
-
-50%{
-
-transform:scale(1.1);
-
-}
-
-100%{
-
-transform:scale(1);
-
-}
-
-}
-
-.services{
-
-padding:80px 10%;
-
-}
-
-.service-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(250px,1fr));
-
-gap:25px;
-
-}
-
-.card{
-
-background:white;
-
-padding:40px;
-
-box-shadow:0 10px 20px rgba(0,0,0,.05);
-
-border-radius:15px;
-
-text-decoration:none;
-
-color:black;
-
-transition:.3s;
-
-}
-
-.card:hover{
-
-transform:translateY(-10px);
-
-}
-
-.timeline{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(150px,1fr));
-
-gap:20px;
-
-padding:40px;
-
-}
-
-.stage{
-
-padding:20px;
-
-background:white;
-
-border-radius:12px;
-
-text-align:center;
-
-}
-
-.progress{
-
-height:12px;
-
-background:#ddd;
-
-margin:40px;
-
-border-radius:50px;
-
-overflow:hidden;
-
-}
-
-.progress-bar{
-
-height:100%;
-
-width:0;
-
-background:var(--gold);
-
-animation:run 45s linear forwards;
-
-}
-
-@keyframes run{
-
-to{
-
-width:100%;
-
-}
-
-}
-
-footer{
-
-padding:40px;
-
-background:var(--charcoal);
-
-color:white;
-
-text-align:center;
-
-}
-
-footer a{
-
-color:white;
-
-margin:10px;
-
-}
-
-@media(max-width:768px){
-
-.hero{
-
-flex-direction:column;
-
-text-align:center;
-
-}
-
-.hero h1{
-
-font-size:2rem;
-
-}
-
-.desktop-nav{
-
-display:none;
-
-}
-
-}
-const stages =
-document.querySelectorAll(".stage");
-
-let current = 0;
-
-function advanceStage(){
-
-stages.forEach(
-s => s.classList.remove("active")
-);
-
-stages[current].classList.add(
-"active"
-);
-
-current++;
-
-if(current>=stages.length){
-
-current=0;
-
-}
-
-}
-
-setInterval(
-advanceStage,
-4000
-);
-
-const menuButton =
-document.getElementById(
-"menuToggle"
-);
-
-if(menuButton){
-
-menuButton.addEventListener(
-"click",
-()=>{
-
-document
-.querySelector(".desktop-nav")
-.classList.toggle("open");
-
-}
-);
-
-}
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>London Cert Experts | Electrical & Fire Compliance</title>
+  <meta name="description" content="Electrical and fire compliance services across London. Book EICR inspections, fire alarm certification, emergency lighting checks and more.">
+  <meta name="theme-color" content="#101820">
+
+  <link rel="canonical" href="https://londoncertexperts.co.uk/">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="London Cert Experts home">
+      <span class="brand-mark">LC<span>E</span></span>
+      <span class="brand-name">
+        LONDON CERT EXPERTS
+        <small>Electrical & Fire Compliance</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+      aria-label="Open navigation" aria-expanded="false"
+      aria-controls="mainNav">☰</button>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="#services">Our Services</a>
+      <a href="#journey">Our Process</a>
+      <a href="contact.html">Contact</a>
+      <a class="button button-small" href="booking.html">Book Online ↗</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">ELECTRICAL · FIRE · PROPERTY COMPLIANCE</p>
+
+        <h1>
+          Compliance made clear.
+          <span>Confidence built in.</span>
+        </h1>
+
+        <p class="hero-description">
+          Professional property compliance services for landlords,
+          letting agents, homeowners and commercial properties across London.
+          From your first booking to your completed report, know what comes next.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button" href="booking.html">Book an Inspection ↗</a>
+          <a class="button button-outline" href="#journey">
+            Explore Our Process ↓
+          </a>
+        </div>
+
+        <div class="hero-trust">
+          <span>✓ Clear pricing</span>
+          <span>✓ Online booking</span>
+          <span>✓ Transparent process</span>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Illustration of property compliance">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+
+        <div class="visual-panel">
+          <div class="panel-top">
+            <span class="live-dot"></span>
+            COMPLIANCE OVERVIEW
+            <span class="panel-icon">⌁</span>
+          </div>
+
+          <div class="building-art">
+            <div class="building-roof"></div>
+            <div class="building-body">
+              <div class="building-window"></div>
+              <div class="building-window"></div>
+              <div class="building-window"></div>
+              <div class="building-window"></div>
+              <div class="building-door"></div>
+            </div>
+          </div>
+
+          <div class="circuit-line">
+            <span></span><span></span><span></span>
+          </div>
+
+          <div class="visual-status">
+            <div class="status-symbol">✓</div>
+            <div>
+              <strong>Inspection workflow</strong>
+              <small>Track each stage of your service</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="floating-tag tag-top">01 / INSPECT</div>
+        <div class="floating-tag tag-bottom">02 / REPORT</div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Our service principles">
+      <div><strong>01</strong><span>Book online</span></div>
+      <div><strong>02</strong><span>Inspection arranged</span></div>
+      <div><strong>03</strong><span>Results recorded</span></div>
+      <div><strong>04</strong><span>Report issued when ready</span></div>
+    </section>
+
+    <section class="section services-section" id="services">
+      <div class="section-heading">
+        <p class="eyebrow">OUR SERVICES</p>
+        <h2>One property. <span>Every essential check.</span></h2>
+        <p>
+          Explore our electrical, fire and property assessment services.
+          Select a service to learn what it covers and view its pricing.
+        </p>
+      </div>
+
+      <div class="service-grid">
+        <a class="service-card" href="services/eicr.html">
+          <span class="service-number">01</span>
+          <span class="service-icon" aria-hidden="true">ϟ</span>
+          <h3>Electrical Safety — EICR</h3>
+          <p>Assess the condition and safety of a property's electrical installation.</p>
+          <span class="service-link">Explore service ↗</span>
+        </a>
+
+        <a class="service-card" href="services/fire-alarm.html">
+          <span class="service-number">02</span>
+          <span class="service-icon" aria-hidden="true">◉</span>
+          <h3>Fire Alarm Certification</h3>
+          <p>Fire alarm inspection and system checks appropriate to the installation.</p>
+          <span class="service-link">Explore service ↗</span>
+        </a>
+
+        <a class="service-card" href="services/emergency-lighting.html">
+          <span class="service-number">03</span>
+          <span class="service-icon" aria-hidden="true">☼</span>
+          <h3>Emergency Lighting</h3>
+          <p>Checks of emergency lighting systems and relevant test records.</p>
+          <span class="service-link">Explore service ↗</span>
+        </a>
+
+        <a class="service-card" href="services/epc.html">
+          <span class="service-number">04</span>
+          <span class="service-icon" aria-hidden="true">⌂</span>
+          <h3>Energy Performance — EPC</h3>
+          <p>Energy assessment and an Energy Performance Certificate where applicable.</p>
+          <span class="service-link">Explore service ↗</span>
+        </a>
+
+        <a class="service-card" href="services/fire-risk-assessment.html">
+          <span class="service-number">05</span>
+          <span class="service-icon" aria-hidden="true">♢</span>
+          <h3>Fire Risk Assessment</h3>
+          <p>Identify fire hazards, assess risks and record appropriate recommendations.</p>
+          <span class="service-link">Explore service ↗</span>
+        </a>
+
+        <a class="service-card" href="services/gas-safety.html">
+          <span class="service-number">06</span>
+          <span class="service-icon" aria-hidden="true">⌁</span>
+          <h3>Gas Safety Certificate</h3>
+          <p>Arrange gas safety checks with an appropriately qualified gas engineer.</p>
+          <span class="service-link">Explore service ↗</span>
+        </a>
+
+        <a class="service-card" href="services/pat-testing.html">
+          <span class="service-number">07</span>
+          <span class="service-icon" aria-hidden="true">ϟ</span>
+          <h3>PAT Testing</h3>
+          <p>Portable appliance inspection and testing based on equipment and risk.</p>
+          <span class="service-link">Explore service ↗</span>
+        </a>
+
+        <a class="service-card" href="services/legionella.html">
+          <span class="service-number">08</span>
+          <span class="service-icon" aria-hidden="true">≈</span>
+          <h3>Legionella Risk Assessment</h3>
+          <p>Assess water-system risks and identify proportionate control measures.</p>
+          <span class="service-link">Request a quote ↗</span>
+        </a>
+
+        <a class="service-card" href="services/asbestos.html">
+          <span class="service-number">09</span>
+          <span class="service-icon" aria-hidden="true">◇</span>
+          <h3>Asbestos Survey / Assessment</h3>
+          <p>Discuss the property, survey purpose and scope for a tailored quotation.</p>
+          <span class="service-link">Request a quote ↗</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="journey-section" id="journey">
+      <div class="section-heading">
+        <p class="eyebrow">FROM BOOKING TO CERTIFICATE</p>
+        <h2>Your compliance journey, <span>step by step.</span></h2>
+        <p>
+          Explore how a typical appointment progresses from booking
+          through inspection and reporting. Choose any stage or use
+          the controls to move through the journey.
+        </p>
+      </div>
+
+      <div class="journey-layout">
+        <div class="journey-screen">
+          <div class="journey-screen-top">
+            <span class="live-dot"></span>
+            YOUR PROPERTY JOURNEY
+            <span id="journeyCounter">01 / 11</span>
+          </div>
+
+          <div class="journey-art" id="journeyArt" aria-hidden="true">
+            <div class="art-building">
+              <div class="art-roof"></div>
+              <div class="art-house">
+                <div class="art-window"></div>
+                <div class="art-window"></div>
+                <div class="art-door"></div>
+              </div>
+            </div>
+            <div class="art-electric">ϟ</div>
+            <div class="art-certificate">✓<small>REPORT</small></div>
+            <div class="art-spark spark-one">✦</div>
+            <div class="art-spark spark-two">✧</div>
+          </div>
+
+          <div class="journey-caption">
+            <p class="eyebrow" id="journeyLabel">STAGE 01</p>
+            <h3 id="journeyTitle">Your journey begins</h3>
+            <p id="journeyDescription">
+              A landlord or property manager visits the website
+              to explore the services their property may need.
+            </p>
+          </div>
+
+          <div class="journey-progress">
+            <div class="progress-track">
+              <span id="journeyProgress"></span>
+            </div>
+            <div class="journey-controls">
+              <button type="button" class="button button-outline"
+                id="journeyPrev">← Previous</button>
+              <button type="button" class="button"
+                id="journeyNext">Next stage →</button>
+            </div>
+            <button type="button" class="journey-play" id="journeyPlay">
+              ▶ Play journey
+            </button>
+            <p class="journey-note" id="journeyPlayNote" aria-live="polite">
+              Explore at your own pace. No sound or forced waiting.
+            </p>
+          </div>
+        </div>
+
+        <div class="journey-timeline">
+          <p class="eyebrow">THE 11 STAGES</p>
+          <div id="journeyStages">
+            <button class="journey-stage active" type="button" data-stage="0">
+              <span>01</span><span><strong>Choose a service</strong><small>Explore your options</small></span>
+            </button>
+            <button class="journey-stage" type="button" data-stage="1">
+              <span>02</span><span><strong>Property details</strong><small>Choose the property type</small></span>
+            </button>
+            <button class="journey-stage" type="button" data-stage="2">
+              <span>03</span><span><strong>Select a slot</strong><small>Choose available time</small></span>
+            </button>
+            <button class="journey-stage" type="button" data-stage="3">
+              <span>04</span><span><strong>Submit booking</strong><small>Enter contact details</small></span>
+            </button>
+            <button class="journey-stage" type="button" data-stage="4">
+              <span>05</span><span><strong>Confirmation</strong><small>Receive a reference</small></span>
+            </button>
+            <button class="journey-stage" type="button" data-stage="5">
+              <span>06</span><span><strong>Property visit</strong><small>Professional attends</small></span>
+            </button>
+            <button class="journey-stage" type="button" data-stage="6">
+              <span>07</span><span><strong>Safety checks</strong><small>Inspection and testing</small></span>
+            </button>
+            <button class="journey-stage" type="button" data-stage="7">
+              <span>08</span><span><strong>Fire safety checks</strong><small>Where relevant to the service</small></span>
+            </button>
+            <button class="journey-stage" type="button" data-stage="8">
+              <span>09</span><span><strong>Record results</strong><small>Document findings</small></span>
+            </button>
+            <button class="journey-stage" type="button" data-stage="9">
+              <span>10</span><span><strong>Prepare the report</strong><small>Review inspection findings</small></span>
+            </button>
+            <button class="journey-stage" type="button" data-stage="10">
+              <span>11</span><span><strong>Receive your report</strong><small>Discuss any remedial work</small></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="journey-cta">
+        <div>
+          <p class="eyebrow">READY TO GET STARTED?</p>
+          <h3>Your property's next step starts here.</h3>
+          <p>Choose your service and check the appointment slots actually available.</p>
+        </div>
+        <a class="button" href="booking.html">Start a Booking ↗</a>
+      </div>
+    </section>
+
+    <section class="section process-section">
+      <div class="section-heading">
+        <p class="eyebrow">BUILT AROUND CLARITY</p>
+        <h2>Know what happens <span>next.</span></h2>
+      </div>
+
+      <div class="process-grid">
+        <article class="process-card">
+          <span>01 / PLAN</span>
+          <h3>Clear booking details</h3>
+          <p>Choose the relevant service, provide property information and review the applicable price.</p>
+        </article>
+        <article class="process-card">
+          <span>02 / INSPECT</span>
+          <h3>Checks and findings</h3>
+          <p>The appropriate professional carries out the agreed work and records the results.</p>
+        </article>
+        <article class="process-card">
+          <span>03 / REPORT</span>
+          <h3>Reporting and next steps</h3>
+          <p>Your report is prepared after the required checks. Any recommended remedial work can be discussed separately.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact-banner">
+      <div>
+        <p class="eyebrow">LONDON CERT EXPERTS</p>
+        <h2>Let's take care of your property's compliance.</h2>
+        <p>Contact our team to discuss the right service for your property.</p>
+      </div>
+      <div class="contact-actions">
+        <a class="button" href="booking.html">Book Online ↗</a>
+        <a class="button button-outline"
+          href="mailto:info@londoncertexperts.co.uk">Email Our Team</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">LC<span>E</span></span>
+        <span class="brand-name">
+          LONDON CERT EXPERTS
+          <small>Electrical & Fire Compliance</small>
+        </span>
+      </a>
+      <p>Electrical and Fire Compliance Services across London.</p>
+      <a href="mailto:info@londoncertexperts.co.uk">
+        info@londoncertexperts.co.uk
+      </a>
+    </div>
+
+    <div class="footer-links">
+      <a href="booking.html">Book Online</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms & Conditions</a>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="currentYear">2026</span> London Cert Experts</span>
+      <span>Clear processes. Informed decisions.</span>
+    </div>
+  </footer>
+</body>
+</html>
