@@ -4,407 +4,726 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b1730">
 
   <title>London Cert Experts | Electrical & Fire Compliance</title>
-  <meta name="description" content="Electrical safety inspections, EICR reports and fire compliance services for landlords, letting agents and businesses across London. Request a quote.">
+  <meta name="description" content="Electrical certification and fire compliance services for landlords, property managers and businesses across London. Contact London Cert Experts for a quote.">
+  <meta name="theme-color" content="#081426">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --navy: #0b1730;
-      --navy-light: #142748;
-      --blue: #2463eb;
-      --orange: #ffb547;
+      --navy: #081426;
+      --navy-light: #10213a;
+      --blue: #3478f6;
+      --blue-light: #eaf1ff;
       --white: #ffffff;
-      --muted: #627087;
-      --light: #f4f7fb;
-      --border: #e3e9f2;
+      --ink: #172238;
+      --muted: #69758a;
+      --border: #e7ebf2;
+      --surface: #f6f8fc;
+      --radius: 20px;
+      --shadow: 0 20px 60px rgba(8, 20, 38, .09);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 95px;
+    }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--navy);
-      line-height: 1.65;
+      font-family: "DM Sans", sans-serif;
+      color: var(--ink);
       background: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
     }
 
     a { color: inherit; text-decoration: none; }
     button, input, select, textarea { font: inherit; }
-    button, .btn { cursor: pointer; }
-    img { max-width: 100%; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    img, svg { max-width: 100%; }
 
     .container {
-      width: min(1160px, 92%);
-      margin: auto;
+      width: min(1160px, calc(100% - 44px));
+      margin-inline: auto;
     }
 
-    .topbar {
-      background: var(--navy);
-      color: #e8eef9;
-      font-size: 13px;
+    .announcement {
+      background: #050d1b;
+      color: #c8d6ef;
+      font-size: 12px;
+      letter-spacing: .4px;
       padding: 9px 0;
+      text-align: center;
     }
 
-    .topbar .container {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+    .announcement span { color: #8fb3ff; }
 
     header {
-      background: #fff;
       position: sticky;
       top: 0;
-      z-index: 20;
-      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(231,235,242,.85);
     }
 
     .navbar {
-      min-height: 78px;
+      min-height: 82px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 24px;
+      justify-content: space-between;
+      gap: 25px;
     }
 
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      font-size: 18px;
-      line-height: 1.2;
-      letter-spacing: -.5px;
+      gap: 11px;
+      flex-shrink: 0;
     }
 
     .brand-mark {
-      width: 43px;
-      height: 43px;
       display: grid;
       place-items: center;
-      border-radius: 11px;
-      background: var(--blue);
+      width: 45px;
+      height: 45px;
       color: white;
-      font-size: 21px;
+      background: linear-gradient(140deg, #4388ff, #1751ca);
+      border-radius: 14px;
+      box-shadow: 0 8px 22px rgba(52,120,246,.25);
     }
 
-    .brand small {
+    .brand-mark svg { width: 25px; height: 25px; }
+
+    .brand-name {
       display: block;
-      font-size: 10px;
-      color: var(--muted);
-      letter-spacing: 1.5px;
-      margin-top: 4px;
+      color: var(--navy);
+      font-family: Manrope, sans-serif;
+      font-size: 14px;
+      line-height: 1.3;
+      font-weight: 800;
+      letter-spacing: -.4px;
     }
 
-    nav {
+    .brand-sub {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1.4px;
+      margin-top: 3px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
       display: flex;
       align-items: center;
-      gap: 25px;
-      font-size: 14px;
+      gap: 29px;
+      font-size: 13px;
       font-weight: 600;
     }
 
-    nav a:hover { color: var(--blue); }
+    .nav-links a:not(.btn):hover { color: var(--blue); }
 
     .btn {
       display: inline-flex;
-      align-items: center;
       justify-content: center;
-      border: 0;
-      border-radius: 7px;
+      align-items: center;
+      gap: 10px;
       padding: 13px 21px;
-      background: var(--blue);
-      color: white;
+      border-radius: 10px;
+      font-size: 13px;
       font-weight: 700;
-      transition: .2s;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform .25s, box-shadow .25s, background .25s;
     }
 
     .btn:hover {
-      background: #164dcc;
-      transform: translateY(-1px);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(52,120,246,.22);
     }
+
+    .btn-primary {
+      color: white;
+      background: var(--blue);
+    }
+
+    .btn-primary:hover { background: #2165e8; }
 
     .btn-outline {
-      background: transparent;
-      border: 1px solid #cbd7ec;
-      color: var(--navy);
+      color: white;
+      border-color: rgba(255,255,255,.3);
+      background: rgba(255,255,255,.04);
     }
 
-    .btn-outline:hover { color: white; }
-    .btn-orange { background: var(--orange); color: var(--navy); }
-    .btn-orange:hover { background: #ffc66f; color: var(--navy); }
+    .btn-light {
+      color: var(--navy);
+      background: white;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: white;
+      cursor: pointer;
+      font-size: 22px;
+    }
+
+    /* HERO */
 
     .hero {
-      background:
-        radial-gradient(ellipse at 85% 30%, #203e70 0%, transparent 42%),
-        linear-gradient(120deg, #091329, #102749);
-      color: white;
-      padding: 90px 0 82px;
+      position: relative;
       overflow: hidden;
+      color: white;
+      background:
+        radial-gradient(ellipse at 88% 18%, rgba(52,120,246,.23), transparent 35%),
+        radial-gradient(ellipse at 15% 90%, rgba(29,80,160,.15), transparent 38%),
+        var(--navy);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .12;
+      pointer-events: none;
+      background-image: radial-gradient(#a7c4ff 1px, transparent 1px);
+      background-size: 32px 32px;
+      mask-image: linear-gradient(90deg, black, transparent 90%);
     }
 
     .hero-grid {
+      position: relative;
       display: grid;
-      grid-template-columns: 1.12fr .88fr;
+      grid-template-columns: 1.08fr .92fr;
       align-items: center;
-      gap: 55px;
+      gap: 54px;
+      padding-top: 91px;
+      padding-bottom: 92px;
     }
 
     .eyebrow {
-      color: var(--orange);
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: #91b5ff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 12px;
-      font-weight: 800;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      font-size: clamp(38px, 5vw, 60px);
-      line-height: 1.1;
-      letter-spacing: -2px;
       margin-bottom: 23px;
     }
 
-    h1 span { color: var(--orange); }
+    .eyebrow::before {
+      content: "";
+      width: 23px;
+      height: 2px;
+      background: #5992ff;
+    }
 
-    .hero p {
-      color: #d0d9e9;
-      font-size: 17px;
-      max-width: 560px;
-      margin-bottom: 28px;
+    h1, h2, h3 {
+      font-family: Manrope, sans-serif;
+      letter-spacing: -1.1px;
+    }
+
+    h1 {
+      max-width: 650px;
+      font-size: clamp(40px, 5.1vw, 67px);
+      line-height: 1.12;
+      font-weight: 800;
+    }
+
+    h1 span {
+      color: #73a4ff;
+      display: block;
+    }
+
+    .hero-copy {
+      color: #bdc9dc;
+      max-width: 520px;
+      font-size: 15px;
+      line-height: 1.9;
+      margin: 24px 0 29px;
     }
 
     .hero-actions {
       display: flex;
+      flex-wrap: wrap;
       gap: 13px;
-      flex-wrap: wrap;
     }
 
-    .hero .btn-outline {
-      color: white;
-      border-color: #657792;
-    }
-
-    .hero-points {
+    .trust-points {
       display: flex;
       flex-wrap: wrap;
-      gap: 18px;
-      margin-top: 30px;
-      font-size: 13px;
-      color: #e0e8f5;
-    }
-
-    .hero-points span::before {
-      content: "✓";
-      color: var(--orange);
-      font-weight: 800;
-      margin-right: 7px;
-    }
-
-    .hero-visual {
-      min-height: 370px;
-      border: 1px solid #496184;
-      border-radius: 18px;
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      background:
-        linear-gradient(0deg, rgba(6,17,37,.96), rgba(8,24,49,.12)),
-        url("https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1000&q=85") center/cover;
-      box-shadow: 0 25px 65px #050d1e55;
-    }
-
-    .visual-label {
-      background: var(--orange);
-      color: var(--navy);
-      border-radius: 5px;
-      padding: 6px 12px;
-      display: inline-block;
-      width: fit-content;
+      gap: 17px 23px;
+      margin-top: 35px;
+      color: #d2dced;
       font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      margin-bottom: 13px;
     }
 
-    .hero-visual h2 { font-size: 27px; line-height: 1.25; }
-    .hero-visual p { font-size: 14px; margin: 9px 0 0; }
-
-    .trust-strip {
-      background: var(--light);
-      border-bottom: 1px solid var(--border);
-      padding: 24px 0;
-    }
-
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .trust-item {
+    .trust-points span {
       display: flex;
-      gap: 12px;
       align-items: center;
+      gap: 7px;
     }
 
-    .trust-icon {
-      width: 43px;
-      height: 43px;
-      flex-shrink: 0;
+    .check {
       display: grid;
       place-items: center;
-      border-radius: 10px;
-      background: #e3ebff;
-      color: var(--blue);
-      font-size: 20px;
+      width: 19px;
+      height: 19px;
+      color: #9fc0ff;
+      background: rgba(80,140,255,.17);
+      border-radius: 50%;
+      font-size: 12px;
     }
 
-    .trust-item strong { display: block; font-size: 14px; }
-    .trust-item small { color: var(--muted); font-size: 12px; }
+    .hero-art {
+      position: relative;
+      min-height: 410px;
+      display: grid;
+      place-items: center;
+      animation: floatIn .9s ease both;
+    }
 
-    section { padding: 82px 0; }
+    .orb {
+      position: absolute;
+      width: 330px;
+      height: 330px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(52,120,246,.3), rgba(52,120,246,.02) 70%);
+      animation: breathe 5s ease-in-out infinite;
+    }
+
+    .tech-card {
+      position: relative;
+      width: min(100%, 400px);
+      padding: 27px;
+      background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.045));
+      border: 1px solid rgba(255,255,255,.17);
+      border-radius: 24px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 35px 100px rgba(0,0,0,.25);
+      transform: rotate(1deg);
+      transition: transform .35s;
+    }
+
+    .tech-card:hover { transform: rotate(0) translateY(-5px); }
+
+    .tech-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .tech-card-top strong { font: 700 13px Manrope, sans-serif; }
+
+    .status {
+      color: #a5e9c5;
+      background: rgba(56,190,124,.12);
+      border: 1px solid rgba(100,220,160,.2);
+      padding: 5px 9px;
+      border-radius: 30px;
+      font-size: 10px;
+    }
+
+    .panel-illustration {
+      position: relative;
+      height: 182px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #172c4d, #0b1b32);
+      border: 1px solid rgba(255,255,255,.1);
+    }
+
+    .panel-illustration::before,
+    .panel-illustration::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(115,164,255,.2);
+      border-radius: 50%;
+    }
+
+    .panel-illustration::before { width: 235px; height: 235px; }
+    .panel-illustration::after { width: 180px; height: 180px; }
+
+    .panel-svg { width: 175px; height: 145px; position: relative; z-index: 1; }
+
+    .tech-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .tech-feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 12px;
+    }
+
+    .tech-feature .mini-icon { font-size: 20px; }
+    .tech-feature strong { display: block; font-size: 11px; }
+    .tech-feature small { display: block; color: #9eacc1; font-size: 9px; }
+
+    .floating-badge {
+      position: absolute;
+      right: -15px;
+      bottom: 17px;
+      padding: 13px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: white;
+      color: var(--ink);
+      border-radius: 13px;
+      box-shadow: var(--shadow);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .floating-badge .badge-icon {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      background: var(--blue-light);
+      border-radius: 10px;
+      color: var(--blue);
+      font-size: 19px;
+    }
+
+    .floating-badge strong { display: block; font-size: 11px; }
+    .floating-badge small { display: block; color: var(--muted); font-size: 10px; }
+
+    /* SECTION COMMON */
+
+    section { padding: 94px 0; }
 
     .section-heading {
-      max-width: 700px;
+      max-width: 650px;
+      margin: 0 auto 45px;
       text-align: center;
-      margin: 0 auto 43px;
     }
 
-    .section-heading .eyebrow { color: var(--blue); margin-bottom: 10px; }
+    .section-tag {
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
 
-    h2.section-title {
-      font-size: clamp(30px, 4vw, 42px);
-      letter-spacing: -1.3px;
+    h2 {
+      font-size: clamp(29px, 3.6vw, 43px);
       line-height: 1.2;
-      margin-bottom: 15px;
+      font-weight: 800;
     }
 
-    .section-heading p { color: var(--muted); }
+    .section-heading p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 15px;
+    }
 
-    .services-grid {
+    /* SERVICES */
+
+    .services { background: #fff; }
+
+    .service-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      gap: 21px;
     }
 
     .service-card {
-      padding: 28px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      padding: 29px;
       background: white;
-      transition: .2s;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      height: 3px;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      background: var(--blue);
+      transition: width .35s;
     }
 
     .service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px #14274812;
-      border-color: #bdcdf2;
+      transform: translateY(-7px);
+      box-shadow: var(--shadow);
+      border-color: #c6d8ff;
     }
 
+    .service-card:hover::after { width: 100%; }
+
     .service-icon {
-      width: 54px;
-      height: 54px;
       display: grid;
       place-items: center;
-      border-radius: 12px;
-      background: #eaf0ff;
+      width: 55px;
+      height: 55px;
       color: var(--blue);
-      font-size: 25px;
+      background: var(--blue-light);
+      border-radius: 15px;
+      margin-bottom: 23px;
+    }
+
+    .service-icon svg { width: 27px; height: 27px; }
+
+    .service-card h3 {
+      font-size: 19px;
+      line-height: 1.4;
+      margin-bottom: 11px;
+      letter-spacing: -.5px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
       margin-bottom: 20px;
     }
 
-    .service-card h3 { font-size: 19px; margin-bottom: 10px; }
-    .service-card p { color: var(--muted); font-size: 14px; margin-bottom: 18px; }
-    .learn-more { color: var(--blue); font-size: 14px; font-weight: 700; }
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+    }
 
-    .about { background: var(--light); }
+    .text-link span { transition: transform .2s; }
+    .text-link:hover span { transform: translateX(5px); }
+
+    /* ABOUT */
+
+    .about { background: var(--surface); }
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: .9fr 1.1fr;
       align-items: center;
-      gap: 65px;
+      gap: 75px;
     }
 
-    .about-image {
-      min-height: 420px;
-      border-radius: 15px;
-      background: url("https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=85") center/cover;
+    .about-visual {
+      min-height: 385px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      padding: 35px;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(52,120,246,.25), transparent 62%),
+        linear-gradient(145deg, #0d2342, #081426);
+      border-radius: 26px;
     }
 
-    .about-copy .eyebrow { color: var(--blue); margin-bottom: 10px; }
-    .about-copy h2 { font-size: 39px; line-height: 1.2; margin-bottom: 18px; letter-spacing: -1px; }
-    .about-copy > p { color: var(--muted); margin-bottom: 22px; }
+    .about-visual svg { width: 220px; position: relative; z-index: 1; }
 
-    .check-list { list-style: none; margin-bottom: 26px; }
-    .check-list li { margin: 11px 0; font-weight: 600; font-size: 14px; }
-    .check-list li::before { content: "✓"; color: var(--blue); margin-right: 10px; font-weight: 800; }
+    .visual-caption {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      padding: 15px 18px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(12px);
+      border-radius: 13px;
+      color: white;
+      font-size: 12px;
+    }
+
+    .visual-caption span { color: #aac5ff; display: block; font-size: 10px; }
+
+    .about-copy .section-tag { margin-bottom: 14px; }
+    .about-copy h2 { margin-bottom: 20px; }
+
+    .about-copy > p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 17px;
+    }
+
+    .benefit-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 17px;
+      margin: 27px 0 30px;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .benefit-icon {
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      color: var(--blue);
+      background: #e4edff;
+      border-radius: 50%;
+    }
+
+    /* PROCESS */
 
     .process-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
+      gap: 35px;
     }
 
-    .process-card { text-align: center; padding: 15px; }
+    .process-card { text-align: center; padding: 10px 20px; }
+
     .process-number {
-      margin: 0 auto 18px;
-      width: 58px;
-      height: 58px;
       display: grid;
       place-items: center;
-      background: var(--navy);
-      color: var(--orange);
-      font-size: 23px;
-      font-weight: 800;
-      border-radius: 50%;
+      width: 61px;
+      height: 61px;
+      margin: 0 auto 20px;
+      color: white;
+      background: linear-gradient(145deg, #4388ff, #1f5bd2);
+      border-radius: 19px;
+      font: 800 20px Manrope, sans-serif;
+      box-shadow: 0 12px 25px rgba(52,120,246,.2);
     }
 
-    .process-card h3 { margin-bottom: 9px; }
-    .process-card p { color: var(--muted); font-size: 14px; }
+    .process-card h3 { font-size: 18px; margin-bottom: 10px; }
+    .process-card p { color: var(--muted); font-size: 13px; }
 
-    .quote-section { background: var(--navy); color: white; }
+    /* CTA */
 
-    .quote-grid {
+    .cta-section { padding-top: 15px; padding-bottom: 90px; }
+
+    .cta-panel {
+      position: relative;
+      overflow: hidden;
+      padding: 60px;
+      color: white;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(70,130,255,.28), transparent 32%),
+        var(--navy);
+      border-radius: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px;
+    }
+
+    .cta-panel h2 { max-width: 600px; font-size: clamp(28px, 3vw, 38px); }
+    .cta-panel p { color: #b8c7dd; font-size: 13px; margin-top: 13px; }
+    .cta-panel .btn { flex-shrink: 0; }
+
+    /* FAQ */
+
+    .faq { background: var(--surface); }
+
+    .faq-list { max-width: 780px; margin: auto; }
+
+    details {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      margin-bottom: 12px;
+      padding: 0 20px;
+    }
+
+    summary {
+      position: relative;
+      padding: 19px 32px 19px 0;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 13px;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: "+";
+      position: absolute;
+      right: 0;
+      top: 15px;
+      color: var(--blue);
+      font-size: 23px;
+      font-weight: 400;
+    }
+
+    details[open] summary::after { content: "−"; }
+    details p { color: var(--muted); font-size: 13px; padding-bottom: 20px; }
+
+    /* CONTACT */
+
+    .contact-grid {
       display: grid;
       grid-template-columns: .85fr 1.15fr;
-      align-items: start;
       gap: 55px;
     }
 
-    .quote-copy h2 {
-      font-size: 41px;
-      line-height: 1.2;
-      margin-bottom: 18px;
+    .contact-copy h2 { margin-bottom: 17px; }
+    .contact-copy > p { color: var(--muted); font-size: 14px; margin-bottom: 27px; }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      margin: 20px 0;
     }
 
-    .quote-copy p { color: #c8d4e8; margin-bottom: 23px; }
-    .quote-copy .eyebrow { color: var(--orange); }
-
-    .contact-detail {
-      padding: 13px 0;
-      border-top: 1px solid #33445e;
-      color: #e2e9f4;
-      font-size: 14px;
+    .contact-item .service-icon {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      margin: 0;
+      border-radius: 12px;
+      font-size: 19px;
     }
 
-    .quote-form {
-      background: white;
-      color: var(--navy);
+    .contact-item strong { display: block; font-size: 12px; }
+    .contact-item span { display: block; color: var(--muted); font-size: 12px; }
+
+    .contact-form {
       padding: 30px;
-      border-radius: 14px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: 0 12px 40px rgba(8,20,38,.04);
     }
 
-    .quote-form h3 { font-size: 24px; margin-bottom: 5px; }
-    .form-intro { font-size: 13px; color: var(--muted); margin-bottom: 23px; }
+    .contact-form h3 { font-size: 22px; margin-bottom: 5px; }
+    .form-intro { color: var(--muted); font-size: 12px; margin-bottom: 23px; }
 
     .form-grid {
       display: grid;
@@ -412,133 +731,232 @@
       gap: 17px;
     }
 
-    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field { margin-bottom: 17px; }
     .field.full { grid-column: 1 / -1; }
 
-    .field label { font-size: 13px; font-weight: 700; }
+    label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
 
-    .field input, .field select, .field textarea {
+    input, select, textarea {
+      display: block;
       width: 100%;
-      padding: 12px;
-      border: 1px solid #d6deea;
-      border-radius: 6px;
-      color: var(--navy);
-      background: white;
+      padding: 12px 13px;
+      border: 1px solid #dfe5ee;
+      border-radius: 9px;
       outline: none;
+      background: #fbfcfe;
+      color: var(--ink);
+      font-size: 12px;
+      transition: border-color .2s, box-shadow .2s;
     }
 
-    .field input:focus, .field select:focus, .field textarea:focus {
+    input:focus, select:focus, textarea:focus {
       border-color: var(--blue);
-      box-shadow: 0 0 0 3px #2463eb17;
+      box-shadow: 0 0 0 3px rgba(52,120,246,.1);
     }
 
-    .field textarea { resize: vertical; min-height: 95px; }
-    .quote-form .btn { width: 100%; margin-top: 20px; }
+    textarea { resize: vertical; min-height: 105px; }
+    .contact-form .btn { width: 100%; }
+    .form-note { color: var(--muted); font-size: 10px; margin-top: 12px; }
+    .form-status { font-size: 12px; margin-top: 12px; color: #176b42; }
 
-    .form-note { font-size: 11px; color: var(--muted); margin-top: 12px; }
+    /* FOOTER */
 
-    .faq-list { max-width: 800px; margin: auto; }
-
-    details {
-      border-bottom: 1px solid var(--border);
-      padding: 19px 0;
+    footer {
+      background: #050d1b;
+      color: white;
+      padding: 45px 0 20px;
     }
 
-    summary { cursor: pointer; font-weight: 700; padding-right: 20px; }
-    details p { color: var(--muted); font-size: 14px; padding-top: 12px; }
-
-    .final-cta {
-      background: #edf3ff;
-      text-align: center;
-      padding: 60px 20px;
+    .footer-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 30px;
+      padding-bottom: 30px;
     }
 
-    .final-cta h2 { font-size: clamp(28px, 4vw, 38px); margin-bottom: 13px; }
-    .final-cta p { color: var(--muted); margin-bottom: 23px; }
+    footer .brand-name { color: white; }
+    footer .brand-sub { color: #9eacc1; }
 
-    footer { background: #071124; color: #d6dfed; padding: 45px 0 20px; }
-    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; padding-bottom: 32px; }
-    footer .brand { color: white; margin-bottom: 17px; }
-    footer p, footer a { color: #b9c5d8; font-size: 13px; }
-    footer h3 { color: white; font-size: 15px; margin-bottom: 15px; }
-    .footer-links { display: grid; gap: 8px; }
-    .footer-bottom { border-top: 1px solid #27354a; padding-top: 18px; font-size: 12px; }
+    .footer-description {
+      color: #a7b4c9;
+      max-width: 390px;
+      font-size: 12px;
+      margin-top: 17px;
+    }
 
-    .mobile-cta { display: none; }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      color: #d1d9e7;
+      font-size: 12px;
+    }
+
+    .footer-links a:hover { color: #85afff; }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid rgba(255,255,255,.12);
+      padding-top: 19px;
+      color: #8998ad;
+      font-size: 10px;
+    }
+
+    /* ANIMATIONS */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: .1s; }
+    .delay-2 { transition-delay: .2s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-9px); }
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); opacity: .8; }
+      50% { transform: scale(1.08); opacity: 1; }
+    }
+
+    @keyframes floatIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* RESPONSIVE */
 
     @media (max-width: 900px) {
-      nav { gap: 13px; }
-      nav a { font-size: 12px; }
-      .hero-grid { gap: 30px; }
-      .trust-grid { grid-template-columns: repeat(2, 1fr); }
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .about-grid { gap: 35px; }
-      .quote-grid { gap: 30px; }
+      .nav-links { gap: 17px; }
+      .nav-links a { font-size: 12px; }
+      .hero-grid { gap: 28px; padding-top: 70px; padding-bottom: 70px; }
+      .hero-art { min-height: 340px; }
+      .tech-card { padding: 20px; }
+      .floating-badge { right: -4px; }
+      .about-grid { gap: 40px; }
+      .cta-panel { padding: 42px; }
+      .contact-grid { gap: 35px; }
     }
 
-    @media (max-width: 650px) {
-      .topbar .container { justify-content: center; text-align: center; }
-      .navbar { min-height: 70px; }
-      nav a:not(.nav-quote) { display: none; }
-      .nav-quote { padding: 10px 12px; font-size: 12px; }
-      .brand { font-size: 15px; gap: 8px; }
-      .brand-mark { width: 38px; height: 38px; }
-      .hero { padding: 57px 0 48px; }
-      h1 { letter-spacing: -1px; }
-      .hero-grid, .about-grid, .quote-grid { grid-template-columns: 1fr; }
-      .hero-visual { min-height: 290px; padding: 22px; }
-      .trust-grid { gap: 18px 10px; }
-      .trust-item { align-items: flex-start; gap: 9px; }
-      .trust-item strong { font-size: 12px; }
-      .trust-item small { font-size: 11px; }
-      section { padding: 58px 0; }
-      .services-grid, .process-grid { grid-template-columns: 1fr; }
-      .service-card { padding: 23px; }
-      .about-image { min-height: 290px; }
-      .about-copy h2, .quote-copy h2 { font-size: 33px; }
-      .quote-form { padding: 22px 17px; }
-      .form-grid { grid-template-columns: 1fr; }
-      .field.full { grid-column: auto; }
-      .footer-grid { grid-template-columns: 1fr; gap: 25px; }
-      .mobile-cta {
-        display: block;
-        position: fixed;
-        bottom: 0;
+    @media (max-width: 720px) {
+      .container { width: min(100% - 32px, 540px); }
+      .navbar { min-height: 72px; }
+      .brand-mark { width: 40px; height: 40px; }
+      .brand-name { font-size: 12px; }
+      .brand-sub { font-size: 9px; }
+      .menu-toggle { display: block; }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
         left: 0;
         right: 0;
-        z-index: 30;
+        display: none;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px 22px 22px;
         background: white;
-        border-top: 1px solid var(--border);
-        padding: 10px 4%;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 15px 25px rgba(8,20,38,.06);
       }
-      .mobile-cta .btn { width: 100%; }
-      body { padding-bottom: 64px; }
+
+      .nav-links.open { display: flex; flex-direction: column; }
+      .nav-links a:not(.btn) { padding: 12px 0; font-size: 14px; }
+      .nav-links .btn { margin-top: 9px; }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 26px;
+        padding-top: 63px;
+        padding-bottom: 52px;
+      }
+
+      h1 { font-size: clamp(39px, 10vw, 54px); }
+      .hero-copy { font-size: 14px; margin: 19px 0 25px; }
+      .hero-art { min-height: 350px; }
+      .tech-card { width: min(100%, 400px); }
+      .floating-badge { right: 0; bottom: 3px; }
+      section { padding: 68px 0; }
+      .section-heading { margin-bottom: 32px; }
+      .service-grid { grid-template-columns: 1fr; gap: 15px; }
+      .service-card { padding: 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 35px; }
+      .about-visual { min-height: 320px; }
+      .process-grid { grid-template-columns: 1fr; gap: 28px; }
+      .process-card { padding: 0 15px; }
+      .cta-section { padding-top: 0; padding-bottom: 68px; }
+      .cta-panel { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+      .cta-panel .btn { width: 100%; }
+      .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+      .contact-form { padding: 23px 18px; }
+      .footer-top { flex-direction: column; }
+      .footer-bottom { flex-direction: column; gap: 8px; }
+    }
+
+    @media (max-width: 380px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .hero-actions .btn { width: 100%; }
+      .trust-points { gap: 12px; }
     }
   </style>
 </head>
 
 <body>
-
-  <div class="topbar">
-    <div class="container">
-      <span>Electrical & Fire Compliance Services</span>
-      <span>Serving London and surrounding areas</span>
-    </div>
+  <div class="announcement">
+    Electrical & Fire Compliance <span>•</span> London & Surrounding Areas
   </div>
 
   <header>
     <div class="container navbar">
       <a href="#home" class="brand" aria-label="London Cert Experts home">
-        <span class="brand-mark">L<span style="color:#ffb547">C</span></span>
-        <span>LONDON CERT EXPERTS<small>ELECTRICAL & FIRE COMPLIANCE</small></span>
+        <span class="brand-mark">
+          <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M16 3L27 7V15C27 22 22.5 27 16 30C9.5 27 5 22 5 15V7L16 3Z" stroke="white" stroke-width="2"/>
+            <path d="M18 7L11 17H16L14 24L22 13H17L18 7Z" fill="white"/>
+          </svg>
+        </span>
+        <span>
+          <span class="brand-name">LONDON CERT EXPERTS</span>
+          <span class="brand-sub">Electrical & Fire Compliance</span>
+        </span>
       </a>
 
-      <nav aria-label="Main navigation">
-        <a href="#home">Home</a>
+      <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">☰</button>
+
+      <nav class="nav-links" id="nav-links">
         <a href="#services">Services</a>
-        <a href="#about">About</a>
+        <a href="#about">About Us</a>
+        <a href="#process">How It Works</a>
         <a href="#faq">FAQs</a>
-        <a href="#contact" class="btn nav-quote">Get a Quote</a>
+        <a href="#contact" class="btn btn-primary">Get a Quote <span>↗</span></a>
       </nav>
     </div>
   </header>
@@ -546,127 +964,121 @@
   <main>
     <section class="hero" id="home">
       <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">Your property compliance partner</div>
-          <h1>Electrical & Fire Safety, <span>Made Simple.</span></h1>
-          <p>
-            Professional electrical inspection and fire compliance services
-            for landlords, letting agents, property managers and businesses
-            across London.
+        <div class="hero-content">
+          <div class="eyebrow">Your compliance, our priority</div>
+          <h1>Electrical & Fire Compliance <span>Made Simple.</span></h1>
+          <p class="hero-copy">
+            Practical compliance support for landlords, property managers and businesses.
+            Get clear guidance, arrange the right services and take the next step with confidence.
           </p>
 
           <div class="hero-actions">
-            <a href="#contact" class="btn btn-orange">Request a Free Quote →</a>
-            <a href="#services" class="btn btn-outline">Explore Services</a>
+            <a href="#contact" class="btn btn-primary">Request a Quote <span>↗</span></a>
+            <a href="#services" class="btn btn-outline">Explore Services <span>↓</span></a>
           </div>
 
-          <div class="hero-points">
-            <span>Clear communication</span>
-            <span>Convenient appointments</span>
-            <span>Professional service</span>
+          <div class="trust-points">
+            <span><i class="check">✓</i> Clear Communication</span>
+            <span><i class="check">✓</i> Straightforward Quotes</span>
+            <span><i class="check">✓</i> Customer-Focused Support</span>
           </div>
         </div>
 
-        <div class="hero-visual">
-          <span class="visual-label">PROPERTY COMPLIANCE</span>
-          <h2>Safety first.<br>Confidence always.</h2>
-          <p>Helping you manage your property compliance requirements.</p>
+        <div class="hero-art" aria-label="Illustration of electrical compliance">
+          <div class="orb"></div>
+          <div class="tech-card">
+            <div class="tech-card-top">
+              <strong>Compliance Overview</strong>
+              <span class="status">Professional Support</span>
+            </div>
+
+            <div class="panel-illustration">
+              <svg class="panel-svg" viewBox="0 0 200 160" fill="none" aria-hidden="true">
+                <rect x="43" y="10" width="114" height="141" rx="7" fill="#243D60" stroke="#83ACFF" stroke-width="1.5"/>
+                <rect x="53" y="20" width="94" height="19" rx="3" fill="#112746" stroke="#638DDA"/>
+                <circle cx="62" cy="29.5" r="3" fill="#5BE1A1"/>
+                <path d="M71 29H133" stroke="#8DAEDC" stroke-width="2" stroke-linecap="round"/>
+                <g stroke="#8BA8D4" stroke-width="1">
+                  <rect x="54" y="49" width="25" height="40" rx="3"/>
+                  <rect x="87" y="49" width="25" height="40" rx="3"/>
+                  <rect x="120" y="49" width="25" height="40" rx="3"/>
+                  <rect x="54" y="98" width="25" height="40" rx="3"/>
+                  <rect x="87" y="98" width="25" height="40" rx="3"/>
+                  <rect x="120" y="98" width="25" height="40" rx="3"/>
+                </g>
+                <g fill="#3478F6">
+                  <rect x="60" y="55" width="13" height="23" rx="2"/>
+                  <rect x="93" y="55" width="13" height="23" rx="2"/>
+                  <rect x="126" y="55" width="13" height="23" rx="2"/>
+                  <rect x="60" y="104" width="13" height="23" rx="2"/>
+                  <rect x="93" y="104" width="13" height="23" rx="2"/>
+                  <rect x="126" y="104" width="13" height="23" rx="2"/>
+                </g>
+                <g fill="#BBD2FF">
+                  <circle cx="66.5" cy="83" r="2"/>
+                  <circle cx="99.5" cy="83" r="2"/>
+                  <circle cx="132.5" cy="83" r="2"/>
+                  <circle cx="66.5" cy="132" r="2"/>
+                  <circle cx="99.5" cy="132" r="2"/>
+                  <circle cx="132.5" cy="132" r="2"/>
+                </g>
+              </svg>
+            </div>
+
+            <div class="tech-features">
+              <div class="tech-feature">
+                <span class="mini-icon">⚡</span>
+                <span><strong>Electrical</strong><small>Inspection & certification</small></span>
+              </div>
+              <div class="tech-feature">
+                <span class="mini-icon">♧</span>
+                <span><strong>Fire Safety</strong><small>Compliance services</small></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="floating-badge">
+            <span class="badge-icon">✓</span>
+            <span><strong>Need compliance support?</strong><small>Start with a quote request</small></span>
+          </div>
         </div>
       </div>
     </section>
 
-    <div class="trust-strip">
-      <div class="container trust-grid">
-        <div class="trust-item">
-          <div class="trust-icon">⌂</div>
-          <div><strong>Landlords</strong><small>Rental property support</small></div>
-        </div>
-        <div class="trust-item">
-          <div class="trust-icon">▤</div>
-          <div><strong>Letting Agents</strong><small>Property portfolio support</small></div>
-        </div>
-        <div class="trust-item">
-          <div class="trust-icon">⚡</div>
-          <div><strong>Electrical Safety</strong><small>Inspection services</small></div>
-        </div>
-        <div class="trust-item">
-          <div class="trust-icon">✓</div>
-          <div><strong>Fire Compliance</strong><small>Safety service enquiries</small></div>
-        </div>
-      </div>
-    </div>
-
-    <section id="services">
+    <section class="services" id="services">
       <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">What we do</div>
-          <h2 class="section-title">Our Compliance Services</h2>
-          <p>
-            Practical property safety services tailored to landlords,
-            agents and commercial clients. Contact us to confirm the
-            scope, availability and price for your property.
-          </p>
+        <div class="section-heading reveal">
+          <div class="section-tag">What we do</div>
+          <h2>Compliance Services You Can Rely On</h2>
+          <p>Explore the services you may need for your property. Contact us to confirm availability, scope and requirements.</p>
         </div>
 
-        <div class="services-grid">
-          <article class="service-card">
-            <div class="service-icon">⚡</div>
-            <h3>EICR Inspections</h3>
-            <p>
-              Electrical Installation Condition Reports for rental
-              properties and other buildings, subject to the agreed scope.
-            </p>
-            <a href="#contact" class="learn-more">Request a quote →</a>
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2L4 14h7l-1 8 10-12h-7l1-8z"/></svg>
+            </div>
+            <h3>Electrical Certificates</h3>
+            <p>Ask us about EICRs, electrical installation certificates and other electrical inspection or testing requirements for your property.</p>
+            <a class="text-link" href="#contact">Enquire about electrical services <span>→</span></a>
           </article>
 
-          <article class="service-card">
-            <div class="service-icon">⌂</div>
-            <h3>Landlord Electrical Certificates</h3>
-            <p>
-              Electrical safety inspection enquiries for landlords
-              preparing a property for rental or reviewing existing records.
-            </p>
-            <a href="#contact" class="learn-more">Request a quote →</a>
+          <article class="service-card reveal delay-1">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"/><path d="M12 8c-2 2-3 3-3 5a3 3 0 0 0 6 0c0-1.5-1-3-3-5z"/></svg>
+            </div>
+            <h3>Fire Safety Compliance</h3>
+            <p>Discuss your fire safety requirements, including relevant assessments and compliance services for residential or commercial properties.</p>
+            <a class="text-link" href="#contact">Enquire about fire safety <span>→</span></a>
           </article>
 
-          <article class="service-card">
-            <div class="service-icon">♨</div>
-            <h3>Fire Safety Services</h3>
-            <p>
-              Enquire about fire safety assessments and compliance
-              services appropriate to your building and requirements.
-            </p>
-            <a href="#contact" class="learn-more">Request a quote →</a>
-          </article>
-
-          <article class="service-card">
-            <div class="service-icon">☼</div>
-            <h3>Emergency Lighting</h3>
-            <p>
-              Ask about emergency lighting inspection and testing
-              arrangements for your premises.
-            </p>
-            <a href="#contact" class="learn-more">Request a quote →</a>
-          </article>
-
-          <article class="service-card">
-            <div class="service-icon">▦</div>
-            <h3>PAT Testing</h3>
-            <p>
-              Portable appliance testing enquiries for landlords,
-              offices and other commercial environments.
-            </p>
-            <a href="#contact" class="learn-more">Request a quote →</a>
-          </article>
-
-          <article class="service-card">
-            <div class="service-icon">▤</div>
-            <h3>Commercial Compliance</h3>
-            <p>
-              Discuss electrical and fire compliance requirements
-              for your business premises or property portfolio.
-            </p>
-            <a href="#contact" class="learn-more">Discuss your needs →</a>
+          <article class="service-card reveal delay-2">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 15l2 2 5-5"/></svg>
+            </div>
+            <h3>Inspection & Testing</h3>
+            <p>Get in touch to discuss property inspections, testing schedules and the documentation relevant to your compliance needs.</p>
+            <a class="text-link" href="#contact">Discuss your requirements <span>→</span></a>
           </article>
         </div>
       </div>
@@ -674,259 +1086,291 @@
 
     <section class="about" id="about">
       <div class="container about-grid">
-        <div class="about-image" role="img"
-          aria-label="Electrical professional working with equipment"></div>
+        <div class="about-visual reveal">
+          <svg viewBox="0 0 240 250" fill="none" aria-hidden="true">
+            <path d="M120 12L211 46V111C211 169 173 210 120 237C67 210 29 169 29 111V46L120 12Z" fill="#15315A" stroke="#7DAAFF" stroke-width="2"/>
+            <path d="M120 39L185 63V110C185 151 159 182 120 204C81 182 55 151 55 110V63L120 39Z" fill="#0C1D35" stroke="#3D79E7" stroke-width="2"/>
+            <path d="M135 66L91 128H119L107 173L153 108H125L135 66Z" fill="#75A7FF"/>
+            <circle cx="120" cy="125" r="99" stroke="#6B9BFA" stroke-opacity=".16"/>
+          </svg>
+          <div class="visual-caption">
+            <strong>London Cert Experts</strong>
+            <span>Electrical & Fire Compliance Services</span>
+          </div>
+        </div>
 
-        <div class="about-copy">
-          <div class="eyebrow">About our company</div>
-          <h2>Compliance Support You Can Rely On</h2>
-          <p>
-            London Cert Experts helps property owners, landlords,
-            letting agents and businesses organise their electrical
-            and fire compliance requirements.
-          </p>
-          <ul class="check-list">
-            <li>Services for residential and commercial properties</li>
-            <li>Clear quotations and agreed scopes of work</li>
-            <li>Appointment coordination for your property</li>
-            <li>Professional communication from enquiry to completion</li>
-          </ul>
-          <a href="#contact" class="btn">Talk to Our Team →</a>
+        <div class="about-copy reveal delay-1">
+          <div class="section-tag">About our approach</div>
+          <h2>A Clearer Way to Manage Property Compliance</h2>
+          <p>Understanding compliance requirements can be complicated. Our aim is to make the process clearer, from discussing your needs to arranging the appropriate service.</p>
+          <p>Whether you manage a rental property, oversee a portfolio or operate a business, start with a conversation about your requirements and next steps.</p>
+
+          <div class="benefit-list">
+            <div class="benefit"><span class="benefit-icon">✓</span><span>Clear, helpful communication</span></div>
+            <div class="benefit"><span class="benefit-icon">✓</span><span>Quotes based on your needs</span></div>
+            <div class="benefit"><span class="benefit-icon">✓</span><span>Practical service guidance</span></div>
+            <div class="benefit"><span class="benefit-icon">✓</span><span>Support from enquiry onwards</span></div>
+          </div>
+          <a href="#contact" class="btn btn-primary">Talk About Your Requirements ↗</a>
         </div>
       </div>
     </section>
 
-    <section>
+    <section id="process">
       <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">A simple process</div>
-          <h2 class="section-title">How It Works</h2>
-          <p>Three straightforward steps to get your enquiry started.</p>
+        <div class="section-heading reveal">
+          <div class="section-tag">Simple process</div>
+          <h2>Getting Started Is Easy</h2>
+          <p>A straightforward way to tell us what you need and discuss the next step.</p>
         </div>
 
         <div class="process-grid">
-          <div class="process-card">
+          <article class="process-card reveal">
             <div class="process-number">01</div>
             <h3>Tell Us What You Need</h3>
-            <p>Share your property details and the service you require.</p>
-          </div>
-          <div class="process-card">
+            <p>Share your property type, location and the compliance service you are enquiring about.</p>
+          </article>
+          <article class="process-card reveal delay-1">
             <div class="process-number">02</div>
-            <h3>Receive Your Quote</h3>
-            <p>We can discuss the scope, price and appointment options.</p>
-          </div>
-          <div class="process-card">
+            <h3>Discuss Your Requirements</h3>
+            <p>We can review your enquiry and discuss the relevant service, scope and quote.</p>
+          </article>
+          <article class="process-card reveal delay-2">
             <div class="process-number">03</div>
-            <h3>Arrange Your Visit</h3>
-            <p>Agree a suitable appointment and the next steps for your service.</p>
-          </div>
+            <h3>Agree the Next Step</h3>
+            <p>Once the details are confirmed, arrange the service and timing that suit your needs.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="quote-section" id="contact">
-      <div class="container quote-grid">
-        <div class="quote-copy">
-          <div class="eyebrow">Let's get started</div>
-          <h2>Request Your Free Quote</h2>
-          <p>
-            Tell us a little about your property and your requirements.
-            We can then discuss the next steps with you.
-          </p>
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-panel reveal">
+          <div>
+            <h2>Need Help With Your Property Compliance?</h2>
+            <p>Tell us about your requirements and request a quote from London Cert Experts.</p>
+          </div>
+          <a href="#contact" class="btn btn-light">Get in Touch <span>↗</span></a>
+        </div>
+      </div>
+    </section>
 
-          <div class="contact-detail">
-            <strong>Service area</strong><br>
-            London and surrounding areas
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-tag">FAQs</div>
+          <h2>Frequently Asked Questions</h2>
+          <p>Some useful starting points for your compliance enquiry.</p>
+        </div>
+
+        <div class="faq-list reveal">
+          <details>
+            <summary>What services can I enquire about?</summary>
+            <p>You can enquire about electrical certification, electrical inspection and testing, fire safety compliance and related property requirements. We will confirm the services available for your specific needs.</p>
+          </details>
+          <details>
+            <summary>Can landlords and property managers get in touch?</summary>
+            <p>Yes. Landlords, property managers, businesses and other property representatives can use the enquiry form to describe their requirements.</p>
+          </details>
+          <details>
+            <summary>How do I request a quote?</summary>
+            <p>Complete the enquiry form below with your contact details, property location and the service you need. Your email application will open with the enquiry details ready to send.</p>
+          </details>
+          <details>
+            <summary>Which areas do you cover?</summary>
+            <p>Contact us with your property postcode to confirm whether your location is within our service area.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <div class="section-tag">Let's talk</div>
+          <h2>Request Your Quote</h2>
+          <p>Tell us a little about your property and what you need. Include your postcode so the service requirements can be reviewed.</p>
+
+          <div class="contact-item">
+            <div class="service-icon">✉</div>
+            <div>
+              <strong>Email Enquiries</strong>
+              <span>Use the form to prepare your email enquiry.</span>
+            </div>
           </div>
-          <div class="contact-detail">
-            <strong>Enquiries</strong><br>
-            Use the form to tell us how we can help.
+
+          <div class="contact-item">
+            <div class="service-icon">⌖</div>
+            <div>
+              <strong>Service Area</strong>
+              <span>London and surrounding areas — confirm availability for your postcode.</span>
+            </div>
           </div>
-          <div class="contact-detail">
-            <strong>Appointments</strong><br>
-            Subject to availability and confirmation.
+
+          <div class="contact-item">
+            <div class="service-icon">◷</div>
+            <div>
+              <strong>Clear Next Steps</strong>
+              <span>Share your requirements to start the conversation.</span>
+            </div>
           </div>
         </div>
 
-        <form class="quote-form" id="quoteForm">
-          <h3>Get in Touch</h3>
-          <p class="form-intro">Complete the form to prepare your enquiry.</p>
+        <form class="contact-form reveal delay-1" id="contact-form">
+          <h3>Tell Us About Your Project</h3>
+          <p class="form-intro">Complete the details below to prepare your enquiry email.</p>
 
           <div class="form-grid">
             <div class="field">
               <label for="name">Full name *</label>
-              <input id="name" name="name" autocomplete="name" required>
+              <input id="name" name="name" autocomplete="name" required placeholder="Your name">
             </div>
-
             <div class="field">
               <label for="email">Email address *</label>
-              <input id="email" name="email" type="email"
-                autocomplete="email" required>
+              <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
             </div>
-
             <div class="field">
               <label for="phone">Phone number</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel">
+              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Your phone number">
             </div>
-
             <div class="field">
-              <label for="service">Required service *</label>
+              <label for="postcode">Property postcode *</label>
+              <input id="postcode" name="postcode" required placeholder="e.g. SW1A 1AA">
+            </div>
+            <div class="field full">
+              <label for="service">Service required *</label>
               <select id="service" name="service" required>
                 <option value="">Select a service</option>
-                <option>EICR Inspection</option>
-                <option>Landlord Electrical Certificate</option>
-                <option>Fire Safety Services</option>
-                <option>Emergency Lighting</option>
-                <option>PAT Testing</option>
-                <option>Commercial Compliance</option>
-                <option>Other</option>
+                <option>Electrical Installation Condition Report (EICR)</option>
+                <option>Electrical Installation Certificate</option>
+                <option>Fire Safety Compliance</option>
+                <option>Inspection and Testing</option>
+                <option>Other / Not sure</option>
               </select>
             </div>
-
             <div class="field full">
-              <label for="address">Property address / postcode *</label>
-              <input id="address" name="address"
-                autocomplete="street-address" required>
-            </div>
-
-            <div class="field full">
-              <label for="message">Additional details</label>
-              <textarea id="message" name="message"
-                placeholder="Property type, number of bedrooms, preferred appointment, etc."></textarea>
+              <label for="message">Tell us more</label>
+              <textarea id="message" name="message" placeholder="Property type, number of units, preferred dates or other details..."></textarea>
             </div>
           </div>
 
-          <button class="btn" type="submit">Prepare My Enquiry →</button>
-          <p class="form-note">
-            Demo form: your details are not sent or stored by this page.
-            Please do not enter sensitive information.
-          </p>
-          <p id="formStatus" role="status" aria-live="polite"></p>
+          <button type="submit" class="btn btn-primary">Prepare Enquiry Email <span>↗</span></button>
+          <p class="form-note">This form opens your email application. It does not send or store information directly on this website.</p>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
         </form>
-      </div>
-    </section>
-
-    <section id="faq">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">Common questions</div>
-          <h2 class="section-title">Frequently Asked Questions</h2>
-        </div>
-
-        <div class="faq-list">
-          <details>
-            <summary>What is an EICR?</summary>
-            <p>
-              An Electrical Installation Condition Report assesses the
-              condition of a property's fixed electrical installation.
-              The inspection scope and any remedial work should be
-              confirmed with the service provider.
-            </p>
-          </details>
-
-          <details>
-            <summary>Do landlords need electrical safety inspections?</summary>
-            <p>
-              In England, private landlords generally need to arrange
-              electrical safety inspections at least every five years,
-              subject to the applicable rules and circumstances.
-              Confirm the requirements for your particular property.
-            </p>
-          </details>
-
-          <details>
-            <summary>How much does an inspection cost?</summary>
-            <p>
-              The price can depend on property size, installation
-              condition, location and the service required. Submit an
-              enquiry for a quotation based on your property.
-            </p>
-          </details>
-
-          <details>
-            <summary>How do I arrange an appointment?</summary>
-            <p>
-              Send an enquiry with your service and property details.
-              An appointment should be treated as confirmed only after
-              the provider agrees the date and time.
-            </p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="final-cta">
-      <div class="container">
-        <h2>Need Help With Property Compliance?</h2>
-        <p>Tell us what you need and start your quotation enquiry today.</p>
-        <a href="#contact" class="btn">Request a Quote →</a>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container">
-      <div class="footer-grid">
+      <div class="footer-top">
         <div>
           <a href="#home" class="brand">
-            <span class="brand-mark">L<span style="color:#ffb547">C</span></span>
-            <span>LONDON CERT EXPERTS<small>ELECTRICAL & FIRE COMPLIANCE</small></span>
+            <span class="brand-mark">
+              <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <path d="M16 3L27 7V15C27 22 22.5 27 16 30C9.5 27 5 22 5 15V7L16 3Z" stroke="white" stroke-width="2"/>
+                <path d="M18 7L11 17H16L14 24L22 13H17L18 7Z" fill="white"/>
+              </svg>
+            </span>
+            <span>
+              <span class="brand-name">LONDON CERT EXPERTS</span>
+              <span class="brand-sub">Electrical & Fire Compliance</span>
+            </span>
           </a>
-          <p>
-            Electrical and fire compliance service enquiries for
-            landlords, property managers and businesses.
-          </p>
+          <p class="footer-description">Electrical and fire compliance services for property owners, landlords, property managers and businesses.</p>
         </div>
-
-        <div>
-          <h3>Our Services</h3>
-          <div class="footer-links">
-            <a href="#services">EICR Inspections</a>
-            <a href="#services">Landlord Certificates</a>
-            <a href="#services">Fire Safety</a>
-            <a href="#services">Emergency Lighting</a>
-            <a href="#services">PAT Testing</a>
-          </div>
-        </div>
-
-        <div>
-          <h3>Explore</h3>
-          <div class="footer-links">
-            <a href="#about">About Us</a>
-            <a href="#contact">Get a Quote</a>
-            <a href="#faq">FAQs</a>
-            <a href="#privacy">Privacy Notice</a>
-          </div>
-        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="#services">Services</a>
+          <a href="#about">About Us</a>
+          <a href="#faq">FAQs</a>
+          <a href="#contact">Contact</a>
+          <a href="#home">Back to Top ↑</a>
+        </nav>
       </div>
 
-      <div id="privacy" class="footer-bottom">
-        © <span id="year"></span> London Cert Experts. All rights reserved.
-        <p style="margin-top:8px">
-          Website information is general guidance, not legal advice.
-          Service availability and qualifications must be confirmed.
-          A privacy notice must be completed before collecting customer data.
-        </p>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> London Cert Experts. All rights reserved.</span>
+        <span>Electrical & Fire Compliance Services</span>
       </div>
     </div>
   </footer>
 
-  <div class="mobile-cta">
-    <a href="#contact" class="btn">Request a Quote →</a>
-  </div>
-
   <script>
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+    // IMPORTANT: Replace this with your real business email address.
+    const CONTACT_EMAIL = "YOUR_EMAIL_HERE";
 
-    document.getElementById("quoteForm").addEventListener("submit", function(event) {
+    // Mobile navigation
+    const menuButton = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+      menuButton.textContent = isOpen ? "×" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Open navigation menu");
+        menuButton.textContent = "☰";
+      });
+    });
+
+    // Scroll reveal animations
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealElements.forEach(element => observer.observe(element));
+    } else {
+      revealElements.forEach(element => element.classList.add("visible"));
+    }
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Prepare an email enquiry; no backend is configured.
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
       event.preventDefault();
 
-      document.getElementById("formStatus").textContent =
-        "This is a design preview only. Your enquiry has NOT been sent. " +
-        "A secure form service must be connected before accepting enquiries.";
+      const status = document.getElementById("form-status");
+
+      if (CONTACT_EMAIL === "YOUR_EMAIL_HERE" || !CONTACT_EMAIL.includes("@")) {
+        status.style.color = "#b45309";
+        status.textContent = "Please add your real business email in the CONTACT_EMAIL setting in the code before using this form.";
+        return;
+      }
+
+      const data = new FormData(this);
+      const subject = encodeURIComponent("Website Enquiry - " + data.get("service"));
+      const body = encodeURIComponent(
+        "New website enquiry\n\n" +
+        "Name: " + data.get("name") + "\n" +
+        "Email: " + data.get("email") + "\n" +
+        "Phone: " + (data.get("phone") || "Not provided") + "\n" +
+        "Postcode: " + data.get("postcode") + "\n" +
+        "Service: " + data.get("service") + "\n\n" +
+        "Details:\n" + (data.get("message") || "Not provided")
+      );
+
+      status.style.color = "#176b42";
+      status.textContent = "Opening your email application with your enquiry...";
+      window.location.href = "mailto:" + CONTACT_EMAIL + "?subject=" + subject + "&body=" + body;
     });
   </script>
-
 </body>
 </html>
+const CONTACT_EMAIL = "info@londoncertexperts.co.uk";
