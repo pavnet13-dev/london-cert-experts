@@ -1,0 +1,27 @@
+/
+├── index.html
+├── style.css
+├── script.js
+├── config.js
+├── booking.html
+├── booking.js
+├── admin.html
+├── admin.js
+├── contact.html
+├── privacy.html
+├── terms.html
+├── 404.html
+├── robots.txt
+├── sitemap.xml
+├── services/
+│   ├── eicr.html
+│   ├── fire-alarm.html
+│   ├── emergency-lighting.html
+│   ├── epc.html
+│   ├── fire-risk-assessment.html
+│   ├── gas-safety.html
+│   ├── pat-testing.html
+│   ├── legionella.html
+│   └── asbestos.html
+└── supabase/
+    └── setup.sql
