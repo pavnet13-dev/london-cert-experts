@@ -1,733 +1,180 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-GB">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#111820">
-<meta name="description" content="London Cert Experts provides electrical and fire compliance services across London. Explore services, pricing and inspection bookings.">
-<title>London Cert Experts | Electrical & Fire Compliance London</title>
-
-<!-- All styling is inside this file to avoid CSS path problems -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101720">
+<meta name="description" content="Electrical and fire compliance services for London properties. Contact London Cert Experts for inspections and documentation.">
+<title>London Cert Experts | Property Compliance</title>
 <style>
-:root {
-  --bg: #101720;
-  --panel: #18222d;
-  --panel2: #202c38;
-  --cream: #f7f4ed;
-  --copper: #d9a66f;
-  --text: #f7f4ed;
-  --muted: #bdc6ce;
-  --border: rgba(255,255,255,.13);
+:root{--bg:#101720;--panel:#1a2530;--cream:#f7f4ed;--gold:#d9a66f;--muted:#bac4cd;--line:#34404c}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;font:16px/1.7 Arial,sans-serif;background:var(--bg);color:#f7f4ed}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+.wrap{width:min(1160px,90%);margin:auto}
+.top{background:#080d12;color:var(--muted);padding:8px 0;font-size:12px}
+.top .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+header{position:sticky;top:0;z-index:20;background:#101720f5;border-bottom:1px solid var(--line)}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:18px;min-height:78px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:14px}
+.logo{border:1px solid var(--gold);color:var(--gold);padding:8px;border-radius:5px}
+.brand small{display:block;color:var(--muted);font-size:10px;font-weight:400}
+.links{display:flex;align-items:center;gap:20px;font-size:13px}
+.links a:hover{color:var(--gold)}
+.menu{display:none;background:transparent;color:white;border:1px solid var(--line);padding:8px}
+.btn{display:inline-block;background:var(--gold);color:#15191d;padding:12px 18px;border:1px solid var(--gold);border-radius:4px;font-weight:800;font-size:13px}
+.btn.secondary{background:transparent;color:white}
+.hero{padding:90px 0;background:radial-gradient(ellipse at 85% 35%,#d9a66f20,transparent 40%),linear-gradient(135deg,#101720,#1b2732)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+.eyebrow{color:var(--gold);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+h1{font-size:clamp(40px,6vw,70px);line-height:1.05;letter-spacing:-2px;margin:22px 0}
+h1 span{color:var(--gold)}.lead{color:var(--muted);max-width:620px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}
+.art{min-height:370px;display:grid;place-items:center;position:relative;overflow:hidden;border:1px solid var(--line);border-radius:12px;background:radial-gradient(circle,#35424b,#121b24 68%)}
+.orbit{width:240px;height:240px;border:1px solid #d9a66f88;border-radius:50%;display:grid;place-items:center;animation:float 5s ease-in-out infinite}
+.bolt{width:175px;height:175px;display:grid;place-items:center;border-radius:50%;background:#101720c9;border:1px solid var(--line);font-size:68px}
+.art-label{position:absolute;bottom:18px;left:18px;right:18px;background:#101720ed;padding:14px;border:1px solid var(--line);border-radius:6px;font-size:13px}
+.art-label small{display:block;color:var(--muted)}
+@keyframes float{50%{transform:translateY(-12px)}}
+.trust{background:#090f15;border-block:1px solid var(--line)}
+.trust .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
+.trust div{text-align:center;padding:22px 8px;border-right:1px solid var(--line);font-size:13px}
+.trust div:last-child{border:0}.trust small{display:block;color:var(--muted)}
+section{padding:78px 0}.light{background:var(--cream);color:#19222b}
+.heading{max-width:720px;margin-bottom:35px}.heading h2{font-size:clamp(30px,4vw,46px);line-height:1.15;margin:12px 0}
+.heading p{color:#65717b}.dark .heading p{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.card{background:white;border:1px solid #e5e1d8;padding:24px;border-radius:7px;display:flex;flex-direction:column;min-height:230px;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-5px);box-shadow:0 14px 32px #17212b18}
+.card .icon{font-size:29px}.card h3{margin:12px 0 5px;font-size:18px}.card p{color:#68727b;font-size:13px}.card a{margin-top:auto;color:#87572e;font-weight:bold;font-size:12px}
+.split{display:grid;grid-template-columns:.8fr 1.2fr;gap:45px;align-items:center}
+.visual{min-height:320px;display:grid;place-items:center;background:var(--panel);border:1px solid var(--line);border-radius:10px;font-size:80px}
+.steps{display:grid}.step{display:grid;grid-template-columns:45px 1fr;gap:14px;padding:17px 0;border-bottom:1px solid var(--line)}
+.step b{color:var(--gold)}.step p{color:var(--muted);font-size:13px;margin:4px 0}
+.journey{background:#090f15;border-block:1px solid var(--line)}
+.journey-box{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.journey-art{min-height:300px;display:grid;place-items:center;background:radial-gradient(circle,#34414b,#101720);font-size:90px}
+.journey-copy{padding:32px;align-self:center}.journey-copy h3{font-size:29px;line-height:1.2}
+.journey-copy p{color:var(--muted)}.progress{height:3px;background:var(--line);margin:20px 0}.fill{height:100%;width:9%;background:var(--gold);transition:width .3s}
+.controls{display:flex;gap:9px;flex-wrap:wrap}.controls button{padding:9px 13px}
+.cta{background:linear-gradient(120deg,#d9a66f,#f0d0a7);color:#171d23;padding:42px 0}
+.cta-row{display:flex;justify-content:space-between;align-items:center;gap:20px}.cta h2{margin:0;font-size:clamp(26px,4vw,38px);line-height:1.2}.cta p{margin:6px 0}
+footer{padding:42px 0 20px;background:#080d12}footer p,footer a{color:var(--muted);font-size:12px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}.footer-links{display:grid;gap:8px}
+.copy{border-top:1px solid var(--line);padding-top:15px;margin-top:25px;color:var(--muted);font-size:11px}
+#scroll-progress{position:fixed;top:0;left:0;height:3px;background:var(--gold);z-index:99;width:0;pointer-events:none}
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .75s,transform .75s}
+.reveal.left{transform:translateX(-35px)}.reveal.right{transform:translateX(35px)}
+.reveal.visible{opacity:1;transform:none}
+@media(max-width:850px){.links{gap:10px;font-size:12px}.hero-grid{gap:25px}.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){
+ .menu{display:block}.links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);padding:18px 5%;align-items:stretch;flex-direction:column;border-bottom:1px solid var(--line)}
+ .links.open{display:flex}.links a{padding:8px 0}.hero{padding:55px 0}.hero-grid,.split,.journey-box{grid-template-columns:1fr}
+ .art{min-height:280px}.trust .wrap{grid-template-columns:1fr}.trust div{border-right:0;border-bottom:1px solid var(--line)}
+ section{padding:55px 0}.grid{grid-template-columns:1fr}.journey-art{min-height:220px}.journey-copy{padding:22px}
+ .cta-row{align-items:flex-start;flex-direction:column}.footer-grid{grid-template-columns:1fr;gap:15px}
 }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.65;
-}
-a { color: inherit; }
-button, a { -webkit-tap-highlight-color: transparent; }
-a { text-decoration: none; }
-button { font: inherit; }
-.container { width: min(1160px, 90%); margin: auto; }
-.topbar {
-  background: #090e13;
-  color: var(--muted);
-  font-size: 12px;
-  padding: 8px 0;
-}
-.topbar .container {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: rgba(16,23,32,.96);
-  backdrop-filter: blur(15px);
-  border-bottom: 1px solid var(--border);
-}
-.nav {
-  min-height: 82px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 25px;
-}
-.brand { display: flex; align-items: center; gap: 12px; }
-.logo {
-  width: 46px; height: 46px;
-  display: grid; place-items: center;
-  border: 1px solid var(--copper);
-  color: var(--copper);
-  font-weight: 900;
-  font-size: 17px;
-  border-radius: 8px;
-}
-.brand-name { font-size: 15px; font-weight: 800; letter-spacing: .5px; }
-.brand-sub { display: block; font-size: 10px; color: var(--muted); font-weight: 400; }
-.navlinks { display: flex; align-items: center; gap: 25px; }
-.navlinks a { font-size: 13px; color: #e1e5e8; }
-.navlinks a:hover { color: var(--copper); }
-.btn {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 9px;
-  padding: 13px 19px;
-  border: 1px solid var(--copper);
-  background: var(--copper);
-  color: #171b20;
-  border-radius: 4px;
-  font-weight: 800;
-  font-size: 13px;
-  cursor: pointer;
-  transition: transform .2s, background .2s;
-}
-.btn:hover { transform: translateY(-2px); background: #edc493; }
-.btn-outline { background: transparent; color: var(--text); }
-.btn-outline:hover { color: #171b20; }
-.menu-button {
-  display: none;
-  color: var(--text);
-  background: transparent;
-  border: 1px solid var(--border);
-  padding: 9px 12px;
-  border-radius: 4px;
-}
-.hero {
-  position: relative;
-  overflow: hidden;
-  padding: 95px 0 85px;
-  background:
-    radial-gradient(ellipse at 85% 45%, rgba(217,166,111,.13), transparent 38%),
-    linear-gradient(135deg,#101720 35%,#18232d);
-}
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.08fr .92fr;
-  gap: 55px;
-  align-items: center;
-}
-.eyebrow {
-  display: flex; align-items: center; gap: 10px;
-  color: var(--copper);
-  font-size: 11px; font-weight: 800;
-  letter-spacing: 2px; text-transform: uppercase;
-}
-.eyebrow:before { content: ""; width: 28px; height: 1px; background: var(--copper); }
-h1 {
-  font-size: clamp(39px,5.2vw,67px);
-  line-height: 1.06;
-  letter-spacing: -2.5px;
-  margin: 24px 0;
-}
-h1 span { color: var(--copper); }
-.hero-copy { color: var(--muted); max-width: 570px; font-size: 16px; }
-.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 28px 0; }
-.trust-line { color: #d7dddF; font-size: 12px; }
-.hero-art {
-  min-height: 420px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  position: relative;
-  overflow: hidden;
-  background:
-    linear-gradient(180deg,rgba(13,19,26,.1),rgba(13,19,26,.92)),
-    radial-gradient(circle at 50% 38%,#4a5860,#1c2b36 42%,#101720 76%);
-  display: grid;
-  place-items: center;
-}
-.art-circle {
-  width: 270px; height: 270px; border-radius: 50%;
-  border: 1px solid rgba(217,166,111,.4);
-  display: grid; place-items: center;
-  box-shadow: 0 0 80px rgba(217,166,111,.08);
-  animation: float 5s ease-in-out infinite;
-}
-.art-inner {
-  width: 205px; height: 205px; border-radius: 50%;
-  background: rgba(12,18,24,.7);
-  border: 1px solid rgba(255,255,255,.14);
-  display: grid; place-items: center;
-  font-size: 75px;
-}
-.art-label {
-  position: absolute; bottom: 22px; left: 22px; right: 22px;
-  background: rgba(13,19,26,.88);
-  border: 1px solid var(--border);
-  padding: 15px 17px;
-  border-radius: 7px;
-  display: flex; justify-content: space-between; gap: 12px;
-}
-.art-label small { display: block; color: var(--muted); }
-.art-label strong { font-size: 13px; }
-.art-number { color: var(--copper); font-size: 24px; font-weight: 900; }
-@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
-
-.trust-strip { background: #0b1117; border-block: 1px solid var(--border); }
-.trust-grid { display: grid; grid-template-columns: repeat(3,1fr); }
-.trust-item { padding: 22px 16px; text-align: center; border-right: 1px solid var(--border); }
-.trust-item:last-child { border: 0; }
-.trust-item strong { display: block; font-size: 13px; }
-.trust-item span { color: var(--muted); font-size: 11px; }
-
-section { padding: 85px 0; }
-.section-light { background: var(--cream); color: #19222b; }
-.section-head { max-width: 720px; margin-bottom: 38px; }
-.section-head h2 { font-size: clamp(30px,4vw,45px); letter-spacing: -1.3px; line-height: 1.15; margin: 15px 0; }
-.section-head p { color: #65707a; }
-.section-dark .section-head p { color: var(--muted); }
-.section-dark .section-head h2 { color: var(--text); }
-.service-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
-.service-card {
-  background: white; border: 1px solid #e5e1d8;
-  border-radius: 7px; padding: 25px;
-  transition: transform .25s, box-shadow .25s;
-  display: flex; flex-direction: column; min-height: 245px;
-}
-.service-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px #17212b13; }
-.service-icon { font-size: 30px; margin-bottom: 14px; }
-.service-card h3 { margin: 0 0 10px; font-size: 19px; }
-.service-card p { color: #68727b; font-size: 13px; margin: 0 0 20px; }
-.service-link { margin-top: auto; color: #8c592d; font-size: 12px; font-weight: 800; }
-.price-note { font-size: 12px; color: #69737c; margin-top: 22px; }
-
-.section-dark { background: var(--bg); }
-.process-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 50px; align-items: center; }
-.process-visual {
-  min-height: 360px; background: var(--panel);
-  border: 1px solid var(--border); border-radius: 10px;
-  display: grid; place-items: center; position: relative; overflow: hidden;
-}
-.process-visual:before {
-  content: ""; width: 230px; height: 230px; border: 1px solid #d9a66f66;
-  border-radius: 50%; position: absolute; animation: pulse 3s infinite;
-}
-@keyframes pulse { 50% { transform: scale(1.12); opacity: .35; } }
-.process-symbol { font-size: 88px; z-index: 1; }
-.steps { display: grid; gap: 0; }
-.step {
-  display: grid; grid-template-columns: 45px 1fr;
-  gap: 17px; padding: 20px 0; border-bottom: 1px solid var(--border);
-}
-.step-num { color: var(--copper); font-size: 12px; font-weight: 900; }
-.step h3 { margin: 0 0 5px; font-size: 16px; }
-.step p { color: var(--muted); font-size: 13px; margin: 0; }
-
-.journey { background: #0b1117; border-block: 1px solid var(--border); }
-.journey-box {
-  border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
-  display: grid; grid-template-columns: 1fr .85fr;
-}
-.journey-screen {
-  min-height: 360px; background:
-    radial-gradient(circle at center, #35424c, #121b24 70%);
-  display: grid; place-items: center; position: relative;
-}
-.journey-icon { font-size: 95px; transition: transform .4s; }
-.journey-content { padding: 35px; display: flex; flex-direction: column; justify-content: center; }
-.journey-count { color: var(--copper); font-size: 11px; letter-spacing: 2px; font-weight: 800; }
-.journey-content h3 { font-size: 30px; line-height: 1.2; margin: 12px 0; }
-.journey-content p { color: var(--muted); font-size: 14px; }
-.progress { height: 3px; background: #35404b; margin: 20px 0; }
-.progress-fill { height: 100%; background: var(--copper); width: 9%; transition: width .3s; }
-.journey-controls { display: flex; gap: 10px; flex-wrap: wrap; }
-.journey-controls button { padding: 10px 15px; }
-.journey-note { color: var(--muted); font-size: 11px; margin-top: 15px; }
-
-.cta-band {
-  background: linear-gradient(120deg,#d9a66f,#f0d0a7);
-  color: #171d23; padding: 45px 0;
-}
-.cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 25px; }
-.cta-inner h2 { font-size: clamp(26px,4vw,38px); line-height: 1.15; margin: 0 0 8px; }
-.cta-inner p { margin: 0; color: #423c35; }
-.cta-inner .btn { background: #111820; border-color: #111820; color: white; }
-
-footer { background: #080d12; padding: 55px 0 20px; }
-.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; }
-footer p, footer a { color: var(--muted); font-size: 12px; }
-footer h3 { font-size: 13px; }
-.footer-links { display: grid; gap: 8px; }
-.copyright { margin-top: 35px; padding-top: 18px; border-top: 1px solid var(--border); color: #87919a; font-size: 11px; }
-
-@media (max-width: 900px) {
-  .navlinks { gap: 13px; }
-  .navlinks a { font-size: 12px; }
-  .hero-grid { gap: 28px; }
-  .service-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  .process-grid { gap: 25px; }
-}
-@media (max-width: 700px) {
-  .topbar .container { justify-content: center; }
-  .nav { min-height: 72px; }
-  .menu-button { display: block; }
-  .navlinks {
-    display: none; position: absolute; top: 100%; left: 0; right: 0;
-    background: #101720; padding: 18px 5% 25px;
-    border-bottom: 1px solid var(--border);
-    flex-direction: column; align-items: stretch; gap: 0;
-  }
-  .navlinks.open { display: flex; }
-  .navlinks a { padding: 12px 0; border-bottom: 1px solid var(--border); }
-  .navlinks .btn { margin-top: 14px; }
-  .hero { padding: 60px 0; }
-  .hero-grid, .process-grid, .journey-box { grid-template-columns: 1fr; }
-  .hero-art { min-height: 320px; }
-  .art-circle { width: 220px; height: 220px; }
-  .art-inner { width: 165px; height: 165px; font-size: 58px; }
-  section { padding: 60px 0; }
-  .service-grid { grid-template-columns: 1fr; }
-  .trust-grid { grid-template-columns: 1fr; }
-  .trust-item { border-right: 0; border-bottom: 1px solid var(--border); }
-  .journey-screen { min-height: 240px; }
-  .journey-content { padding: 25px; }
-  .cta-inner { align-items: flex-start; flex-direction: column; }
-  .footer-grid { grid-template-columns: 1fr; gap: 22px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    scroll-behavior: auto !important;
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
-  }
-}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
-
 <body>
-<div class="topbar">
-  <div class="container">
-    <span>Electrical · Fire · Property Compliance</span>
-    <a href="mailto:info@londoncertexperts.co.uk">info@londoncertexperts.co.uk</a>
-  </div>
-</div>
-
-<header>
-  <div class="container nav">
-    <a class="brand" href="#home" aria-label="London Cert Experts home">
-      <span class="logo">LCE</span>
-      <span class="brand-name">LONDON CERT EXPERTS
-        <span class="brand-sub">ELECTRICAL & FIRE COMPLIANCE</span>
-      </span>
-    </a>
-    <button class="menu-button" id="menuButton" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-    <nav class="navlinks" id="navLinks">
-      <a href="#home">Home</a>
-      <a href="#services">Our Services</a>
-      <a href="#process">Our Process</a>
-      <a href="#journey">How It Works</a>
-      <a href="#contact" class="btn">Book an Inspection ↗</a>
-    </nav>
-  </div>
-</header>
+<div id="scroll-progress"></div>
+<div class="top"><div class="wrap"><span>Electrical · Fire · Property Compliance</span><a href="mailto:info@londoncertexperts.co.uk">info@londoncertexperts.co.uk</a></div></div>
+<header><div class="wrap nav">
+<a class="brand" href="#home"><span class="logo">LCE</span><span>LONDON CERT EXPERTS<small>ELECTRICAL & FIRE COMPLIANCE</small></span></a>
+<button class="menu" id="menu" aria-expanded="false" aria-label="Open menu">☰</button>
+<nav class="links" id="links"><a href="#home">Home</a><a href="#services">Services</a><a href="#process">Our Process</a><a href="#journey">How It Works</a><a href="portal.html">Client Portal ↗</a><a class="btn" href="#contact">Enquire Now</a></nav>
+</div></header>
 
 <main>
-<section class="hero" id="home">
-  <div class="container hero-grid">
-    <div>
-      <div class="eyebrow">Electrical · Fire · Property Compliance</div>
-      <h1>Compliance made clear.<br><span>Confidence built in.</span></h1>
-      <p class="hero-copy">Professional property compliance services for landlords, letting agents, homeowners and commercial properties across London. From your first booking to your completed report, know what comes next.</p>
-      <div class="hero-actions">
-        <a class="btn" href="#contact">Book an Inspection ↗</a>
-        <a class="btn btn-outline" href="#journey">Explore Our Process ↓</a>
-      </div>
-      <div class="trust-line">✓ Clear pricing &nbsp; ✓ Transparent process &nbsp; ✓ Direct contact</div>
-    </div>
-    <div class="hero-art" aria-label="Electrical and property safety illustration">
-      <div class="art-circle"><div class="art-inner">⚡</div></div>
-      <div class="art-label">
-        <div><strong>Property compliance, simplified.</strong><small>From booking to report delivery</small></div>
-        <span class="art-number">LCE</span>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="hero" id="home"><div class="wrap hero-grid">
+<div class="reveal left"><div class="eyebrow">Electrical · Fire · Property Compliance</div>
+<h1>Compliance made clear.<br><span>Confidence built in.</span></h1>
+<p class="lead">Professional property compliance services for landlords, letting agents, homeowners and commercial properties across London. From your first enquiry to your completed documentation, know what comes next.</p>
+<div class="actions"><a class="btn" href="#contact">Discuss Your Property ↗</a><a class="btn secondary" href="#journey">Explore Our Process ↓</a></div>
+<p class="lead">✓ Clear communication &nbsp; ✓ Transparent process &nbsp; ✓ Client document portal</p></div>
+<div class="art reveal right"><div class="orbit"><div class="bolt">⚡</div></div><div class="art-label"><b>Property compliance, simplified.</b><small>From initial enquiry to report delivery</small></div></div>
+</div></section>
+<div class="trust"><div class="wrap"><div><b>Electrical Safety</b><small>EICR and related enquiries</small></div><div><b>Fire Compliance</b><small>Fire alarm and emergency lighting</small></div><div><b>Property Assessments</b><small>Residential and commercial enquiries</small></div></div></div>
 
-<div class="trust-strip">
-  <div class="container trust-grid">
-    <div class="trust-item"><strong>Electrical Safety</strong><span>EICR and installation checks</span></div>
-    <div class="trust-item"><strong>Fire Compliance</strong><span>Fire alarm and emergency lighting</span></div>
-    <div class="trust-item"><strong>Property Assessments</strong><span>Compliance services for property owners</span></div>
-  </div>
-</div>
+<section class="light" id="services"><div class="wrap">
+<div class="heading reveal"><div class="eyebrow">Our Services</div><h2>One property. Every essential check.</h2><p>Explore the services available through London Cert Experts. Contact us to confirm scope, availability and pricing for your property.</p></div>
+<div class="grid">
+<article class="card reveal"><span class="icon">⚡</span><h3>Electrical Safety — EICR</h3><p>Assessment of the condition and safety of a property's electrical installation.</p><a href="#contact">Enquire about EICR ↗</a></article>
+<article class="card reveal"><span class="icon">🔔</span><h3>Fire Alarm Certification</h3><p>Fire alarm inspection and system checks appropriate to the installation.</p><a href="#contact">Enquire about fire alarms ↗</a></article>
+<article class="card reveal"><span class="icon">💡</span><h3>Emergency Lighting</h3><p>Checks of emergency lighting systems and relevant test records.</p><a href="#contact">Enquire about lighting ↗</a></article>
+<article class="card reveal"><span class="icon">🏠</span><h3>Energy Performance — EPC</h3><p>Energy performance assessment and certificate arrangements for properties.</p><a href="#contact">Enquire about EPC ↗</a></article>
+<article class="card reveal"><span class="icon">🧯</span><h3>Fire Risk Assessment</h3><p>Discuss fire hazards, risks and relevant safety assessment requirements.</p><a href="#contact">Enquire about FRA ↗</a></article>
+<article class="card reveal"><span class="icon">🔥</span><h3>Gas Safety</h3><p>Ask about gas safety checks and the documentation needed for your property.</p><a href="#contact">Enquire about gas safety ↗</a></article>
+<article class="card reveal"><span class="icon">🔌</span><h3>PAT Testing</h3><p>Portable appliance testing arrangements for residential and commercial premises.</p><a href="#contact">Enquire about PAT testing ↗</a></article>
+<article class="card reveal"><span class="icon">💧</span><h3>Legionella Risk Assessment</h3><p>Discuss water-system risk assessment requirements for your premises.</p><a href="#contact">Request a quotation ↗</a></article>
+<article class="card reveal"><span class="icon">🏗️</span><h3>Asbestos Services</h3><p>Enquire about asbestos survey requirements and suitable next steps.</p><a href="#contact">Request a quotation ↗</a></article>
+</div><p style="font-size:12px;color:#69737c;margin-top:20px">Prices and service scope are confirmed for the specific property before work is agreed. Website content does not itself certify qualifications or accreditations.</p>
+</div></section>
 
-<section class="section-light" id="services">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">Our Services</div>
-      <h2>One property. Every essential check.</h2>
-      <p>Explore our electrical, fire and property assessment services. Choose a service to discuss the right inspection and requirements for your property.</p>
-    </div>
+<section id="process"><div class="wrap split">
+<div class="reveal"><div class="eyebrow">Our Process</div><h2 style="font-size:clamp(32px,4vw,46px);line-height:1.15">From first enquiry to clear next steps.</h2><p style="color:var(--muted)">A simple overview of the typical compliance journey, with communication at each stage.</p><div class="visual">🧰</div></div>
+<div class="steps">
+<div class="step reveal"><b>01</b><div><strong>Tell us about your property</strong><p>Share the property address, service required and useful details.</p></div></div>
+<div class="step reveal"><b>02</b><div><strong>Confirm scope and appointment</strong><p>Discuss the work, price and suitable appointment arrangements.</p></div></div>
+<div class="step reveal"><b>03</b><div><strong>Inspection or assessment</strong><p>The agreed visit is carried out for the relevant service.</p></div></div>
+<div class="step reveal"><b>04</b><div><strong>Report and documentation</strong><p>Applicable documentation is prepared and delivered following completion.</p></div></div>
+<div class="step reveal"><b>05</b><div><strong>Keep your records together</strong><p>Registered clients will be able to access their own uploaded documents through the client portal.</p></div></div>
+</div></div></section>
 
-    <div class="service-grid">
-      <article class="service-card">
-        <div class="service-icon">⚡</div>
-        <h3>Electrical Safety — EICR</h3>
-        <p>Assess the condition and safety of a property's electrical installation.</p>
-        <a class="service-link" href="#contact">Enquire about EICR ↗</a>
-      </article>
-      <article class="service-card">
-        <div class="service-icon">🔔</div>
-        <h3>Fire Alarm Certification</h3>
-        <p>Fire alarm inspection and system checks appropriate to the installation.</p>
-        <a class="service-link" href="#contact">Enquire about fire alarms ↗</a>
-      </article>
-      <article class="service-card">
-        <div class="service-icon">💡</div>
-        <h3>Emergency Lighting</h3>
-        <p>Checks of emergency lighting systems and relevant test records.</p>
-        <a class="service-link" href="#contact">Enquire about lighting ↗</a>
-      </article>
-      <article class="service-card">
-        <div class="service-icon">🏠</div>
-        <h3>Energy Performance — EPC</h3>
-        <p>Energy performance assessment and certificate arrangements for properties.</p>
-        <a class="service-link" href="#contact">Enquire about EPC ↗</a>
-      </article>
-      <article class="service-card">
-        <div class="service-icon">🧯</div>
-        <h3>Fire Risk Assessment</h3>
-        <p>Discuss an assessment of fire hazards, risks and relevant safety measures.</p>
-        <a class="service-link" href="#contact">Enquire about FRA ↗</a>
-      </article>
-      <article class="service-card">
-        <div class="service-icon">🔥</div>
-        <h3>Gas Safety</h3>
-        <p>Ask about gas safety checks and the documentation required for your property.</p>
-        <a class="service-link" href="#contact">Enquire about gas safety ↗</a>
-      </article>
-      <article class="service-card">
-        <div class="service-icon">🔌</div>
-        <h3>PAT Testing</h3>
-        <p>Portable appliance testing arrangements for homes and commercial premises.</p>
-        <a class="service-link" href="#contact">Enquire about PAT testing ↗</a>
-      </article>
-      <article class="service-card">
-        <div class="service-icon">💧</div>
-        <h3>Legionella Risk Assessment</h3>
-        <p>Discuss water-system risk assessment requirements for your premises.</p>
-        <a class="service-link" href="#contact">Request a quotation ↗</a>
-      </article>
-      <article class="service-card">
-        <div class="service-icon">🏗️</div>
-        <h3>Asbestos Services</h3>
-        <p>Enquire about asbestos survey requirements and appropriate next steps.</p>
-        <a class="service-link" href="#contact">Request a quotation ↗</a>
-      </article>
-    </div>
-    <p class="price-note">Prices and service scope should be confirmed for your property before work is booked. No certification or accreditation is implied by this website alone.</p>
-  </div>
-</section>
+<section class="journey" id="journey"><div class="wrap">
+<div class="heading reveal"><div class="eyebrow">Interactive Compliance Journey</div><h2>See how the process moves forward.</h2><p>Scroll to this section and play the guided 11-stage story, or move through the stages yourself.</p></div>
+<div class="journey-box reveal"><div class="journey-art" id="jIcon">📅</div><div class="journey-copy">
+<div class="eyebrow" id="jCount">STAGE 01 / 11</div><h3 id="jTitle">Your enquiry begins</h3><p id="jText">Tell us which service your property needs and share the essential details.</p>
+<div class="progress"><div class="fill" id="jFill"></div></div>
+<div class="controls"><button class="btn secondary" id="jPrev">← Back</button><button class="btn" id="jPlay">▶ Play journey</button><button class="btn secondary" id="jNext">Next →</button></div>
+<p style="font-size:11px">Guided sequence: approximately 50 seconds. No sound. You can pause at any time.</p>
+</div></div></div></section>
 
-<section class="section-dark" id="process">
-  <div class="container process-grid">
-    <div>
-      <div class="section-head">
-        <div class="eyebrow">Our Process</div>
-        <h2>Know what happens next.</h2>
-        <p>Clear communication from your initial enquiry through the inspection and report process.</p>
-      </div>
-      <div class="process-visual"><div class="process-symbol" id="processSymbol">📋</div></div>
-    </div>
-    <div class="steps">
-      <div class="step"><div class="step-num">01</div><div><h3>Tell us about your property</h3><p>Share the address, property type and compliance service you need.</p></div></div>
-      <div class="step"><div class="step-num">02</div><div><h3>Confirm the scope and appointment</h3><p>Discuss requirements, availability and any applicable price before confirming.</p></div></div>
-      <div class="step"><div class="step-num">03</div><div><h3>Inspection and assessment</h3><p>The relevant inspection or assessment is arranged with the appropriate professional.</p></div></div>
-      <div class="step"><div class="step-num">04</div><div><h3>Report and next steps</h3><p>Receive the applicable report or certificate following completion and review.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="journey section-dark" id="journey">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">The Compliance Journey</div>
-      <h2>From booking to certificate.</h2>
-      <p>Explore the stages of a typical compliance job. Press play to watch the guided animation.</p>
-    </div>
-    <div class="journey-box">
-      <div class="journey-screen"><div class="journey-icon" id="journeyIcon">📅</div></div>
-      <div class="journey-content">
-        <div class="journey-count" id="journeyCount">STAGE 01 / 11</div>
-        <h3 id="journeyTitle">Your enquiry begins</h3>
-        <p id="journeyText">Tell us which service your property needs and share the essential details.</p>
-        <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
-        <div class="journey-controls">
-          <button class="btn btn-outline" id="previousStage" type="button">← Back</button>
-          <button class="btn" id="playJourney" type="button">▶ Play journey</button>
-          <button class="btn btn-outline" id="nextStage" type="button">Next →</button>
-        </div>
-        <p class="journey-note">The full guided sequence takes about 50 seconds. No sound. You can pause or move between stages at any time.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="cta-band" id="contact">
-  <div class="container cta-inner">
-    <div>
-      <h2>Ready to discuss your property?</h2>
-      <p>Contact London Cert Experts to enquire about a service or arrange the next step.</p>
-    </div>
-    <a class="btn" href="mailto:info@londoncertexperts.co.uk?subject=Property%20Compliance%20Enquiry">Email Our Team ↗</a>
-  </div>
-</div>
+<section class="cta" id="contact"><div class="wrap cta-row"><div><h2>Let's discuss your property.</h2><p>Contact London Cert Experts to discuss a service or the next step.</p></div><a class="btn" style="background:#101720;color:white;border-color:#101720" href="mailto:info@londoncertexperts.co.uk?subject=Property%20Compliance%20Enquiry">Email Our Team ↗</a></div></section>
 </main>
-
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <a class="brand" href="#home"><span class="logo">LCE</span><span class="brand-name">LONDON CERT EXPERTS<span class="brand-sub">ELECTRICAL & FIRE COMPLIANCE</span></span></a>
-        <p>Electrical, fire and property compliance enquiries for London landlords, agents, homeowners and commercial property managers.</p>
-      </div>
-      <div>
-        <h3>Explore</h3>
-        <div class="footer-links">
-          <a href="#services">Our Services</a>
-          <a href="#process">Our Process</a>
-          <a href="#journey">Compliance Journey</a>
-        </div>
-      </div>
-      <div>
-        <h3>Contact</h3>
-        <div class="footer-links">
-          <a href="mailto:info@londoncertexperts.co.uk">info@londoncertexperts.co.uk</a>
-          <a href="#contact">Make an enquiry</a>
-        </div>
-      </div>
-    </div>
-    <div class="copyright">© <span id="year"></span> London Cert Experts. All rights reserved.</div>
-  </div>
-</footer>
+<footer><div class="wrap"><div class="footer-grid">
+<div><a class="brand" href="#home"><span class="logo">LCE</span><span>LONDON CERT EXPERTS<small>ELECTRICAL & FIRE COMPLIANCE</small></span></a><p>Electrical, fire and property compliance enquiries for London landlords, agents, homeowners and commercial property managers.</p></div>
+<div><b>Explore</b><div class="footer-links"><a href="#services">Services</a><a href="#process">Our Process</a><a href="#journey">Compliance Journey</a></div></div>
+<div><b>Client Services</b><div class="footer-links"><a href="portal.html">Client Portal Login</a><a href="mailto:info@londoncertexperts.co.uk">Contact Us</a></div></div>
+</div><div class="copy">© <span id="year"></span> London Cert Experts. All rights reserved.</div></div></footer>
 
 <script>
-const menuButton = document.getElementById("menuButton");
-const navLinks = document.getElementById("navLinks");
+document.getElementById("year").textContent=new Date().getFullYear();
+const menu=document.getElementById("menu"),links=document.getElementById("links");
+menu.addEventListener("click",()=>{const open=links.classList.toggle("open");menu.setAttribute("aria-expanded",String(open))});
+links.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>links.classList.remove("open")));
+const progress=document.getElementById("scroll-progress");
+function scrollProgress(){const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max>0?scrollY/max*100:0)+"%"}
+addEventListener("scroll",scrollProgress,{passive:true});addEventListener("resize",scrollProgress);scrollProgress();
 
-menuButton.addEventListener("click", () => {
-  const open = navLinks.classList.toggle("open");
-  menuButton.setAttribute("aria-expanded", String(open));
-});
+const revealItems=document.querySelectorAll(".reveal");
+if("IntersectionObserver" in window&&!matchMedia("(prefers-reduced-motion: reduce)").matches){
+ const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target)}}),{threshold:.12});
+ revealItems.forEach((el,i)=>{if(el.classList.contains("card"))el.style.transitionDelay=(i%3)*100+"ms";obs.observe(el)});
+}else revealItems.forEach(el=>el.classList.add("visible"));
 
-navLinks.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("open");
-    menuButton.setAttribute("aria-expanded", "false");
-  });
-});
-
-document.getElementById("year").textContent = new Date().getFullYear();
-
-const stages = [
-  {icon:"📅",title:"Your enquiry begins",text:"Tell us which service your property needs and share the essential details."},
-  {icon:"📝",title:"Property details recorded",text:"The property type, location and requested compliance service are clarified."},
-  {icon:"🗓️",title:"Appointment discussed",text:"Suitable appointment availability and the service scope are confirmed with you."},
-  {icon:"✉️",title:"Booking confirmation",text:"Once the appointment is agreed, the details can be confirmed with the customer."},
-  {icon:"🧰",title:"Preparation for inspection",text:"The professional reviews the job details and prepares for the agreed visit."},
-  {icon:"🚐",title:"Arrival at the property",text:"The appointment takes place at the agreed property and time."},
-  {icon:"⚡",title:"Inspection or assessment",text:"The relevant checks are completed according to the service and property requirements."},
-  {icon:"📊",title:"Findings reviewed",text:"Inspection findings and any relevant observations are recorded for reporting."},
-  {icon:"📄",title:"Report prepared",text:"The applicable report or certificate is prepared after the work is completed."},
-  {icon:"🔎",title:"Completion review",text:"The report is checked and the next steps, if any, are communicated."},
-  {icon:"✅",title:"Report delivery",text:"The customer receives the applicable completed documentation through the agreed process."}
+const stages=[
+["📅","Your enquiry begins","Tell us which service your property needs and share the essential details."],
+["📝","Property details recorded","Clarify the property type, location and compliance service requested."],
+["🗓️","Appointment discussed","Discuss availability, service scope and any applicable price."],
+["✉️","Booking confirmed","Once agreed, the appointment details are confirmed with you."],
+["🧰","Preparation","The job details are reviewed before the arranged visit."],
+["🚐","Property visit","The professional attends at the agreed property and time."],
+["⚡","Inspection or assessment","Relevant checks are carried out for the agreed service."],
+["📊","Findings recorded","Observations and relevant findings are recorded for reporting."],
+["📄","Report prepared","The applicable report or certificate is prepared after completion."],
+["🔎","Completion review","Documentation and next steps are reviewed."],
+["✅","Documentation delivered","The customer receives the applicable completed documentation."]
 ];
-
-let currentStage = 0;
-let playTimer = null;
-const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-function showStage(index) {
-  currentStage = (index + stages.length) % stages.length;
-  const stage = stages[currentStage];
-  document.getElementById("journeyIcon").textContent = stage.icon;
-  document.getElementById("journeyTitle").textContent = stage.title;
-  document.getElementById("journeyText").textContent = stage.text;
-  document.getElementById("journeyCount").textContent =
-    "STAGE " + String(currentStage + 1).padStart(2,"0") + " / " + stages.length;
-  document.getElementById("progressFill").style.width =
-    ((currentStage + 1) / stages.length * 100) + "%";
-}
-
-function stopJourney() {
-  if (playTimer) clearInterval(playTimer);
-  playTimer = null;
-  document.getElementById("playJourney").textContent = "▶ Play journey";
-}
-
-document.getElementById("previousStage").addEventListener("click", () => {
-  stopJourney();
-  showStage(currentStage - 1);
-});
-
-document.getElementById("nextStage").addEventListener("click", () => {
-  stopJourney();
-  showStage(currentStage + 1);
-});
-
-document.getElementById("playJourney").addEventListener("click", () => {
-  if (playTimer) {
-    stopJourney();
-    return;
-  }
-  if (reducedMotion) {
-    showStage(currentStage + 1);
-    return;
-  }
-  if (currentStage === stages.length - 1) showStage(0);
-  document.getElementById("playJourney").textContent = "Ⅱ Pause";
-  playTimer = setInterval(() => {
-    if (currentStage >= stages.length - 1) {
-      stopJourney();
-      return;
-    }
-    showStage(currentStage + 1);
-  }, 4500);
-});
-
+let stage=0,timer=null;
+function showStage(n){stage=(n+stages.length)%stages.length;const s=stages[stage];document.getElementById("jIcon").textContent=s[0];document.getElementById("jTitle").textContent=s[1];document.getElementById("jText").textContent=s[2];document.getElementById("jCount").textContent="STAGE "+String(stage+1).padStart(2,"0")+" / 11";document.getElementById("jFill").style.width=((stage+1)/stages.length*100)+"%"}
+function stop(){clearInterval(timer);timer=null;document.getElementById("jPlay").textContent="▶ Play journey"}
+document.getElementById("jPrev").onclick=()=>{stop();showStage(stage-1)};
+document.getElementById("jNext").onclick=()=>{stop();showStage(stage+1)};
+document.getElementById("jPlay").onclick=()=>{if(timer){stop();return}if(matchMedia("(prefers-reduced-motion: reduce)").matches){showStage(stage+1);return}if(stage===stages.length-1)showStage(0);document.getElementById("jPlay").textContent="Ⅱ Pause";timer=setInterval(()=>{if(stage>=stages.length-1){stop();return}showStage(stage+1)},4500)};
 showStage(0);
 </script>
 </body>
 </html>
-<style>
-  
-/* ===== LCE SCROLL STORY ANIMATIONS ===== */
-
-:root {
-  --scroll-gold: #d9a66f;
-}
-
-/* Thin progress line at the top of the page */
-#scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  width: 0%;
-  background: var(--scroll-gold);
-  z-index: 9999;
-  box-shadow: 0 0 12px #d9a66f77;
-  pointer-events: none;
-}
-
-/* Reveal elements as the visitor scrolls */
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(45px);
-  transition:
-    opacity .8s ease,
-    transform .8s cubic-bezier(.2,.7,.2,1);
-}
-
-.scroll-reveal.from-left {
-  transform: translateX(-55px);
-}
-
-.scroll-reveal.from-right {
-  transform: translateX(55px);
-}
-
-.scroll-reveal.is-visible {
-  opacity: 1;
-  transform: translate(0, 0);
-}
-
-/* Service cards appear one after another */
-.service-card.scroll-reveal {
-  transition-delay: var(--reveal-delay, 0ms);
-}
-
-/* Animated line between process steps */
-.step {
-  position: relative;
-  transition: background .3s ease;
-}
-
-.step.is-active {
-  background: linear-gradient(
-    90deg,
-    rgba(217,166,111,.11),
-    transparent
-  );
-}
-
-.step-num {
-  transition: transform .3s ease, color .3s ease;
-}
-
-.step.is-active .step-num {
-  transform: scale(1.2);
-  color: #f0c18d;
-}
-
-/* Service icons respond when cards appear */
-.service-icon {
-  display: inline-block;
-  transition: transform .4s ease;
-}
-
-.service-card.is-visible .service-icon {
-  animation: service-icon-pop .65s ease both;
-}
-
-@keyframes service-icon-pop {
-  0% { transform: scale(.65) rotate(-10deg); }
-  65% { transform: scale(1.12) rotate(3deg); }
-  100% { transform: scale(1) rotate(0); }
-}
-
-/* Subtle moving glow on the main illustration */
-.hero-art::before {
-  content: "";
-  position: absolute;
-  width: 190px;
-  height: 190px;
-  border-radius: 50%;
-  background: rgba(217,166,111,.09);
-  filter: blur(35px);
-  animation: hero-glow 6s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-
-@keyframes hero-glow {
-  from { transform: translate(-35px,-20px); }
-  to { transform: translate(35px,20px); }
-}
-
-/* Journey illustration gently reacts to stage changes */
-.journey-icon {
-  animation: journey-enter .5s ease both;
-}
-
-@keyframes journey-enter {
-  from { opacity: .3; transform: scale(.75) translateY(15px); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
-}
-
-/* Respect visitors who prefer reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .scroll-reveal,
-  .scroll-reveal.from-left,
-  .scroll-reveal.from-right {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-
-  .hero-art::before,
-  .service-icon,
-  .journey-icon {
-    animation: none !important;
-  }
-}
