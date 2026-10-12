@@ -1,0 +1,133 @@
+
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101720">
+<title>Client Portal | London Cert Experts</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#101720;color:#f7f4ed;font:15px/1.6 Arial,sans-serif}
+a{color:#d9a66f}
+.wrap{width:min(900px,92%);margin:auto}
+header{padding:18px 0;border-bottom:1px solid #34404c}
+.brand{color:#f7f4ed;text-decoration:none;font-weight:bold}
+main{padding:45px 0 75px}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.15}
+.muted{color:#bac4cd}
+.panel{background:#1a2530;border:1px solid #34404c;border-radius:10px;padding:25px;margin:20px 0}
+label{display:block;font-size:13px;margin:13px 0 5px}
+input,select,textarea{width:100%;padding:12px;background:#0e151d;color:white;border:1px solid #45515e;border-radius:5px;font:inherit}
+button,.button{display:inline-block;background:#d9a66f;color:#171d23;border:0;border-radius:4px;padding:12px 17px;font-weight:bold;cursor:pointer;text-decoration:none}
+button:disabled{opacity:.5;cursor:wait}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.status{padding:12px;background:#0e151d;border:1px solid #34404c;border-radius:5px;white-space:pre-wrap;overflow-wrap:anywhere}
+.hidden{display:none!important}
+.doc{padding:15px 0;border-bottom:1px solid #34404c}
+.doc:last-child{border-bottom:0}
+small{color:#bac4cd}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="index.html">← LONDON CERT EXPERTS</a></div></header>
+<main class="wrap">
+<p class="muted">SECURE CUSTOMER AREA</p>
+<h1>Your compliance documents,<br>in one place.</h1>
+<p class="muted">Create your account to submit property details and store your compliance documents privately.</p>
+
+<div id="setupWarning" class="panel hidden">
+<strong>Portal setup required</strong>
+<p>Supabase has not been configured yet. Complete the Supabase setup and update config.js before using the portal.</p>
+</div>
+
+<section id="authPanel" class="panel">
+<h2 id="authHeading">Client login</h2>
+<p class="muted" id="authDescription">Sign in to access your account and documents.</p>
+<form id="authForm">
+<label for="email">Email address</label>
+<input id="email" type="email" autocomplete="email" required>
+<label for="password">Password</label>
+<input id="password" type="password" minlength="8" autocomplete="current-password" required>
+<div class="row">
+<button id="authSubmit" type="submit">Log in</button>
+<button id="toggleSignup" type="button" class="button">Create account</button>
+</div>
+</form>
+<p class="muted">Use your own account. Never share your password with anyone.</p>
+</section>
+
+<section id="dashboard" class="hidden">
+<div class="panel">
+<h2>Client dashboard</h2>
+<p id="signedInAs" class="muted"></p>
+<div class="row"><button id="logout" type="button">Log out</button></div>
+</div>
+
+<div class="panel">
+<h2>Property details</h2>
+<form id="propertyForm">
+<label for="propertyName">Property nickname (e.g. Flat 2)</label>
+<input id="propertyName" maxlength="100" required>
+<label for="propertyAddress">Property address</label>
+<textarea id="propertyAddress" maxlength="1000" required rows="3"></textarea>
+<label for="propertyPostcode">Postcode</label>
+<input id="propertyPostcode" maxlength="20" required>
+<label for="serviceType">Compliance service</label>
+<select id="serviceType" required>
+<option value="">Choose a service</option>
+<option>EICR</option>
+<option>Fire Alarm Certification</option>
+<option>Emergency Lighting</option>
+<option>EPC</option>
+<option>Fire Risk Assessment</option>
+<option>Gas Safety</option>
+<option>PAT Testing</option>
+<option>Legionella Risk Assessment</option>
+<option>Asbestos Services</option>
+<option>Other</option>
+</select>
+<label for="propertyNotes">Additional details (optional)</label>
+<textarea id="propertyNotes" maxlength="2000" rows="3"></textarea>
+<div class="row"><button type="submit">Save property details</button></div>
+</form>
+</div>
+
+<div class="panel">
+<h2>Upload a compliance document</h2>
+<p class="muted">Upload a PDF or image. Do not upload passwords, payment-card details or documents unrelated to your property.</p>
+<form id="uploadForm">
+<label for="documentProperty">Property</label>
+<select id="documentProperty" required><option value="">Save a property first</option></select>
+<label for="documentType">Document type</label>
+<select id="documentType" required>
+<option value="">Choose a document type</option>
+<option>EICR</option><option>Fire Alarm Certificate</option>
+<option>Emergency Lighting Certificate</option><option>EPC</option>
+<option>Fire Risk Assessment</option><option>Gas Safety Certificate</option>
+<option>PAT Testing Report</option><option>Legionella Report</option>
+<option>Asbestos Report</option><option>Other</option>
+</select>
+<label for="documentFile">Select file (PDF, JPG or PNG; max 10 MB)</label>
+<input id="documentFile" type="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" required>
+<div class="row"><button id="uploadButton" type="submit">Upload document</button></div>
+</form>
+</div>
+
+<div class="panel">
+<h2>Your saved properties</h2><div id="propertiesList" class="muted">Loading…</div>
+</div>
+<div class="panel">
+<h2>Your uploaded documents</h2><div id="documentsList" class="muted">Loading…</div>
+</div>
+</section>
+
+<div id="message" class="status" role="status" aria-live="polite">Checking portal configuration…</div>
+<p><a href="index.html">Return to website homepage</a></p>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="portal.js"></script>
+</body>
+</html>
