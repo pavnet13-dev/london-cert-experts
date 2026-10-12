@@ -600,3 +600,134 @@ showStage(0);
 </script>
 </body>
 </html>
+<style>
+  
+/* ===== LCE SCROLL STORY ANIMATIONS ===== */
+
+:root {
+  --scroll-gold: #d9a66f;
+}
+
+/* Thin progress line at the top of the page */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--scroll-gold);
+  z-index: 9999;
+  box-shadow: 0 0 12px #d9a66f77;
+  pointer-events: none;
+}
+
+/* Reveal elements as the visitor scrolls */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(45px);
+  transition:
+    opacity .8s ease,
+    transform .8s cubic-bezier(.2,.7,.2,1);
+}
+
+.scroll-reveal.from-left {
+  transform: translateX(-55px);
+}
+
+.scroll-reveal.from-right {
+  transform: translateX(55px);
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Service cards appear one after another */
+.service-card.scroll-reveal {
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* Animated line between process steps */
+.step {
+  position: relative;
+  transition: background .3s ease;
+}
+
+.step.is-active {
+  background: linear-gradient(
+    90deg,
+    rgba(217,166,111,.11),
+    transparent
+  );
+}
+
+.step-num {
+  transition: transform .3s ease, color .3s ease;
+}
+
+.step.is-active .step-num {
+  transform: scale(1.2);
+  color: #f0c18d;
+}
+
+/* Service icons respond when cards appear */
+.service-icon {
+  display: inline-block;
+  transition: transform .4s ease;
+}
+
+.service-card.is-visible .service-icon {
+  animation: service-icon-pop .65s ease both;
+}
+
+@keyframes service-icon-pop {
+  0% { transform: scale(.65) rotate(-10deg); }
+  65% { transform: scale(1.12) rotate(3deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+/* Subtle moving glow on the main illustration */
+.hero-art::before {
+  content: "";
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background: rgba(217,166,111,.09);
+  filter: blur(35px);
+  animation: hero-glow 6s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes hero-glow {
+  from { transform: translate(-35px,-20px); }
+  to { transform: translate(35px,20px); }
+}
+
+/* Journey illustration gently reacts to stage changes */
+.journey-icon {
+  animation: journey-enter .5s ease both;
+}
+
+@keyframes journey-enter {
+  from { opacity: .3; transform: scale(.75) translateY(15px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Respect visitors who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .scroll-reveal.from-left,
+  .scroll-reveal.from-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero-art::before,
+  .service-icon,
+  .journey-icon {
+    animation: none !important;
+  }
+}
