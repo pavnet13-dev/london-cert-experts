@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Online Booking | London Cert Experts</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="script.js" defer></script>
+<script src="booking.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+<a class="brand" href="index.html"><span class="brand-mark">LCE</span><span>London Cert Experts<small>Electrical & Fire Compliance</small></span></a>
+<button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+<nav class="nav-links"><a href="index.html">Home</a><a href="eicr.html">EICR</a><a href="fire-alarm.html">Fire Alarm</a><a href="epc.html">EPC</a></nav>
+</header>
+<main>
+<section class="page-hero"><p class="eyebrow">ONLINE ENQUIRY</p><h1>Book your inspection.</h1><p>Tell us about your property and choose your preferred appointment time. We will check availability and contact you to confirm.</p></section>
+<section class="content-wrap">
+<form class="booking-form" id="booking-form">
+<h2>Your booking details</h2>
+<div class="form-grid">
+<div class="field"><label for="name">Full name *</label><input id="name" name="name" autocomplete="name" required maxlength="120"></div>
+<div class="field"><label for="email">Email address *</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="254"></div>
+<div class="field"><label for="phone">Phone number *</label><input id="phone" name="phone" type="tel" autocomplete="tel" required maxlength="30"></div>
+<div class="field"><label for="service">Service *</label><select id="service" name="service" required><option value="">Choose a service</option><option value="eicr">EICR Certificate</option><option value="fire-alarm">Fire Alarm Inspection</option><option value="emergency-lighting">Emergency Lighting</option><option value="epc">EPC Quote</option></select></div>
+</div>
+<div class="field"><label for="address">Property address *</label><textarea id="address" name="address" rows="3" autocomplete="street-address" required maxlength="500"></textarea></div>
+<div class="form-grid">
+<div class="field"><label for="property-type">Property type *</label><select id="property-type" name="property_type" required><option value="">Select type</option><option>Flat</option><option>House</option><option>Commercial</option><option>Other</option></select></div>
+<div class="field"><label for="bedrooms">Bedrooms (if applicable)</label><select id="bedrooms" name="bedrooms"><option value="">Not applicable / unsure</option><option value="1-3">1–3</option><option value="4-5">4–5</option><option value="6+">6 or more</option></select></div>
+<div class="field"><label for="date">Preferred date *</label><input id="date" name="preferred_date" type="date" required></div>
+<div class="field"><label for="time">Preferred time *</label><select id="time" name="preferred_time" required><option value="">Choose preferred time</option><option value="09:00">09:00</option><option value="10:00">10:00</option><option value="11:00">11:00</option><option value="12:00">12:00</option><option value="13:00">13:00</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option></select></div>
+</div>
+<div class="field"><label for="details">Additional details (optional)</label><textarea id="details" name="details" rows="4" maxlength="2000" placeholder="For example, number of alarms or circuits, access details, or commercial requirements."></textarea></div>
+<div class="field">
+<label><input type="checkbox" id="privacy" required> I agree that London Cert Experts may use these details to respond to my booking enquiry. *</label>
+</div>
+<p class="hero-note">Your preferred date and time are not confirmed until we contact you. Please do not enter payment card details here.</p>
+<button class="button" id="submit-button" type="submit">Submit Booking Request ↗</button>
+<p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+<p>Need help? <a class="text-link" href="mailto:info@londoncertexperts.co.uk">Email our team</a></p>
+</form>
+</section>
+</main>
+<footer class="site-footer"><a href="index.html">London Cert Experts</a><a href="mailto:info@londoncertexperts.co.uk">info@londoncertexperts.co.uk</a></footer>
+</body>
+</html>
