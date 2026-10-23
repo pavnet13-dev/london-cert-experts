@@ -2,304 +2,176 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>London Cert Experts | Electrical & Fire Safety</title>
-<meta name="description" content="Electrical and fire compliance services across London. Book inspections and request certificates.">
-
-<style>
-:root {
-  --red:#b20d22;
-  --dark:#171c22;
-  --cream:#faf7f2;
-  --green:#08783c;
-}
-* {box-sizing:border-box}
-html {scroll-behavior:smooth}
-body {
-  margin:0;
-  font-family:Arial,sans-serif;
-  color:var(--dark);
-}
-a {text-decoration:none;color:inherit}
-.top {
-  background:#870817;color:white;padding:9px 5%;
-  font-size:12px;display:flex;justify-content:space-between;
-  gap:10px;flex-wrap:wrap
-}
-header {
-  padding:16px 5%;display:flex;justify-content:space-between;
-  align-items:center;gap:20px;background:white;
-  position:sticky;top:0;z-index:10;
-  box-shadow:0 3px 15px #00000012
-}
-.logo {font-size:21px;font-weight:900}
-.logo span {color:var(--red);display:block;letter-spacing:5px}
-nav {display:flex;gap:20px;flex-wrap:wrap;font-size:13px}
-nav a:hover {color:var(--red)}
-.btn {
-  display:inline-block;border:0;border-radius:5px;
-  padding:13px 17px;background:var(--red);color:white;
-  font-weight:bold;cursor:pointer
-}
-.hero {
-  padding:55px 5%;background:var(--cream);
-  display:grid;grid-template-columns:1fr 1fr;gap:35px;
-  align-items:center
-}
-.hero h1 {font-size:clamp(34px,4vw,54px);line-height:1.1}
-.hero h1 span {color:var(--red)}
-.hero p {line-height:1.8;color:#56616a}
-.hero img {
-  width:100%;height:350px;object-fit:cover;border-radius:12px
-}
-.eyebrow {color:var(--red);font-weight:bold;font-size:12px;letter-spacing:2px}
-.trust {display:flex;gap:16px;flex-wrap:wrap;font-size:12px;margin-top:22px}
-.process {background:var(--dark);color:white;padding:38px 5%;text-align:center}
-.steps,.services {
-  display:grid;grid-template-columns:repeat(4,1fr);gap:15px
-}
-.steps article {
-  padding:20px;border:1px solid #ffffff30;border-radius:8px;
-  animation:rise .8s both
-}
-.steps article:nth-child(2){animation-delay:.3s}
-.steps article:nth-child(3){animation-delay:.6s}
-.steps article:nth-child(4){animation-delay:.9s}
-.steps p {font-size:13px;line-height:1.6;color:#ddd}
-section.content {padding:45px 5%;background:var(--cream)}
-.services {grid-template-columns:repeat(3,1fr)}
-.card {
-  background:white;padding:22px;border-radius:9px;
-  border:1px solid #e9e2dc;box-shadow:0 5px 18px #00000008
-}
-.card h3 {margin-top:5px}
-.card p {font-size:13px;line-height:1.7;color:#66717b}
-.price {color:var(--red);font-size:21px;font-weight:bold}
-.card button {margin-top:10px;width:100%}
-.basket {
-  position:fixed;right:15px;top:150px;width:260px;
-  background:white;border:1px solid #cfe5d5;border-radius:10px;
-  box-shadow:0 10px 30px #0002;z-index:20;overflow:hidden
-}
-.basket h3 {
-  margin:0;padding:15px;background:var(--green);
-  color:white;display:flex;justify-content:space-between
-}
-.basket-body {padding:13px}
-.item {padding:10px 0;border-bottom:1px solid #eee;font-size:12px}
-.item button {padding:4px 9px;margin:5px 3px 0 0}
-.total {display:flex;justify-content:space-between;padding:12px 0}
-.discount {
-  background:#effaf1;border:1px solid #c8e9ce;
-  padding:10px;font-size:11px;line-height:1.5
-}
-.checkout {width:100%;background:var(--green)}
-form {display:grid;gap:12px;max-width:550px}
-input,textarea,select {
-  width:100%;padding:12px;border:1px solid #ddd;
-  border-radius:5px;font:inherit
-}
-footer {background:var(--dark);color:white;padding:30px 5%;line-height:1.8}
-@keyframes rise {
-  from {opacity:0;transform:translateY(20px)}
-  to {opacity:1;transform:translateY(0)}
-}
-@media(max-width:800px) {
-  header {flex-wrap:wrap}
-  nav {gap:12px}
-  .hero {grid-template-columns:1fr;padding-top:30px}
-  .hero img {height:260px}
-  .steps {grid-template-columns:repeat(2,1fr)}
-  .services {grid-template-columns:repeat(2,1fr)}
-  .basket {top:auto;bottom:10px;right:10px;width:250px}
-}
-@media(max-width:480px) {
-  .services {grid-template-columns:1fr 1fr;gap:8px}
-  .card {padding:12px}
-  .card p {font-size:12px}
-  .steps {grid-template-columns:1fr 1fr}
-  nav {font-size:12px}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171717">
+  <meta name="description" content="London Cert Experts provides electrical and fire compliance services, including EICR, fire alarm certificates, emergency lighting, EPC, FRA, gas safety and PAT testing.">
+  <title>London Cert Experts | Electrical & Fire Compliance</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
 </head>
 <body>
-
-<div class="top">
-  <span>⌖ London & Surrounding Areas</span>
-  <span>☎ 020 1234 5678</span>
-  <a href="mailto:info@londoncertexperts.co.uk">
-    info@londoncertexperts.co.uk
-  </a>
-</div>
-
-<header>
-  <a class="logo" href="#">LONDON CERT<span>EXPERTS</span></a>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#services">Services</a>
-    <a href="#process">How It Works</a>
-    <a href="#booking">Book Online</a>
-  </nav>
-  <a class="btn" href="#booking">Book Inspection →</a>
-</header>
-
-<main>
-<section class="hero">
-  <div>
-    <div class="eyebrow">PROFESSIONAL · RELIABLE · COMPLIANT</div>
-    <h1>Electrical & Fire Safety<br><span>Handled Properly.</span></h1>
-    <p>
-      Electrical inspections, fire alarm certification, emergency
-      lighting and property compliance services across London.
-      Straightforward booking and clear pricing.
-    </p>
-    <a class="btn" href="#booking">Book an Inspection →</a>
-    <a class="btn" href="#services" style="background:white;color:#b20d22;border:1px solid">
-      Our Services
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="London Cert Experts home">
+      <span class="brand-mark">LC</span>
+      <span>London Cert <strong>Experts</strong><small>Electrical & Fire Compliance</small></span>
     </a>
-    <div class="trust">
-      <span>✓ Professional service</span>
-      <span>✓ Clear reports</span>
-      <span>✓ Transparent pricing</span>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button>
+    <nav id="mainNav">
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#prices">Prices</a>
+      <a href="#booking">Book online</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="header-cta" href="#booking">Book an inspection ↗</a>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow"><span class="live-dot"></span> ELECTRICAL & FIRE COMPLIANCE</p>
+        <h1>Compliance made<br><span>clear. Safe. Simple.</span></h1>
+        <p class="hero-copy">Reliable property compliance services for landlords, letting agents, property managers and homeowners across London.</p>
+        <div class="hero-actions">
+          <a class="button button-red" href="#booking">Book an inspection <span>↗</span></a>
+          <a class="button button-outline" href="#services">Explore our services</a>
+        </div>
+        <div class="trust-row">
+          <div><strong>7+</strong><span>Service categories</span></div>
+          <div><strong>Online</strong><span>Booking enquiries</span></div>
+          <div><strong>Clear</strong><span>Upfront pricing</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Compliance service process animation">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="hero-badge badge-top">✓ Property compliance</div>
+        <div class="inspection-card">
+          <div class="card-top"><span class="mini-logo">LC</span><span class="status">SERVICE JOURNEY</span></div>
+          <div class="electric-symbol">⚡</div>
+          <h3>Your property. Properly checked.</h3>
+          <p>From booking to inspection to certification.</p>
+          <div class="journey">
+            <div class="journey-step active"><span>01</span><div><b>Book</b><small>Choose your service</small></div><i>✓</i></div>
+            <div class="journey-step"><span>02</span><div><b>Inspect</b><small>Property assessment</small></div><i>✓</i></div>
+            <div class="journey-step"><span>03</span><div><b>Certify</b><small>Report and next steps</small></div><i>✓</i></div>
+          </div>
+        </div>
+        <div class="hero-badge badge-bottom">● Clear process. Helpful support.</div>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Our services">
+      <div>EICR <span>✳</span> FIRE ALARMS <span>✳</span> EMERGENCY LIGHTING <span>✳</span> EPC <span>✳</span> FIRE RISK ASSESSMENT <span>✳</span> GAS SAFETY <span>✳</span> PAT TESTING <span>✳</span></div>
+    </section>
+
+    <section class="section intro" id="how">
+      <div class="section-heading">
+        <p class="eyebrow">A STRAIGHTFORWARD PROCESS</p>
+        <h2>From first enquiry<br>to <span>finished report.</span></h2>
+      </div>
+      <div class="process-grid">
+        <article class="process-card"><span class="number">01</span><div class="process-icon">▣</div><h3>Tell us what you need</h3><p>Select your service, property details and preferred appointment date.</p></article>
+        <article class="process-card"><span class="number">02</span><div class="process-icon">⚡</div><h3>Arrange the inspection</h3><p>We review your enquiry and confirm appointment availability with you.</p></article>
+        <article class="process-card"><span class="number">03</span><div class="process-icon">✓</div><h3>Receive your report</h3><p>After the relevant inspection, receive the applicable report or certificate.</p></article>
+      </div>
+      <p class="notice">Appointment requests are not confirmed until we contact you. Live slot confirmation requires the booking backend to be configured.</p>
+    </section>
+
+    <section class="section services-section" id="services">
+      <div class="section-heading">
+        <p class="eyebrow">OUR SERVICES</p>
+        <h2>One point of contact.<br><span>Essential compliance.</span></h2>
+        <p>Choose a service to see starting prices and add it to your enquiry.</p>
+      </div>
+      <div class="service-grid" id="serviceGrid"></div>
+    </section>
+
+    <section class="price-section" id="prices">
+      <div class="section-heading">
+        <p class="eyebrow">TRANSPARENT PRICING</p>
+        <h2>Know the price<br><span>before you enquire.</span></h2>
+      </div>
+      <div class="price-layout">
+        <div class="price-copy">
+          <h3>Book more than one service?</h3>
+          <p>Get 10% off when you select at least two different services and one of them is EICR or Fire Risk Assessment (FRA).</p>
+          <a class="button button-red" href="#booking">Build your enquiry ↗</a>
+          <p class="small-note">Prices are based on the service and property details supplied. Additional requirements may affect the final quotation.</p>
+        </div>
+        <div class="price-list" id="priceList"></div>
+      </div>
+    </section>
+
+    <section class="section booking-section" id="booking">
+      <div class="booking-intro">
+        <p class="eyebrow">ONLINE ENQUIRY</p>
+        <h2>Let's get your<br><span>property sorted.</span></h2>
+        <p>Tell us about the property and choose the services you need. We'll use your details to follow up on your enquiry.</p>
+        <div class="contact-chip">✉ info@londoncertexperts.co.uk</div>
+        <div class="contact-chip">✓ No personal phone number displayed</div>
+      </div>
+      <form id="bookingForm" class="booking-form">
+        <h3>Request an appointment</h3>
+        <p class="form-subtitle">Fields marked * are required.</p>
+        <div class="form-grid">
+          <label>Full name *<input name="name" autocomplete="name" required maxlength="100" placeholder="Your full name"></label>
+          <label>Email address *<input name="email" type="email" autocomplete="email" required maxlength="200" placeholder="you@example.com"></label>
+          <label>Property postcode *<input name="postcode" autocomplete="postal-code" required maxlength="15" placeholder="e.g. SW1A 1AA"></label>
+          <label>Property type
+            <select name="propertyType">
+              <option>Residential</option><option>Commercial</option><option>HMO</option><option>Communal property</option>
+            </select>
+          </label>
+          <label>Preferred date *<input name="date" type="date" required id="preferredDate"></label>
+          <label>Preferred time
+            <select name="time"><option value="">Flexible</option><option>Morning</option><option>Afternoon</option><option>Specific time to discuss</option></select>
+          </label>
+        </div>
+        <fieldset class="service-picker">
+          <legend>Which services do you need? *</legend>
+          <div id="bookingServiceChoices" class="checkbox-grid"></div>
+        </fieldset>
+        <label>Property details / additional notes
+          <textarea name="notes" rows="4" maxlength="2000" placeholder="Bedrooms, number of alarms/circuits, access details, or questions…"></textarea>
+        </label>
+        <label class="consent"><input type="checkbox" name="consent" required> I agree that London Cert Experts may use these details to respond to my enquiry.</label>
+        <div class="booking-total"><span>Estimated total</span><strong id="estimatedTotal">£0.00</strong><small id="discountMessage">Select services to calculate an estimate.</small></div>
+        <button class="button button-red submit-button" type="submit">Send booking request ↗</button>
+        <p id="formMessage" class="form-message" role="status"></p>
+        <p class="small-note">This form needs the Supabase setup below to save enquiries online. Without it, the site will explain how to contact us by email instead.</p>
+      </form>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div>
+        <p class="eyebrow">NEED A HAND?</p>
+        <h2>Questions? Start<br><span>with our AI assistant.</span></h2>
+        <p>Ask about services, published prices, multi-service discounts or how to request an appointment.</p>
+      </div>
+      <a class="button button-outline dark-outline" href="mailto:info@londoncertexperts.co.uk">Email our team ↗</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand footer-brand" href="#home"><span class="brand-mark">LC</span><span>London Cert <strong>Experts</strong><small>Electrical & Fire Compliance</small></span></a>
+    <p>Helping property owners and managers navigate compliance.</p>
+    <a href="mailto:info@londoncertexperts.co.uk">info@londoncertexperts.co.uk</a>
+    <small>© <span id="year"></span> London Cert Experts. All rights reserved.</small>
+  </footer>
+
+  <button class="chat-launcher" id="chatLauncher" aria-label="Open website AI chat">✦ <span>Ask AI</span></button>
+  <section class="chat-panel" id="chatPanel" aria-label="AI website assistant" hidden>
+    <div class="chat-header"><div><b>London Cert AI</b><small>Website assistant</small></div><button id="chatClose" aria-label="Close chat">×</button></div>
+    <div class="chat-messages" id="chatMessages" aria-live="polite">
+      <div class="chat-bubble bot">Hi! I can help with our services, prices and booking enquiries. What would you like to know?</div>
     </div>
-  </div>
-  <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1000&q=85"
-       alt="Electrician inspecting an electrical installation">
-</section>
+    <form id="chatForm" class="chat-form"><input id="chatInput" maxlength="1000" placeholder="Ask about a service…" required aria-label="Your message"><button type="submit" aria-label="Send message">➤</button></form>
+    <small class="chat-footnote">AI answers may need confirmation by our team.</small>
+  </section>
 
-<section class="process" id="process">
-  <p class="eyebrow">SIMPLE. CLEAR. COMPLIANT.</p>
-  <h2>Our Simple 4-Step Process</h2>
-  <p>From booking to certificate — it's that easy.</p>
-  <div class="steps">
-    <article><h3>01 · Book</h3><p>Choose your service and send your enquiry.</p></article>
-    <article><h3>02 · Confirm</h3><p>Our team checks your details and appointment request.</p></article>
-    <article><h3>03 · Inspect</h3><p>The agreed inspection or testing is carried out.</p></article>
-    <article><h3>04 · Certificate</h3><p>Receive the relevant report or certificate.</p></article>
-  </div>
-</section>
-
-<section class="content" id="services">
-  <p class="eyebrow">OUR SERVICES</p>
-  <h2>Compliance Services for Your Property</h2>
-  <p>Choose a service and add it to your basket.</p>
-  <div class="services" id="service-list"></div>
-</section>
-
-<section class="content" id="booking">
-  <p class="eyebrow">BOOK ONLINE</p>
-  <h2>Request an Inspection</h2>
-  <form id="booking-form">
-    <label>Service
-      <select id="service-choice" required></select>
-    </label>
-    <label>Full name<input name="name" required></label>
-    <label>Email<input name="email" type="email" required></label>
-    <label>Phone<input name="phone" type="tel" required></label>
-    <label>Property postcode<input name="postcode" required></label>
-    <label>Preferred date<input name="date" type="date" required></label>
-    <label>Additional details<textarea name="notes" rows="3"></textarea></label>
-    <button class="btn" type="submit">Send Booking Request →</button>
-  </form>
-  <p id="form-message"></p>
-</section>
-</main>
-
-<footer>
-  <h3>LONDON CERT EXPERTS</h3>
-  Electrical & Fire Compliance Services<br>
-  Email: info@londoncertexperts.co.uk<br>
-  <small>Replace the demo phone number with your actual business number.</small>
-</footer>
-
-<aside class="basket">
-  <h3><span>🛒 Your Basket</span><span id="count">0</span></h3>
-  <div class="basket-body">
-    <div id="basket-items">Your basket is empty.</div>
-    <div class="total"><span>Subtotal</span><b id="subtotal">£0</b></div>
-    <div class="discount" id="discount">
-      Save 10% when you book at least 2 services, including EICR or FRA.
-    </div>
-    <div class="total"><b>Total</b><b id="grand-total">£0</b></div>
-    <button class="btn checkout" onclick="goCheckout()">Checkout →</button>
-  </div>
-</aside>
-
-<script>
-const services = [
-  {id:"eicr",name:"EICR Inspection",price:90,desc:"1–3 bedrooms. 4–5 bedrooms £100; above 5 bedrooms £120."},
-  {id:"fire",name:"Fire Alarm Certification",price:60,desc:"1–3 alarms £60; 4–6 £70; 7–12 £80."},
-  {id:"lighting",name:"Emergency Lighting",price:50,desc:"1–3 circuits £50; 4–6 £60; 7–10 £70."},
-  {id:"epc",name:"Energy Performance Certificate",price:0,desc:"Request a quote for your property."},
-  {id:"fra",name:"Fire Risk Assessment",price:0,desc:"Request a quote for your premises."},
-  {id:"gas",name:"Gas Safety Certificate",price:90,desc:"Indicative starting price; confirm final cost."},
-  {id:"pat",name:"PAT Testing",price:40,desc:"Indicative starting price; confirm final cost."}
-];
-
-let cart = JSON.parse(localStorage.getItem("lce-cart") || "[]");
-const pounds = n => "£" + n.toFixed(2).replace(".00","");
-const save = () => localStorage.setItem("lce-cart",JSON.stringify(cart));
-
-function add(id) {
-  const item=cart.find(x=>x.id===id);
-  if(item)item.qty++;
-  else cart.push({id,qty:1});
-  save(); render();
-}
-function change(id,amount) {
-  const item=cart.find(x=>x.id===id);
-  if(item)item.qty+=amount;
-  cart=cart.filter(x=>x.qty>0);
-  save();render();
-}
-function render() {
-  const totalQty=cart.reduce((s,x)=>s+x.qty,0);
-  const subtotal=cart.reduce((s,x)=>{
-    const p=services.find(y=>y.id===x.id).price;
-    return s+p*x.qty;
-  },0);
-  const eligible=cart.length>=2 &&
-    cart.some(x=>x.id==="eicr"||x.id==="fra");
-  const discount=eligible?subtotal*.10:0;
-  document.getElementById("count").textContent=totalQty;
-  document.getElementById("subtotal").textContent=pounds(subtotal);
-  document.getElementById("grand-total").textContent=pounds(subtotal-discount);
-  document.getElementById("discount").textContent=eligible
-    ?"10% discount applied. You save "+pounds(discount)+"."
-    :"Save 10% on 2+ different services, including EICR or FRA.";
-  document.getElementById("basket-items").innerHTML=cart.length
-    ?cart.map(x=>{
-      const s=services.find(y=>y.id===x.id);
-      return `<div class="item"><b>${s.name}</b><br>
-      ${s.price?pounds(s.price)+" each":"Quote required"}<br>
-      <button onclick="change('${x.id}',-1)">−</button>
-      ${x.qty}
-      <button onclick="change('${x.id}',1)">+</button>
-      <button onclick="change('${x.id}',-${x.qty})">Remove</button></div>`;
-    }).join("")
-    :"Your basket is empty.";
-}
-function goCheckout() {
-  if(!cart.length){alert("Please add a service first.");return;}
-  document.getElementById("booking").scrollIntoView({behavior:"smooth"});
-}
-document.getElementById("service-list").innerHTML=services.map(s=>
-  `<article class="card">
-    <h3>${s.name}</h3><p>${s.desc}</p>
-    <div class="price">${s.price?pounds(s.price):"Request a quote"}</div>
-    <button class="btn" onclick="add('${s.id}')">Add to Basket +</button>
-  </article>`
-).join("");
-document.getElementById("service-choice").innerHTML=
-  '<option value="">Choose a service</option>'+
-  services.map(s=>`<option>${s.name}</option>`).join("");
-document.getElementById("booking-form").addEventListener("submit",e=>{
-  e.preventDefault();
-  document.getElementById("form-message").textContent=
-    "Demo only: no booking has been sent or saved. Connect a secure backend before accepting real bookings.";
-});
-render();
-</script>
+  <a class="whatsapp-help" id="whatsappHelp" href="#contact" aria-label="WhatsApp AI information">WhatsApp AI ↗</a>
 </body>
 </html>
