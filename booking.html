@@ -2,49 +2,114 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Online Booking | London Cert Experts</title>
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-<script src="script.js" defer></script>
-<script src="booking.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book an Inspection | London Cert Experts</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: Arial, sans-serif; color: #17232c;
+      background: #f7f4ed; line-height: 1.6;
+    }
+    header { background: #101820; padding: 22px 6%; color: white; }
+    header a { color: #d9ad67; text-decoration: none; font-weight: bold; }
+    main { max-width: 760px; margin: 45px auto; padding: 0 18px; }
+    .card {
+      background: white; border-radius: 16px; padding: 30px;
+      box-shadow: 0 12px 40px #17232c12;
+    }
+    h1 { font-size: clamp(30px, 5vw, 44px); line-height: 1.15; }
+    p { color: #66747c; }
+    label { display: block; margin: 15px 0 6px; font-weight: bold; font-size: 14px; }
+    input, select, textarea {
+      width: 100%; padding: 13px; border: 1px solid #d8d8d3;
+      border-radius: 7px; background: white; font: inherit;
+    }
+    textarea { min-height: 100px; }
+    button {
+      margin-top: 22px; width: 100%; border: 0; border-radius: 7px;
+      padding: 15px; background: #d9ad67; color: #17232c;
+      font-size: 15px; font-weight: bold; cursor: pointer;
+    }
+    .back { display: inline-block; margin-bottom: 20px; }
+    footer { text-align: center; padding: 25px; font-size: 12px; }
+  </style>
 </head>
 <body>
-<header class="site-header">
-<a class="brand" href="index.html"><span class="brand-mark">LCE</span><span>London Cert Experts<small>Electrical & Fire Compliance</small></span></a>
-<button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-<nav class="nav-links"><a href="index.html">Home</a><a href="eicr.html">EICR</a><a href="fire-alarm.html">Fire Alarm</a><a href="epc.html">EPC</a></nav>
-</header>
-<main>
-<section class="page-hero"><p class="eyebrow">ONLINE ENQUIRY</p><h1>Book your inspection.</h1><p>Tell us about your property and choose your preferred appointment time. We will check availability and contact you to confirm.</p></section>
-<section class="content-wrap">
-<form class="booking-form" id="booking-form">
-<h2>Your booking details</h2>
-<div class="form-grid">
-<div class="field"><label for="name">Full name *</label><input id="name" name="name" autocomplete="name" required maxlength="120"></div>
-<div class="field"><label for="email">Email address *</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="254"></div>
-<div class="field"><label for="phone">Phone number *</label><input id="phone" name="phone" type="tel" autocomplete="tel" required maxlength="30"></div>
-<div class="field"><label for="service">Service *</label><select id="service" name="service" required><option value="">Choose a service</option><option value="eicr">EICR Certificate</option><option value="fire-alarm">Fire Alarm Inspection</option><option value="emergency-lighting">Emergency Lighting</option><option value="epc">EPC Quote</option></select></div>
-</div>
-<div class="field"><label for="address">Property address *</label><textarea id="address" name="address" rows="3" autocomplete="street-address" required maxlength="500"></textarea></div>
-<div class="form-grid">
-<div class="field"><label for="property-type">Property type *</label><select id="property-type" name="property_type" required><option value="">Select type</option><option>Flat</option><option>House</option><option>Commercial</option><option>Other</option></select></div>
-<div class="field"><label for="bedrooms">Bedrooms (if applicable)</label><select id="bedrooms" name="bedrooms"><option value="">Not applicable / unsure</option><option value="1-3">1–3</option><option value="4-5">4–5</option><option value="6+">6 or more</option></select></div>
-<div class="field"><label for="date">Preferred date *</label><input id="date" name="preferred_date" type="date" required></div>
-<div class="field"><label for="time">Preferred time *</label><select id="time" name="preferred_time" required><option value="">Choose preferred time</option><option value="09:00">09:00</option><option value="10:00">10:00</option><option value="11:00">11:00</option><option value="12:00">12:00</option><option value="13:00">13:00</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option></select></div>
-</div>
-<div class="field"><label for="details">Additional details (optional)</label><textarea id="details" name="details" rows="4" maxlength="2000" placeholder="For example, number of alarms or circuits, access details, or commercial requirements."></textarea></div>
-<div class="field">
-<label><input type="checkbox" id="privacy" required> I agree that London Cert Experts may use these details to respond to my booking enquiry. *</label>
-</div>
-<p class="hero-note">Your preferred date and time are not confirmed until we contact you. Please do not enter payment card details here.</p>
-<button class="button" id="submit-button" type="submit">Submit Booking Request ↗</button>
-<p class="form-message" id="form-message" role="status" aria-live="polite"></p>
-<p>Need help? <a class="text-link" href="mailto:info@londoncertexperts.co.uk">Email our team</a></p>
-</form>
-</section>
-</main>
-<footer class="site-footer"><a href="index.html">London Cert Experts</a><a href="mailto:info@londoncertexperts.co.uk">info@londoncertexperts.co.uk</a></footer>
+  <header>
+    <a href="index.html">← LONDON CERT EXPERTS</a>
+  </header>
+
+  <main>
+    <a class="back" href="index.html">← Back to homepage</a>
+    <div class="card">
+      <p style="color:#a87330;font-weight:bold;letter-spacing:2px">BOOKING ENQUIRY</p>
+      <h1>Arrange your inspection.</h1>
+      <p>Tell us about your property and the service you require. Our team can follow up to discuss appointment availability.</p>
+
+      <form id="bookingForm">
+        <label for="name">Full name *</label>
+        <input id="name" required autocomplete="name" placeholder="Your full name">
+
+        <label for="email">Email address *</label>
+        <input id="email" type="email" required autocomplete="email" placeholder="you@example.com">
+
+        <label for="phone">Phone number</label>
+        <input id="phone" type="tel" autocomplete="tel" placeholder="Your contact number">
+
+        <label for="service">Service required *</label>
+        <select id="service" required>
+          <option value="">Select a service</option>
+          <option>EICR / Electrical Inspection</option>
+          <option>Fire Alarm Certification</option>
+          <option>Emergency Lighting</option>
+          <option>Energy Performance Certificate</option>
+          <option>Commercial Electrical Inspection</option>
+        </select>
+
+        <label for="postcode">Property postcode *</label>
+        <input id="postcode" required autocomplete="postal-code" placeholder="e.g. N1 1AA">
+
+        <label for="date">Preferred date</label>
+        <input id="date" type="date">
+
+        <label for="details">Property details / additional information</label>
+        <textarea id="details" placeholder="Bedrooms, circuits, access information or other requirements"></textarea>
+
+        <button type="submit">Send Booking Enquiry ↗</button>
+        <p id="status" role="status"></p>
+        <small>This form prepares an email; it does not reserve a confirmed appointment or save your details online.</small>
+      </form>
+    </div>
+  </main>
+
+  <footer>London Cert Experts · Electrical &amp; Fire Compliance Services</footer>
+
+  <script>
+    const dateInput = document.getElementById("date");
+    dateInput.min = new Date().toISOString().slice(0, 10);
+
+    document.getElementById("bookingForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const get = id => document.getElementById(id).value.trim();
+      const subject = encodeURIComponent("Booking enquiry - " + get("service"));
+      const body = encodeURIComponent(
+        "Name: " + get("name") + "\n" +
+        "Email: " + get("email") + "\n" +
+        "Phone: " + get("phone") + "\n" +
+        "Service: " + get("service") + "\n" +
+        "Property postcode: " + get("postcode") + "\n" +
+        "Preferred date: " + get("date") + "\n" +
+        "Additional details: " + get("details")
+      );
+
+      document.getElementById("status").textContent =
+        "Opening your email app. Review and send the enquiry to complete the request.";
+
+      window.location.href =
+        "mailto:info@londoncertexperts.co.uk?subject=" + subject + "&body=" + body;
+    });
+  </script>
 </body>
 </html>
