@@ -1,177 +1,807 @@
 
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#171717">
-  <meta name="description" content="London Cert Experts provides electrical and fire compliance services, including EICR, fire alarm certificates, emergency lighting, EPC, FRA, gas safety and PAT testing.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>London Cert Experts | Electrical & Fire Compliance</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="app.js" defer></script>
+  <meta name="description" content="Electrical and fire compliance services across London. Book EICR, fire alarm certification, emergency lighting, EPC, FRA, gas safety and PAT testing.">
+
+  <link rel="stylesheet" href="./style.css">
+
+  <style>
+    :root {
+      --red: #c9272c;
+      --dark: #202020;
+      --cream: #f8f6f1;
+      --white: #ffffff;
+      --muted: #686868;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .topbar {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 9px 16px;
+      font-size: 13px;
+    }
+
+    header {
+      background: rgba(255,255,255,.97);
+      border-bottom: 1px solid #e8e4de;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      max-width: 1160px;
+      margin: auto;
+      padding: 16px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 900;
+      font-size: 19px;
+      line-height: 1.2;
+    }
+
+    .logo span { color: var(--red); }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .btn {
+      display: inline-block;
+      border: 0;
+      border-radius: 5px;
+      background: var(--red);
+      color: white;
+      padding: 13px 20px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .2s, background .2s;
+    }
+
+    .btn:hover {
+      background: #a91f24;
+      transform: translateY(-2px);
+    }
+
+    .btn-light {
+      background: white;
+      color: var(--dark);
+      border: 1px solid #ddd;
+    }
+
+    .hero {
+      max-width: 1160px;
+      margin: auto;
+      padding: 78px 22px 72px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .eyebrow {
+      color: var(--red);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 62px);
+      line-height: 1.06;
+      letter-spacing: -2px;
+      margin: 15px 0 20px;
+    }
+
+    h1 span { color: var(--red); }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 570px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .hero-card {
+      min-height: 360px;
+      background: var(--dark);
+      color: white;
+      border-radius: 12px;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border: 35px solid rgba(201,39,44,.6);
+      border-radius: 50%;
+      right: -75px;
+      top: -75px;
+      animation: float 7s ease-in-out infinite;
+    }
+
+    .hero-card > * { position: relative; }
+
+    .hero-icon { font-size: 65px; }
+
+    .hero-card h2 {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .hero-card p { color: #dedede; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .stat {
+      background: white;
+      border: 1px solid #e8e4de;
+      border-radius: 8px;
+      padding: 15px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 17px;
+    }
+
+    .stat small { color: var(--muted); }
+
+    section { scroll-margin-top: 85px; }
+
+    .section {
+      padding: 72px 22px;
+    }
+
+    .section-inner {
+      max-width: 1160px;
+      margin: auto;
+    }
+
+    .section-heading {
+      max-width: 680px;
+      margin: 0 auto 35px;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(30px, 4vw, 43px);
+      line-height: 1.15;
+      margin: 10px 0;
+    }
+
+    .section-heading p { color: var(--muted); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .service-card {
+      background: white;
+      border: 1px solid #e9e5df;
+      border-radius: 9px;
+      padding: 24px;
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0,0,0,.08);
+    }
+
+    .service-icon { font-size: 32px; }
+
+    .service-card h3 { margin-bottom: 7px; }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .price {
+      color: var(--red);
+      font-weight: 900;
+      font-size: 21px;
+      margin: 16px 0;
+    }
+
+    .dark-section {
+      background: var(--dark);
+      color: white;
+    }
+
+    .dark-section .section-heading p { color: #d0d0d0; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .step {
+      padding: 25px;
+      border: 1px solid #484848;
+      border-radius: 9px;
+    }
+
+    .step-number {
+      color: #ff777b;
+      font-size: 30px;
+      font-weight: 900;
+    }
+
+    .step p { color: #d0d0d0; }
+
+    .booking-layout {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .booking-info {
+      background: var(--dark);
+      color: white;
+      border-radius: 10px;
+      padding: 28px;
+    }
+
+    .booking-info p { color: #dedede; }
+
+    .booking-form {
+      background: white;
+      border: 1px solid #e8e4de;
+      border-radius: 10px;
+      padding: 28px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field.full { grid-column: 1 / -1; }
+
+    label { font-size: 13px; font-weight: 700; }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d9d9d9;
+      border-radius: 5px;
+      background: white;
+      color: var(--dark);
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .form-note {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .notice {
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 5px;
+      background: #f7f1e8;
+      font-size: 13px;
+    }
+
+    .contact-strip {
+      text-align: center;
+      padding: 35px 22px;
+      background: #f0eae2;
+    }
+
+    .contact-strip h2 { margin-top: 0; }
+
+    footer {
+      background: #171717;
+      color: white;
+      padding: 30px 22px;
+    }
+
+    .footer-inner {
+      max-width: 1160px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    footer p { color: #c8c8c8; font-size: 13px; }
+
+    .chat-button {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 20;
+      border: 0;
+      border-radius: 30px;
+      padding: 14px 20px;
+      background: var(--red);
+      color: white;
+      font-weight: 800;
+      box-shadow: 0 5px 20px #0002;
+      cursor: pointer;
+    }
+
+    .chat-panel {
+      position: fixed;
+      z-index: 21;
+      right: 20px;
+      bottom: 82px;
+      width: min(350px, calc(100vw - 40px));
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 35px #0002;
+      display: none;
+    }
+
+    .chat-panel.open { display: block; }
+
+    .chat-head {
+      padding: 15px;
+      background: var(--dark);
+      color: white;
+      font-weight: 800;
+    }
+
+    .chat-body { padding: 15px; }
+
+    .chat-answer {
+      padding: 12px;
+      border-radius: 7px;
+      background: var(--cream);
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .chat-body input { margin-bottom: 10px; }
+
+    .reveal {
+      animation: appear .7s ease both;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(14px); }
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 800px) {
+      .hero, .booking-layout { grid-template-columns: 1fr; }
+      .hero { padding-top: 48px; }
+      .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .navlinks { gap: 12px; }
+      .navlinks a:not(.btn) { display: none; }
+    }
+
+    @media (max-width: 520px) {
+      .services-grid, .steps, .stats, .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .field.full { grid-column: auto; }
+      .hero-card { min-height: 300px; }
+      .booking-form { padding: 18px; }
+      h1 { letter-spacing: -1px; }
+    }
+  </style>
 </head>
+
 <body>
-  <header class="site-header">
-    <a class="brand" href="#home" aria-label="London Cert Experts home">
-      <span class="brand-mark">LC</span>
-      <span>London Cert <strong>Experts</strong><small>Electrical & Fire Compliance</small></span>
-    </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button>
-    <nav id="mainNav">
-      <a href="#services">Services</a>
-      <a href="#how">How it works</a>
-      <a href="#prices">Prices</a>
-      <a href="#booking">Book online</a>
-      <a href="#contact">Contact</a>
+  <div class="topbar">
+    Electrical & Fire Compliance Services Across London
+  </div>
+
+  <header>
+    <nav class="nav">
+      <a class="logo" href="#home">LONDON <span>CERT</span> EXPERTS</a>
+      <div class="navlinks">
+        <a href="#services">Services</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#booking" class="btn">Book a Service</a>
+      </div>
     </nav>
-    <a class="header-cta" href="#booking">Book an inspection ↗</a>
   </header>
 
   <main>
     <section class="hero" id="home">
-      <div class="hero-content">
-        <p class="eyebrow"><span class="live-dot"></span> ELECTRICAL & FIRE COMPLIANCE</p>
-        <h1>Compliance made<br><span>clear. Safe. Simple.</span></h1>
-        <p class="hero-copy">Reliable property compliance services for landlords, letting agents, property managers and homeowners across London.</p>
+      <div class="reveal">
+        <div class="eyebrow">Compliance made simple</div>
+        <h1>Property safety.<br><span>Handled properly.</span></h1>
+        <p>
+          Electrical and fire compliance services for landlords,
+          letting agents, property managers and businesses across London.
+          Book your service and let our team help you with your compliance needs.
+        </p>
+
         <div class="hero-actions">
-          <a class="button button-red" href="#booking">Book an inspection <span>↗</span></a>
-          <a class="button button-outline" href="#services">Explore our services</a>
+          <a class="btn" href="#booking">Book Online</a>
+          <a class="btn btn-light" href="#services">Explore Services</a>
         </div>
-        <div class="trust-row">
-          <div><strong>7+</strong><span>Service categories</span></div>
-          <div><strong>Online</strong><span>Booking enquiries</span></div>
-          <div><strong>Clear</strong><span>Upfront pricing</span></div>
+
+        <div class="stats">
+          <div class="stat"><strong>Clear Pricing</strong><small>Know the starting cost</small></div>
+          <div class="stat"><strong>Easy Booking</strong><small>Send your request online</small></div>
+          <div class="stat"><strong>Multiple Services</strong><small>One point of contact</small></div>
         </div>
       </div>
 
-      <div class="hero-visual" aria-label="Compliance service process animation">
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-        <div class="hero-badge badge-top">✓ Property compliance</div>
-        <div class="inspection-card">
-          <div class="card-top"><span class="mini-logo">LC</span><span class="status">SERVICE JOURNEY</span></div>
-          <div class="electric-symbol">⚡</div>
-          <h3>Your property. Properly checked.</h3>
-          <p>From booking to inspection to certification.</p>
-          <div class="journey">
-            <div class="journey-step active"><span>01</span><div><b>Book</b><small>Choose your service</small></div><i>✓</i></div>
-            <div class="journey-step"><span>02</span><div><b>Inspect</b><small>Property assessment</small></div><i>✓</i></div>
-            <div class="journey-step"><span>03</span><div><b>Certify</b><small>Report and next steps</small></div><i>✓</i></div>
+      <div class="hero-card reveal">
+        <div class="hero-icon">⚡ 🛡️</div>
+        <div>
+          <div class="eyebrow">From booking to certificate</div>
+          <h2>Book. Inspect.<br>Receive your report.</h2>
+          <p>Submit your details, arrange your appointment and keep your property compliance moving.</p>
+        </div>
+        <a class="btn" href="#how-it-works">See How It Works ↓</a>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div class="eyebrow">Our services</div>
+          <h2>Compliance services in one place</h2>
+          <p>Choose the service you need and check our listed prices. Final pricing may depend on property details and the work required.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">⚡</div>
+            <h3>EICR</h3>
+            <p>Electrical Installation Condition Report for residential and commercial properties.</p>
+            <div class="price">From £90</div>
+            <a class="btn" href="#booking" data-service="EICR">Book EICR</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🚨</div>
+            <h3>Fire Alarm Certification</h3>
+            <p>Fire alarm system inspection and certification service.</p>
+            <div class="price">From £60</div>
+            <a class="btn" href="#booking" data-service="Fire Alarm Certification">Book Service</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">💡</div>
+            <h3>Emergency Lighting</h3>
+            <p>Emergency lighting inspection and certificate for applicable systems.</p>
+            <div class="price">From £50</div>
+            <a class="btn" href="#booking" data-service="Emergency Light Certificate">Book Service</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🏠</div>
+            <h3>Energy Performance Certificate</h3>
+            <p>EPC service for residential properties, subject to property details.</p>
+            <div class="price">From £80</div>
+            <a class="btn" href="#booking" data-service="EPC">Book EPC</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🧯</div>
+            <h3>Fire Risk Assessment</h3>
+            <p>Fire risk assessment service for properties and communal areas.</p>
+            <div class="price">From £90</div>
+            <a class="btn" href="#booking" data-service="Fire Risk Assessment">Book FRA</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🔥</div>
+            <h3>Gas Safety Certificate</h3>
+            <p>Gas safety certification for properties with gas appliances.</p>
+            <div class="price">From £60</div>
+            <a class="btn" href="#booking" data-service="Gas Safety Certificate">Book Gas Safety</a>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">🔌</div>
+            <h3>PAT Testing</h3>
+            <p>Portable appliance testing for applicable electrical equipment.</p>
+            <div class="price">From £40</div>
+            <a class="btn" href="#booking" data-service="PAT Testing">Book PAT Testing</a>
+          </article>
+        </div>
+
+        <div class="notice">
+          Multi-service discount: 10% off when booking at least two different services, including EICR or Fire Risk Assessment. Final eligibility and price will be confirmed by our team.
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="how-it-works">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div class="eyebrow">Simple process</div>
+          <h2>From booking to certificate</h2>
+          <p>A straightforward process designed for landlords, agents and property managers.</p>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">01</div>
+            <h3>Request a booking</h3>
+            <p>Select your service, enter your property details and send your request.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">02</div>
+            <h3>Arrange the visit</h3>
+            <p>Our team can contact you to confirm availability and appointment details.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">03</div>
+            <h3>Inspection and report</h3>
+            <p>After the service, your relevant report or certificate is handled by the service provider.</p>
           </div>
         </div>
-        <div class="hero-badge badge-bottom">● Clear process. Helpful support.</div>
       </div>
     </section>
 
-    <section class="ticker" aria-label="Our services">
-      <div>EICR <span>✳</span> FIRE ALARMS <span>✳</span> EMERGENCY LIGHTING <span>✳</span> EPC <span>✳</span> FIRE RISK ASSESSMENT <span>✳</span> GAS SAFETY <span>✳</span> PAT TESTING <span>✳</span></div>
-    </section>
-
-    <section class="section intro" id="how">
-      <div class="section-heading">
-        <p class="eyebrow">A STRAIGHTFORWARD PROCESS</p>
-        <h2>From first enquiry<br>to <span>finished report.</span></h2>
-      </div>
-      <div class="process-grid">
-        <article class="process-card"><span class="number">01</span><div class="process-icon">▣</div><h3>Tell us what you need</h3><p>Select your service, property details and preferred appointment date.</p></article>
-        <article class="process-card"><span class="number">02</span><div class="process-icon">⚡</div><h3>Arrange the inspection</h3><p>We review your enquiry and confirm appointment availability with you.</p></article>
-        <article class="process-card"><span class="number">03</span><div class="process-icon">✓</div><h3>Receive your report</h3><p>After the relevant inspection, receive the applicable report or certificate.</p></article>
-      </div>
-      <p class="notice">Appointment requests are not confirmed until we contact you. Live slot confirmation requires the booking backend to be configured.</p>
-    </section>
-
-    <section class="section services-section" id="services">
-      <div class="section-heading">
-        <p class="eyebrow">OUR SERVICES</p>
-        <h2>One point of contact.<br><span>Essential compliance.</span></h2>
-        <p>Choose a service to see starting prices and add it to your enquiry.</p>
-      </div>
-      <div class="service-grid" id="serviceGrid"></div>
-    </section>
-
-    <section class="price-section" id="prices">
-      <div class="section-heading">
-        <p class="eyebrow">TRANSPARENT PRICING</p>
-        <h2>Know the price<br><span>before you enquire.</span></h2>
-      </div>
-      <div class="price-layout">
-        <div class="price-copy">
-          <h3>Book more than one service?</h3>
-          <p>Get 10% off when you select at least two different services and one of them is EICR or Fire Risk Assessment (FRA).</p>
-          <a class="button button-red" href="#booking">Build your enquiry ↗</a>
-          <p class="small-note">Prices are based on the service and property details supplied. Additional requirements may affect the final quotation.</p>
+    <section class="section" id="booking">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div class="eyebrow">Online booking request</div>
+          <h2>Tell us what you need</h2>
+          <p>Complete the form below. This version opens an email request; live slot booking and database storage need to be connected separately.</p>
         </div>
-        <div class="price-list" id="priceList"></div>
-      </div>
-    </section>
 
-    <section class="section booking-section" id="booking">
-      <div class="booking-intro">
-        <p class="eyebrow">ONLINE ENQUIRY</p>
-        <h2>Let's get your<br><span>property sorted.</span></h2>
-        <p>Tell us about the property and choose the services you need. We'll use your details to follow up on your enquiry.</p>
-        <div class="contact-chip">✉ info@londoncertexperts.co.uk</div>
-        <div class="contact-chip">✓ No personal phone number displayed</div>
-      </div>
-      <form id="bookingForm" class="booking-form">
-        <h3>Request an appointment</h3>
-        <p class="form-subtitle">Fields marked * are required.</p>
-        <div class="form-grid">
-          <label>Full name *<input name="name" autocomplete="name" required maxlength="100" placeholder="Your full name"></label>
-          <label>Email address *<input name="email" type="email" autocomplete="email" required maxlength="200" placeholder="you@example.com"></label>
-          <label>Property postcode *<input name="postcode" autocomplete="postal-code" required maxlength="15" placeholder="e.g. SW1A 1AA"></label>
-          <label>Property type
-            <select name="propertyType">
-              <option>Residential</option><option>Commercial</option><option>HMO</option><option>Communal property</option>
-            </select>
-          </label>
-          <label>Preferred date *<input name="date" type="date" required id="preferredDate"></label>
-          <label>Preferred time
-            <select name="time"><option value="">Flexible</option><option>Morning</option><option>Afternoon</option><option>Specific time to discuss</option></select>
-          </label>
+        <div class="booking-layout">
+          <div class="booking-info">
+            <div class="eyebrow">London Cert Experts</div>
+            <h2>Let's get your property compliant.</h2>
+            <p>Send us the property details and the service you need. We can follow up to discuss appointment availability.</p>
+            <p>✉️ info@londoncertexperts.co.uk</p>
+            <a class="btn" href="mailto:info@londoncertexperts.co.uk">Email Our Team</a>
+          </div>
+
+          <form class="booking-form" id="bookingForm">
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Your name *</label>
+                <input id="name" name="name" required autocomplete="name">
+              </div>
+
+              <div class="field">
+                <label for="email">Email address *</label>
+                <input id="email" name="email" type="email" required autocomplete="email">
+              </div>
+
+              <div class="field">
+                <label for="service">Service required *</label>
+                <select id="service" name="service" required>
+                  <option value="">Choose a service</option>
+                  <option>EICR</option>
+                  <option>Fire Alarm Certification</option>
+                  <option>Emergency Light Certificate</option>
+                  <option>EPC</option>
+                  <option>Fire Risk Assessment</option>
+                  <option>Gas Safety Certificate</option>
+                  <option>PAT Testing</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="propertyType">Property type *</label>
+                <select id="propertyType" name="propertyType" required>
+                  <option value="">Choose property type</option>
+                  <option>Flat</option>
+                  <option>House</option>
+                  <option>HMO</option>
+                  <option>Commercial</option>
+                  <option>Communal property</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <label for="address">Property address *</label>
+                <input id="address" name="address" required autocomplete="street-address">
+              </div>
+
+              <div class="field">
+                <label for="date">Preferred date</label>
+                <input id="date" name="date" type="date">
+              </div>
+
+              <div class="field">
+                <label for="postcode">Postcode</label>
+                <input id="postcode" name="postcode" autocomplete="postal-code">
+              </div>
+
+              <div class="field full">
+                <label for="details">Additional details</label>
+                <textarea id="details" name="details" placeholder="Bedrooms, circuits, alarms, appliances or other relevant details"></textarea>
+              </div>
+
+              <div class="field full">
+                <button class="btn" type="submit">Prepare Booking Request</button>
+                <p class="form-note">Your email app will open with the request details. This form does not yet reserve a confirmed time slot.</p>
+                <div id="formMessage" role="status" aria-live="polite"></div>
+              </div>
+            </div>
+          </form>
         </div>
-        <fieldset class="service-picker">
-          <legend>Which services do you need? *</legend>
-          <div id="bookingServiceChoices" class="checkbox-grid"></div>
-        </fieldset>
-        <label>Property details / additional notes
-          <textarea name="notes" rows="4" maxlength="2000" placeholder="Bedrooms, number of alarms/circuits, access details, or questions…"></textarea>
-        </label>
-        <label class="consent"><input type="checkbox" name="consent" required> I agree that London Cert Experts may use these details to respond to my enquiry.</label>
-        <div class="booking-total"><span>Estimated total</span><strong id="estimatedTotal">£0.00</strong><small id="discountMessage">Select services to calculate an estimate.</small></div>
-        <button class="button button-red submit-button" type="submit">Send booking request ↗</button>
-        <p id="formMessage" class="form-message" role="status"></p>
-        <p class="small-note">This form needs the Supabase setup below to save enquiries online. Without it, the site will explain how to contact us by email instead.</p>
-      </form>
+      </div>
     </section>
 
-    <section class="section contact-section" id="contact">
-      <div>
-        <p class="eyebrow">NEED A HAND?</p>
-        <h2>Questions? Start<br><span>with our AI assistant.</span></h2>
-        <p>Ask about services, published prices, multi-service discounts or how to request an appointment.</p>
-      </div>
-      <a class="button button-outline dark-outline" href="mailto:info@londoncertexperts.co.uk">Email our team ↗</a>
+    <section class="contact-strip">
+      <h2>Need help choosing a service?</h2>
+      <p>Contact London Cert Experts by email and tell us about your property.</p>
+      <a class="btn" href="mailto:info@londoncertexperts.co.uk">Contact Us</a>
     </section>
   </main>
 
-  <footer class="footer">
-    <a class="brand footer-brand" href="#home"><span class="brand-mark">LC</span><span>London Cert <strong>Experts</strong><small>Electrical & Fire Compliance</small></span></a>
-    <p>Helping property owners and managers navigate compliance.</p>
-    <a href="mailto:info@londoncertexperts.co.uk">info@londoncertexperts.co.uk</a>
-    <small>© <span id="year"></span> London Cert Experts. All rights reserved.</small>
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="logo">LONDON <span>CERT</span> EXPERTS</div>
+        <p>Electrical and Fire Compliance Services</p>
+      </div>
+      <div>
+        <p><a href="mailto:info@londoncertexperts.co.uk">info@londoncertexperts.co.uk</a></p>
+        <p>© <span id="year"></span> London Cert Experts</p>
+      </div>
+    </div>
   </footer>
 
-  <button class="chat-launcher" id="chatLauncher" aria-label="Open website AI chat">✦ <span>Ask AI</span></button>
-  <section class="chat-panel" id="chatPanel" aria-label="AI website assistant" hidden>
-    <div class="chat-header"><div><b>London Cert AI</b><small>Website assistant</small></div><button id="chatClose" aria-label="Close chat">×</button></div>
-    <div class="chat-messages" id="chatMessages" aria-live="polite">
-      <div class="chat-bubble bot">Hi! I can help with our services, prices and booking enquiries. What would you like to know?</div>
-    </div>
-    <form id="chatForm" class="chat-form"><input id="chatInput" maxlength="1000" placeholder="Ask about a service…" required aria-label="Your message"><button type="submit" aria-label="Send message">➤</button></form>
-    <small class="chat-footnote">AI answers may need confirmation by our team.</small>
-  </section>
+  <button class="chat-button" id="chatToggle" type="button" aria-expanded="false">
+    Ask us ✦
+  </button>
 
-  <a class="whatsapp-help" id="whatsappHelp" href="#contact" aria-label="WhatsApp AI information">WhatsApp AI ↗</a>
+  <aside class="chat-panel" id="chatPanel" aria-label="Website help">
+    <div class="chat-head">London Cert Experts · Quick Help</div>
+    <div class="chat-body">
+      <div class="chat-answer" id="chatAnswer">
+        Hi! Ask about our services or starting prices. For a confirmed quote, please email our team.
+      </div>
+      <label for="chatQuestion">Your question</label>
+      <input id="chatQuestion" placeholder="e.g. How much is an EICR?">
+      <button class="btn" id="askButton" type="button">Get Answer</button>
+      <p class="form-note">This is a basic FAQ helper, not a live AI service.</p>
+    </div>
+  </aside>
+
+  <script src="./app.js" defer></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.querySelectorAll("[data-service]").forEach(function(link) {
+      link.addEventListener("click", function() {
+        document.getElementById("service").value = link.dataset.service;
+      });
+    });
+
+    document.getElementById("bookingForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const data = new FormData(form);
+      const subject = "Website booking request - " + data.get("service");
+      const body = [
+        "New booking request",
+        "",
+        "Name: " + data.get("name"),
+        "Email: " + data.get("email"),
+        "Service: " + data.get("service"),
+        "Property type: " + data.get("propertyType"),
+        "Property address: " + data.get("address"),
+        "Postcode: " + data.get("postcode"),
+        "Preferred date: " + data.get("date"),
+        "Additional details: " + data.get("details")
+      ].join("\n");
+
+      document.getElementById("formMessage").textContent =
+        "Opening your email app with the booking request. Please send the email to complete your request.";
+
+      window.location.href =
+        "mailto:info@londoncertexperts.co.uk?subject=" +
+        encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    });
+
+    const chatToggle = document.getElementById("chatToggle");
+    const chatPanel = document.getElementById("chatPanel");
+
+    chatToggle.addEventListener("click", function() {
+      const opened = chatPanel.classList.toggle("open");
+      chatToggle.setAttribute("aria-expanded", String(opened));
+    });
+
+    document.getElementById("askButton").addEventListener("click", function() {
+      const question = document.getElementById("chatQuestion").value.toLowerCase();
+      const answer = document.getElementById("chatAnswer");
+
+      if (!question.trim()) {
+        answer.textContent = "Please type your question first.";
+      } else if (question.includes("eicr") || question.includes("electrical")) {
+        answer.textContent = "EICR prices start at £90 for 1–3 bedrooms, £100 for 4–5 bedrooms and £120 for larger properties. Commercial pricing starts at £120 for 12 circuits. Email us for a confirmed quote.";
+      } else if (question.includes("fire alarm")) {
+        answer.textContent = "Fire alarm certification starts at £60 for 1–3 alarms, £70 for 4–6 alarms and £80 for 7–12 alarms.";
+      } else if (question.includes("emergency") || question.includes("lighting")) {
+        answer.textContent = "Emergency light certification starts at £50 for 1–3 circuits, £60 for 4–6 and £70 for 7–10 circuits.";
+      } else if (question.includes("epc") || question.includes("energy")) {
+        answer.textContent = "EPC prices start at £80 for a studio, £90 for one bedroom and £100 for 2–3 bedrooms. Larger properties may cost more.";
+      } else if (question.includes("fra") || question.includes("risk assessment")) {
+        answer.textContent = "Fire Risk Assessment prices start at £90 for a studio. Email us with your property details for the applicable price.";
+      } else if (question.includes("gas")) {
+        answer.textContent = "Gas Safety Certificate prices start at £60 for 1–2 appliances, £70 for 3, £80 for 4 and £90 for 5 appliances.";
+      } else if (question.includes("pat")) {
+        answer.textContent = "PAT Testing starts at £40 for up to 12 items, with additional items at £1 each.";
+      } else if (question.includes("book") || question.includes("appointment") || question.includes("date")) {
+        answer.textContent = "Please use the online booking form on this page. Our team will follow up to confirm availability.";
+      } else {
+        answer.textContent = "I can help with basic service and price questions. For anything else, email info@londoncertexperts.co.uk.";
+      }
+    });
+  </script>
 </body>
 </html>
