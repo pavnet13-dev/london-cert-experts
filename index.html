@@ -2,368 +2,304 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="London Cert Experts provides electrical and fire compliance services across London, including EICR, fire alarm certification, emergency lighting, EPC, FRA, gas safety and PAT testing.">
-  <title>London Cert Experts | Electrical & Fire Compliance</title>
-  <link rel="stylesheet" href="Style.css">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>London Cert Experts | Electrical & Fire Safety</title>
+<meta name="description" content="Electrical and fire compliance services across London. Book inspections and request certificates.">
 
+<style>
+:root {
+  --red:#b20d22;
+  --dark:#171c22;
+  --cream:#faf7f2;
+  --green:#08783c;
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {
+  margin:0;
+  font-family:Arial,sans-serif;
+  color:var(--dark);
+}
+a {text-decoration:none;color:inherit}
+.top {
+  background:#870817;color:white;padding:9px 5%;
+  font-size:12px;display:flex;justify-content:space-between;
+  gap:10px;flex-wrap:wrap
+}
+header {
+  padding:16px 5%;display:flex;justify-content:space-between;
+  align-items:center;gap:20px;background:white;
+  position:sticky;top:0;z-index:10;
+  box-shadow:0 3px 15px #00000012
+}
+.logo {font-size:21px;font-weight:900}
+.logo span {color:var(--red);display:block;letter-spacing:5px}
+nav {display:flex;gap:20px;flex-wrap:wrap;font-size:13px}
+nav a:hover {color:var(--red)}
+.btn {
+  display:inline-block;border:0;border-radius:5px;
+  padding:13px 17px;background:var(--red);color:white;
+  font-weight:bold;cursor:pointer
+}
+.hero {
+  padding:55px 5%;background:var(--cream);
+  display:grid;grid-template-columns:1fr 1fr;gap:35px;
+  align-items:center
+}
+.hero h1 {font-size:clamp(34px,4vw,54px);line-height:1.1}
+.hero h1 span {color:var(--red)}
+.hero p {line-height:1.8;color:#56616a}
+.hero img {
+  width:100%;height:350px;object-fit:cover;border-radius:12px
+}
+.eyebrow {color:var(--red);font-weight:bold;font-size:12px;letter-spacing:2px}
+.trust {display:flex;gap:16px;flex-wrap:wrap;font-size:12px;margin-top:22px}
+.process {background:var(--dark);color:white;padding:38px 5%;text-align:center}
+.steps,.services {
+  display:grid;grid-template-columns:repeat(4,1fr);gap:15px
+}
+.steps article {
+  padding:20px;border:1px solid #ffffff30;border-radius:8px;
+  animation:rise .8s both
+}
+.steps article:nth-child(2){animation-delay:.3s}
+.steps article:nth-child(3){animation-delay:.6s}
+.steps article:nth-child(4){animation-delay:.9s}
+.steps p {font-size:13px;line-height:1.6;color:#ddd}
+section.content {padding:45px 5%;background:var(--cream)}
+.services {grid-template-columns:repeat(3,1fr)}
+.card {
+  background:white;padding:22px;border-radius:9px;
+  border:1px solid #e9e2dc;box-shadow:0 5px 18px #00000008
+}
+.card h3 {margin-top:5px}
+.card p {font-size:13px;line-height:1.7;color:#66717b}
+.price {color:var(--red);font-size:21px;font-weight:bold}
+.card button {margin-top:10px;width:100%}
+.basket {
+  position:fixed;right:15px;top:150px;width:260px;
+  background:white;border:1px solid #cfe5d5;border-radius:10px;
+  box-shadow:0 10px 30px #0002;z-index:20;overflow:hidden
+}
+.basket h3 {
+  margin:0;padding:15px;background:var(--green);
+  color:white;display:flex;justify-content:space-between
+}
+.basket-body {padding:13px}
+.item {padding:10px 0;border-bottom:1px solid #eee;font-size:12px}
+.item button {padding:4px 9px;margin:5px 3px 0 0}
+.total {display:flex;justify-content:space-between;padding:12px 0}
+.discount {
+  background:#effaf1;border:1px solid #c8e9ce;
+  padding:10px;font-size:11px;line-height:1.5
+}
+.checkout {width:100%;background:var(--green)}
+form {display:grid;gap:12px;max-width:550px}
+input,textarea,select {
+  width:100%;padding:12px;border:1px solid #ddd;
+  border-radius:5px;font:inherit
+}
+footer {background:var(--dark);color:white;padding:30px 5%;line-height:1.8}
+@keyframes rise {
+  from {opacity:0;transform:translateY(20px)}
+  to {opacity:1;transform:translateY(0)}
+}
+@media(max-width:800px) {
+  header {flex-wrap:wrap}
+  nav {gap:12px}
+  .hero {grid-template-columns:1fr;padding-top:30px}
+  .hero img {height:260px}
+  .steps {grid-template-columns:repeat(2,1fr)}
+  .services {grid-template-columns:repeat(2,1fr)}
+  .basket {top:auto;bottom:10px;right:10px;width:250px}
+}
+@media(max-width:480px) {
+  .services {grid-template-columns:1fr 1fr;gap:8px}
+  .card {padding:12px}
+  .card p {font-size:12px}
+  .steps {grid-template-columns:1fr 1fr}
+  nav {font-size:12px}
+}
+</style>
+</head>
 <body>
-  <div class="topbar">
-    <div class="container topbar-inner">
-      <span>London & Surrounding Areas</span>
-      <a href="mailto:info@londoncertexperts.co.uk">
-        info@londoncertexperts.co.uk
-      </a>
-      <span>Electrical & Fire Compliance Experts</span>
+
+<div class="top">
+  <span>⌖ London & Surrounding Areas</span>
+  <span>☎ 020 1234 5678</span>
+  <a href="mailto:info@londoncertexperts.co.uk">
+    info@londoncertexperts.co.uk
+  </a>
+</div>
+
+<header>
+  <a class="logo" href="#">LONDON CERT<span>EXPERTS</span></a>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#services">Services</a>
+    <a href="#process">How It Works</a>
+    <a href="#booking">Book Online</a>
+  </nav>
+  <a class="btn" href="#booking">Book Inspection →</a>
+</header>
+
+<main>
+<section class="hero">
+  <div>
+    <div class="eyebrow">PROFESSIONAL · RELIABLE · COMPLIANT</div>
+    <h1>Electrical & Fire Safety<br><span>Handled Properly.</span></h1>
+    <p>
+      Electrical inspections, fire alarm certification, emergency
+      lighting and property compliance services across London.
+      Straightforward booking and clear pricing.
+    </p>
+    <a class="btn" href="#booking">Book an Inspection →</a>
+    <a class="btn" href="#services" style="background:white;color:#b20d22;border:1px solid">
+      Our Services
+    </a>
+    <div class="trust">
+      <span>✓ Professional service</span>
+      <span>✓ Clear reports</span>
+      <span>✓ Transparent pricing</span>
     </div>
   </div>
+  <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1000&q=85"
+       alt="Electrician inspecting an electrical installation">
+</section>
 
-  <header class="navbar">
-    <div class="container nav-inner">
-      <a class="brand" href="index.html">
-        <span class="brand-logo">LCE</span>
-        <span>
-          <strong>LONDON CERT</strong>
-          <strong>EXPERTS</strong>
-          <small>Electrical & Fire Compliance</small>
-        </span>
-      </a>
+<section class="process" id="process">
+  <p class="eyebrow">SIMPLE. CLEAR. COMPLIANT.</p>
+  <h2>Our Simple 4-Step Process</h2>
+  <p>From booking to certificate — it's that easy.</p>
+  <div class="steps">
+    <article><h3>01 · Book</h3><p>Choose your service and send your enquiry.</p></article>
+    <article><h3>02 · Confirm</h3><p>Our team checks your details and appointment request.</p></article>
+    <article><h3>03 · Inspect</h3><p>The agreed inspection or testing is carried out.</p></article>
+    <article><h3>04 · Certificate</h3><p>Receive the relevant report or certificate.</p></article>
+  </div>
+</section>
 
-      <button class="menu-toggle" id="menuToggle"
-        aria-label="Open navigation menu">☰</button>
+<section class="content" id="services">
+  <p class="eyebrow">OUR SERVICES</p>
+  <h2>Compliance Services for Your Property</h2>
+  <p>Choose a service and add it to your basket.</p>
+  <div class="services" id="service-list"></div>
+</section>
 
-      <nav class="nav-links" id="navLinks">
-        <a href="index.html">Home</a>
+<section class="content" id="booking">
+  <p class="eyebrow">BOOK ONLINE</p>
+  <h2>Request an Inspection</h2>
+  <form id="booking-form">
+    <label>Service
+      <select id="service-choice" required></select>
+    </label>
+    <label>Full name<input name="name" required></label>
+    <label>Email<input name="email" type="email" required></label>
+    <label>Phone<input name="phone" type="tel" required></label>
+    <label>Property postcode<input name="postcode" required></label>
+    <label>Preferred date<input name="date" type="date" required></label>
+    <label>Additional details<textarea name="notes" rows="3"></textarea></label>
+    <button class="btn" type="submit">Send Booking Request →</button>
+  </form>
+  <p id="form-message"></p>
+</section>
+</main>
 
-        <div class="dropdown">
-          <button class="dropdown-toggle" id="servicesToggle">
-            Services ▾
-          </button>
-          <div class="dropdown-menu" id="servicesMenu">
-            <a href="services/eicr.html">EICR Inspections</a>
-            <a href="services/fire-alarm.html">Fire Alarm Certification</a>
-            <a href="services/emergency-lighting.html">Emergency Lighting</a>
-            <a href="services/epc.html">Energy Performance Certificate</a>
-            <a href="services/fra.html">Fire Risk Assessment</a>
-            <a href="services/gas-safety.html">Gas Safety Certificate</a>
-            <a href="services/pat-testing.html">PAT Testing</a>
-          </div>
-        </div>
+<footer>
+  <h3>LONDON CERT EXPERTS</h3>
+  Electrical & Fire Compliance Services<br>
+  Email: info@londoncertexperts.co.uk<br>
+  <small>Replace the demo phone number with your actual business number.</small>
+</footer>
 
-        <a href="#about">About Us</a>
-        <a href="#process">How It Works</a>
-        <a href="mailto:info@londoncertexperts.co.uk">Contact</a>
-        <a class="button button-red" href="booking.html">Book an Inspection →</a>
-      </nav>
+<aside class="basket">
+  <h3><span>🛒 Your Basket</span><span id="count">0</span></h3>
+  <div class="basket-body">
+    <div id="basket-items">Your basket is empty.</div>
+    <div class="total"><span>Subtotal</span><b id="subtotal">£0</b></div>
+    <div class="discount" id="discount">
+      Save 10% when you book at least 2 services, including EICR or FRA.
     </div>
-  </header>
+    <div class="total"><b>Total</b><b id="grand-total">£0</b></div>
+    <button class="btn checkout" onclick="goCheckout()">Checkout →</button>
+  </div>
+</aside>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <span class="eyebrow">PROFESSIONAL · RELIABLE · COMPLIANT</span>
-          <h1>
-            Electrical & Fire Safety.
-            <span>Handled Properly.</span>
-          </h1>
-          <p>
-            Simplify property compliance with London Cert Experts.
-            Explore electrical inspections, fire safety services and
-            property certification enquiries for landlords, letting
-            agents, property managers and businesses.
-          </p>
+<script>
+const services = [
+  {id:"eicr",name:"EICR Inspection",price:90,desc:"1–3 bedrooms. 4–5 bedrooms £100; above 5 bedrooms £120."},
+  {id:"fire",name:"Fire Alarm Certification",price:60,desc:"1–3 alarms £60; 4–6 £70; 7–12 £80."},
+  {id:"lighting",name:"Emergency Lighting",price:50,desc:"1–3 circuits £50; 4–6 £60; 7–10 £70."},
+  {id:"epc",name:"Energy Performance Certificate",price:0,desc:"Request a quote for your property."},
+  {id:"fra",name:"Fire Risk Assessment",price:0,desc:"Request a quote for your premises."},
+  {id:"gas",name:"Gas Safety Certificate",price:90,desc:"Indicative starting price; confirm final cost."},
+  {id:"pat",name:"PAT Testing",price:40,desc:"Indicative starting price; confirm final cost."}
+];
 
-          <div class="hero-actions">
-            <a class="button button-red" href="booking.html">
-              Book an Inspection →
-            </a>
-            <a class="button button-outline" href="#services">
-              Explore Services
-            </a>
-          </div>
+let cart = JSON.parse(localStorage.getItem("lce-cart") || "[]");
+const pounds = n => "£" + n.toFixed(2).replace(".00","");
+const save = () => localStorage.setItem("lce-cart",JSON.stringify(cart));
 
-          <div class="hero-points">
-            <span>✓ Clear published prices</span>
-            <span>✓ Multiple services in one enquiry</span>
-            <span>✓ London coverage</span>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <img
-            src="assets/technician-hero.jpg"
-            alt="Technician carrying out an electrical compliance inspection"
-          >
-          <div class="visual-card">
-            <span class="visual-icon">✓</span>
-            <div>
-              <strong>Compliance made simpler</strong>
-              <p>Choose your services and send an enquiry online.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="trust-strip">
-      <div class="container trust-grid">
-        <div><strong>01</strong><span>Electrical Compliance</span></div>
-        <div><strong>02</strong><span>Fire Safety Services</span></div>
-        <div><strong>03</strong><span>Property Certification</span></div>
-        <div><strong>04</strong><span>Simple Online Enquiries</span></div>
-      </div>
-    </section>
-
-    <section class="section" id="services">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">OUR SERVICES</span>
-          <h2>Compliance Services for Your Property</h2>
-          <p>
-            Choose the services you need and explore the available
-            options and starting prices.
-          </p>
-        </div>
-
-        <div class="service-grid">
-          <article class="service-card">
-            <span class="service-icon">ϟ</span>
-            <h3>EICR Inspection</h3>
-            <p>Electrical Installation Condition Reports for properties.</p>
-            <div class="service-price">From £90</div>
-            <a class="button button-outline" href="services/eicr.html">
-              View Service →
-            </a>
-          </article>
-
-          <article class="service-card">
-            <span class="service-icon">♨</span>
-            <h3>Fire Alarm Certification</h3>
-            <p>Fire alarm system inspection and certification enquiries.</p>
-            <div class="service-price">From £60</div>
-            <a class="button button-outline" href="services/fire-alarm.html">
-              View Service →
-            </a>
-          </article>
-
-          <article class="service-card">
-            <span class="service-icon">☼</span>
-            <h3>Emergency Lighting</h3>
-            <p>Emergency lighting checks and certificate enquiries.</p>
-            <div class="service-price">From £50</div>
-            <a class="button button-outline" href="services/emergency-lighting.html">
-              View Service →
-            </a>
-          </article>
-
-          <article class="service-card">
-            <span class="service-icon">⌂</span>
-            <h3>Energy Performance Certificate</h3>
-            <p>EPC service enquiries for residential properties.</p>
-            <div class="service-price">From £80</div>
-            <a class="button button-outline" href="services/epc.html">
-              View Service →
-            </a>
-          </article>
-
-          <article class="service-card">
-            <span class="service-icon">♨</span>
-            <h3>Fire Risk Assessment</h3>
-            <p>Fire safety risk assessment service enquiries.</p>
-            <div class="service-price">From £90</div>
-            <a class="button button-outline" href="services/fra.html">
-              View Service →
-            </a>
-          </article>
-
-          <article class="service-card">
-            <span class="service-icon">♨</span>
-            <h3>Gas Safety Certificate</h3>
-            <p>Gas appliance safety certificate enquiries.</p>
-            <div class="service-price">From £60</div>
-            <a class="button button-outline" href="services/gas-safety.html">
-              View Service →
-            </a>
-          </article>
-
-          <article class="service-card">
-            <span class="service-icon">ϟ</span>
-            <h3>PAT Testing</h3>
-            <p>Portable appliance testing for properties and businesses.</p>
-            <div class="service-price">From £40</div>
-            <a class="button button-outline" href="services/pat-testing.html">
-              View Service →
-            </a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section process-section" id="process">
-      <div class="container">
-        <div class="section-heading">
-          <span class="eyebrow">HOW IT WORKS</span>
-          <h2>From Booking to Certificate</h2>
-          <p>A simple journey from selecting services to receiving your documents.</p>
-        </div>
-
-        <div class="process-grid">
-          <article class="process-card">
-            <span class="process-number">01</span>
-            <div class="process-symbol">▦</div>
-            <h3>Choose Services</h3>
-            <p>Select the inspections and certification services you require.</p>
-          </article>
-
-          <article class="process-card">
-            <span class="process-number">02</span>
-            <div class="process-symbol">🛒</div>
-            <h3>Review Your Basket</h3>
-            <p>Review your selected services and check your eligible discount.</p>
-          </article>
-
-          <article class="process-card">
-            <span class="process-number">03</span>
-            <div class="process-symbol">✓</div>
-            <h3>Send Your Enquiry</h3>
-            <p>Enter your contact and property details for the team to review.</p>
-          </article>
-
-          <article class="process-card">
-            <span class="process-number">04</span>
-            <div class="process-symbol">▤</div>
-            <h3>Arrange Completion</h3>
-            <p>Our team can confirm the arrangements and relevant documentation.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section about-section" id="about">
-      <div class="container about-grid">
-        <div>
-          <span class="eyebrow">ABOUT LONDON CERT EXPERTS</span>
-          <h2>Property compliance, made clearer.</h2>
-          <p>
-            We help landlords, letting agents, property managers and
-            businesses explore electrical and fire compliance services.
-            Our website makes it easier to review services, understand
-            starting prices and send an enquiry.
-          </p>
-
-          <ul class="check-list">
-            <li>Residential and commercial service enquiries</li>
-            <li>Published starting prices</li>
-            <li>Multiple services in one basket</li>
-            <li>Online enquiry process</li>
-          </ul>
-        </div>
-
-        <div class="offer-card">
-          <span class="offer-label">MULTI-SERVICE OFFER</span>
-          <h3>Save 10% on eligible bookings</h3>
-          <p>
-            Add at least two different services to your basket and include
-            EICR or Fire Risk Assessment (FRA) to qualify for the offer.
-          </p>
-          <a class="button button-red" href="services/eicr.html">
-            Explore EICR →
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-section">
-      <div class="container cta-inner">
-        <div>
-          <span class="eyebrow">LET'S GET STARTED</span>
-          <h2>Ready to arrange your compliance services?</h2>
-          <p>Explore the services and send us your requirements online.</p>
-        </div>
-        <a class="button button-light" href="booking.html">
-          Start Your Enquiry →
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div>
-        <a class="footer-brand" href="index.html">LONDON CERT EXPERTS</a>
-        <p>Electrical & Fire Compliance Services</p>
-        <a href="mailto:info@londoncertexperts.co.uk">
-          info@londoncertexperts.co.uk
-        </a>
-      </div>
-
-      <div>
-        <h3>Our Services</h3>
-        <a href="services/eicr.html">EICR Inspections</a>
-        <a href="services/fire-alarm.html">Fire Alarm Certification</a>
-        <a href="services/emergency-lighting.html">Emergency Lighting</a>
-        <a href="services/epc.html">EPC</a>
-        <a href="services/fra.html">Fire Risk Assessment</a>
-        <a href="services/gas-safety.html">Gas Safety</a>
-        <a href="services/pat-testing.html">PAT Testing</a>
-      </div>
-
-      <div>
-        <h3>Quick Links</h3>
-        <a href="#about">About Us</a>
-        <a href="#process">How It Works</a>
-        <a href="booking.html">Booking Enquiry</a>
-        <a href="mailto:info@londoncertexperts.co.uk">Contact Us</a>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      © <span id="year"></span> London Cert Experts. All rights reserved.
-    </div>
-  </footer>
-
-  <button class="basket-button" id="basketButton" type="button">
-    🛒 Basket <span id="cartCount">0</span>
-  </button>
-
-  <div class="cart-overlay" id="cartOverlay"></div>
-
-  <aside class="cart-panel" id="cartPanel" aria-label="Shopping basket">
-    <div class="cart-header">
-      <h2>Your Basket</h2>
-      <button id="closeCart" type="button" aria-label="Close basket">×</button>
-    </div>
-    <div id="cartItems" class="cart-items">
-      <p>Your basket is empty.</p>
-    </div>
-    <div id="cartFooter" class="cart-footer"></div>
-  </aside>
-
-  <script src="cart.js"></script>
-  <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
-    const servicesToggle = document.getElementById("servicesToggle");
-    const servicesMenu = document.getElementById("servicesMenu");
-
-    menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("nav-open");
-    });
-
-    servicesToggle.addEventListener("click", () => {
-      servicesMenu.classList.toggle("dropdown-open");
-    });
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    document.addEventListener("click", (event) => {
-      if (!event.target.closest(".dropdown")) {
-        servicesMenu.classList.remove("dropdown-open");
-      }
-    });
-  </script>
+function add(id) {
+  const item=cart.find(x=>x.id===id);
+  if(item)item.qty++;
+  else cart.push({id,qty:1});
+  save(); render();
+}
+function change(id,amount) {
+  const item=cart.find(x=>x.id===id);
+  if(item)item.qty+=amount;
+  cart=cart.filter(x=>x.qty>0);
+  save();render();
+}
+function render() {
+  const totalQty=cart.reduce((s,x)=>s+x.qty,0);
+  const subtotal=cart.reduce((s,x)=>{
+    const p=services.find(y=>y.id===x.id).price;
+    return s+p*x.qty;
+  },0);
+  const eligible=cart.length>=2 &&
+    cart.some(x=>x.id==="eicr"||x.id==="fra");
+  const discount=eligible?subtotal*.10:0;
+  document.getElementById("count").textContent=totalQty;
+  document.getElementById("subtotal").textContent=pounds(subtotal);
+  document.getElementById("grand-total").textContent=pounds(subtotal-discount);
+  document.getElementById("discount").textContent=eligible
+    ?"10% discount applied. You save "+pounds(discount)+"."
+    :"Save 10% on 2+ different services, including EICR or FRA.";
+  document.getElementById("basket-items").innerHTML=cart.length
+    ?cart.map(x=>{
+      const s=services.find(y=>y.id===x.id);
+      return `<div class="item"><b>${s.name}</b><br>
+      ${s.price?pounds(s.price)+" each":"Quote required"}<br>
+      <button onclick="change('${x.id}',-1)">−</button>
+      ${x.qty}
+      <button onclick="change('${x.id}',1)">+</button>
+      <button onclick="change('${x.id}',-${x.qty})">Remove</button></div>`;
+    }).join("")
+    :"Your basket is empty.";
+}
+function goCheckout() {
+  if(!cart.length){alert("Please add a service first.");return;}
+  document.getElementById("booking").scrollIntoView({behavior:"smooth"});
+}
+document.getElementById("service-list").innerHTML=services.map(s=>
+  `<article class="card">
+    <h3>${s.name}</h3><p>${s.desc}</p>
+    <div class="price">${s.price?pounds(s.price):"Request a quote"}</div>
+    <button class="btn" onclick="add('${s.id}')">Add to Basket +</button>
+  </article>`
+).join("");
+document.getElementById("service-choice").innerHTML=
+  '<option value="">Choose a service</option>'+
+  services.map(s=>`<option>${s.name}</option>`).join("");
+document.getElementById("booking-form").addEventListener("submit",e=>{
+  e.preventDefault();
+  document.getElementById("form-message").textContent=
+    "Demo only: no booking has been sent or saved. Connect a secure backend before accepting real bookings.";
+});
+render();
+</script>
 </body>
 </html>
